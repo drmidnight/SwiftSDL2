@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CSDL2",
+        "repositoryURL": "/home/derp/Developer/Swift/CSDL2",
+        "state": {
+          "branch": null,
+          "revision": "d94745818e4a00c0e9cf168da6bdb0448a487e52",
+          "version": "0.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

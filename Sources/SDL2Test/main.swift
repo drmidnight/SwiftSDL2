@@ -4,48 +4,7 @@ import CSDL2
 let SCREEN_WIDTH: Int32 = 1024
 let SCREEN_HEIGHT: Int32 = 680
 
-struct Size {
-    let width: Int
-    let height: Int
-}
 
-struct Rect {
-    let size: Size
-    let position: Point
-    init(x: Int, y: Int, width: Int, height: Int) {
-        self.size = Size(width: width, height: height)
-        self.position = Point(x: x, y: y)
-    }
-}
-
-extension Rect {
-    var x: Int {
-        return self.position.x
-    }
-
-    var y: Int {
-        return self.position.y
-    }
-
-    var width: Int {
-        return self.size.width
-    }
-
-    var height: Int {
-        return self.size.height
-    }
-}
-
-struct Point {
-    let x: Int
-    let y: Int
-}
-
-extension Point {
-    static var zero: Point {
-        return Point(x: 0, y: 0)
-    }
-}
 
 enum WindowFlags: UInt32 {
     case fullscreen        = 0x00000001    /**< fullscreen window */
@@ -73,42 +32,7 @@ enum WindowFlags: UInt32 {
     case vulkan            = 0x10000000    /**< window should us vulkan */
 }
 
-class Window {
-    var _windowPtr: OpaquePointer?
 
-    private func flagify(_ flags: [WindowFlags]) -> UInt32 {
-        var result: Uint32 = 0
-        flags.forEach { result = result | $0.rawValue }
-        return result
-    }
-
-    init(title: String = "SDL Window", position pos: Point = .zero, size: Size, flags: [WindowFlags] = [.shown]) {
-        print("Initializing window")
-        _windowPtr = SDL_CreateWindow(title, Int32(pos.x), Int32(pos.y), Int32(size.width), Int32(size.height), flagify(flags)  )
-    }
-
-    deinit {
-        self.destroy()
-    }
-
-    func update() {
-        SDL_UpdateWindowSurface( _windowPtr );
-    }
-
-    func destroy() {
-        print("Destroying Window")
-        SDL_DestroyWindow(_windowPtr)
-    }
-
-    func getSurface() -> UnsafeMutablePointer<SDL_Surface> {
-        return SDL_GetWindowSurface(_windowPtr)
-    }
-
-    func showMsg() {
-        SDL_ShowSimpleMessageBox(UInt32(0), "test", "message", _windowPtr)
-
-    }
-}
 
 class Renderer {
     var _rendererPtr: OpaquePointer?

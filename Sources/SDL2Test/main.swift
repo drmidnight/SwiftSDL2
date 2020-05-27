@@ -32,42 +32,16 @@ enum WindowFlags: UInt32 {
     case vulkan            = 0x10000000    /**< window should us vulkan */
 }
 
-
-
-class Renderer {
-    var _rendererPtr: OpaquePointer?
-    func render(_ renderClosure: (OpaquePointer?)->()) {
-        renderClosure(_rendererPtr)
-        SDL_RenderPresent(self._rendererPtr)
-    }
-
-    init(window: Window) {
-        self._rendererPtr = SDL_CreateRenderer(window._windowPtr, -1, 0x00000002)
-    }
-}
-
-extension Renderer {
-    func setDrawColor(color: SDL_Color) {
-        SDL_SetRenderDrawColor(self._rendererPtr, color.r, color.g, color.b, color.a)
-    }
-}
-
 func drawRect(_ rect: Rect, surface: UnsafeMutablePointer<SDL_Surface>?, color: UInt32) {
     var _sdlRect = SDL_Rect(x: Int32(rect.x), y: Int32(rect.y), w: Int32(rect.width), h: Int32(rect.height))
     SDL_FillRect( surface, &_sdlRect, 0x00FF0000 );
 }
 
 func main() {
-    let windowTest = Window(title: "Title", position: Point(x: 10, y: 10), size: Size(width: 200, height: 400)) 
+    let windowTest = Window(title: "Title", position: Point(x: 10, y: 10), size: Size(width: 200, height: 400), flags: [.openGL]) 
     let screenSurface = windowTest.getSurface()
     let renderer = Renderer(window: windowTest)
-    print(renderer)
 
-    
-    
-    // drawRect(Rect(x: 10, y: 10, width: 30, height: 30), surface: screenSurface, color: 0x00FF0000)
-    // windowTest.update()
-    // windowTest.showMsg()
     var quit = false
     var event = SDL_Event()
     while !quit {
@@ -80,12 +54,15 @@ func main() {
             }
         }
         
-        renderer.render { ptr in
-            SDL_SetRenderDrawColor(ptr, 0xFF, 0xFF, 0xFF, 0xFF)
-            SDL_RenderClear( ptr );
-            var rect = SDL_Rect(x: 10, y: 10, w: 20, h: 20)
-            SDL_SetRenderDrawColor( ptr, 0xFF, 0x00, 0x00, 0xFF );		
-            SDL_RenderFillRect(ptr, &rect)
+        // probably some retain issue. 
+        // Fix this so it isnt a self reference. Maybe window.render() which passes in its renderer?
+        renderer.render { rndr in
+            rndr?.setDrawColor(Color(r: 0xFF, g: 0xFF, b: 0xFF, a: 0xFF))
+            rndr?.clear()
+
+            let rect = Rect(x: 10, y: 10, width: 20, height: 20)
+            rndr?.setDrawColor(Color(r: 0xFF, g: 0x00, b: 0x00, a: 0xFF))		
+            rndr?.fillRect(rect)
         }
     }
    

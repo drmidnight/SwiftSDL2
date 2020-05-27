@@ -32,6 +32,5 @@ class Window {
 
     func showMsg() {
         SDL_ShowSimpleMessageBox(UInt32(0), "test", "message", _windowPtr)
-
     }
 }

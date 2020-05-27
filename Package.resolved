@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "CSDL2",
-        "repositoryURL": "/home/derp/Developer/Swift/CSDL2",
+        "repositoryURL": "https://github.com/drmidnight/CSDL2.git",
         "state": {
           "branch": null,
           "revision": "d94745818e4a00c0e9cf168da6bdb0448a487e52",

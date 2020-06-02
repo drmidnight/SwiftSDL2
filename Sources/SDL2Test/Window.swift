@@ -1,12 +1,41 @@
-import CSDL2                           
-class Window {
-    var _windowPtr: OpaquePointer?
+import CSDL2       
 
-    private func flagify(_ flags: [WindowFlags]) -> UInt32 {
-        var result: Uint32 = 0
-        flags.forEach { result = result | $0.rawValue }
-        return result
-    }
+public func flagify<T:RawRepresentable>(_ flags: [T]) -> UInt32 where T.RawValue==UInt32 {
+    var result: Uint32 = 0
+    flags.forEach { result = result | $0.rawValue }
+    return result
+}
+
+public enum WindowFlags: UInt32 {
+    case fullscreen        = 0x00000001    /**< fullscreen window */
+    case openGL            = 0x00000002    /**< window usable with OpenGL context */
+    case shown             = 0x00000004    /**< window is visible */
+    case hidden            = 0x00000008    /**< window is not visible */
+    case borderless        = 0x00000010    /**< no window decoration */
+    case resizeable        = 0x00000020    /**< window can be resized */
+    case minimized         = 0x00000040    /**< window is minimized */
+    case maximized         = 0x00000080    /**< window is maximized */
+    case inputGrabbed      = 0x00000100    /**< window has grabbed input focus */
+    case inputFocus        = 0x00000200    /**< window has input focus */
+    case mouseFocus        = 0x00000400    /**< window has mouse focus */
+    case fullscreenDesktop = 0x00001001    /**< SDL_WINDOW_FULLSCREEN | 0x00001000 */
+    case foreign           = 0x00000800    /**< window not created by SDL */
+    case allowHIDPI        = 0x00002000    /**< window should be created in high-DPI mode if supported.
+                                                On macOS NSHighResolutionCapable must be set true in the
+                                                application's Info.plist for this to have any effect. */
+    case mouseCapture      = 0x00004000    /**< window has mouse captured (unrelated to INPUT_GRABBED) */
+    case alwaysOnTop       = 0x00008000    /**< window should always be above others */
+    case skipTaskbar       = 0x00010000    /**< window should not be added to the taskbar */
+    case utility           = 0x00020000    /**< window should be treated as a utility window */
+    case tooltip           = 0x00040000    /**< window should be treated as a tooltip */
+    case popupMenu         = 0x00080000    /**< window should be treated as a popup menu */
+    case vulkan            = 0x10000000    /**< window should us vulkan */
+}
+
+public class Window {
+    internal var _windowPtr: OpaquePointer?
+
+
 
     init(title: String = "SDL Window", position pos: Point = .zero, size: Size, flags: [WindowFlags] = [.shown]) {
         print("Initializing window")
@@ -24,6 +53,7 @@ class Window {
     func destroy() {
         print("Destroying Window")
         SDL_DestroyWindow(_windowPtr)
+        _windowPtr = nil
     }
 
     func getSurface() -> UnsafeMutablePointer<SDL_Surface> {

@@ -51,14 +51,14 @@ extension Renderer {
         }
     }
 
-    var blendMode: SDL_BlendMode {
+    var blendMode: BlendMode {
         get {
             var blendMode: SDL_BlendMode = SDL_BLENDMODE_NONE
             SDL_GetRenderDrawBlendMode(self._rendererPtr, &blendMode)
-            return blendMode
+            return BlendMode(rawValue: blendMode.rawValue) ?? .none
         }
         set {
-            SDL_SetRenderDrawBlendMode(self._rendererPtr, newValue)
+            SDL_SetRenderDrawBlendMode(self._rendererPtr, newValue.toSDL)
         }
     }
 

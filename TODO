@@ -1,0 +1,43 @@
+
+Todo:
+    ☐ Handle SDL_Error everywhere
+    ✔ SDL_CreateRenderer @done(20-06-02 11:53)
+    ☐ SDL_CreateSoftwareRenderer
+    ☐ SDL_CreateTexture
+    ☐ SDL_CreateTextureFromSurface
+    ☐ SDL_CreateWindowAndRenderer
+    ✔ SDL_DestroyRenderer @done(20-06-02 12:14)
+    ✔ SDL_GetRenderDrawBlendMode @done(20-06-02 12:17)
+    ✔ SDL_GetRenderDrawColor @done(20-06-02 11:53)
+    ✔ SDL_GetRendererInfo @done(20-06-02 11:53)
+        ☐ Wrap with new RenderInfo type
+    ☐ SDL_GetRendererOutputSize
+    ☐ SDL_GetRenderTarget
+    ✔ SDL_RenderClear @done(20-06-02 11:54)
+    ☐ SDL_RenderCopy
+    ☐ SDL_RenderCopyEx
+    ☐ SDL_RenderDrawLine
+    ☐ SDL_RenderDrawLines
+    ☐ SDL_RenderDrawPoint
+    ☐ SDL_RenderDrawPoints
+    ✔ SDL_RenderDrawRect @done(20-06-02 12:06)
+    ✔ SDL_RenderDrawRects @done(20-06-02 12:06)
+    ✔ SDL_RenderFillRect @done(20-06-02 11:54)
+    ✔ SDL_RenderFillRects @done(20-06-02 12:03)
+    ☐ SDL_RenderGetClipRect
+    ☐ SDL_RenderGetIntegerScale
+    ☐ SDL_RenderGetLogicalSize
+    ☐ SDL_RenderGetScale
+    ☐ SDL_RenderGetViewport
+    ☐ SDL_RenderIsClipEnabled
+    ☐ SDL_RenderPresent
+    ☐ SDL_RenderReadPixels
+    ☐ SDL_RenderSetClipRect
+    ☐ SDL_RenderSetIntegerScale
+    ☐ SDL_RenderSetLogicalSize
+    ☐ SDL_RenderSetScale
+    ☐ SDL_RenderSetViewport
+    ☐ SDL_RenderTargetSupported
+    ✔ SDL_SetRenderDrawBlendMode @done(20-06-02 12:17)
+    ✔ SDL_SetRenderDrawColor @done(20-06-02 11:54)
+    ☐ SDL_SetRenderTarget

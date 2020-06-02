@@ -9,10 +9,30 @@ public enum RendererFlags: UInt32 {
 
 class Renderer {
     var _rendererPtr: OpaquePointer?
-    
-    func render(_ renderClosure: (Renderer?)->()) {
-        renderClosure(self)
-        SDL_RenderPresent(self._rendererPtr)
+
+    var drawColor: Color {
+            get {
+                var r: UInt8 = 0
+                var g: UInt8 = 0
+                var b: UInt8 = 0
+                var a: UInt8 = 0
+                SDL_GetRenderDrawColor(self._rendererPtr, &r, &g, &b, &a)
+                return Color(r: r, g: g, b: b, a: a)
+            }
+            set {
+                SDL_SetRenderDrawColor(self._rendererPtr, newValue.r, newValue.g, newValue.b, newValue.a)
+            }
+    }
+
+    var blendMode: SDL_BlendMode {
+        get {
+            var blendMode: SDL_BlendMode = SDL_BLENDMODE_NONE
+            SDL_GetRenderDrawBlendMode(self._rendererPtr, &blendMode)
+            return blendMode
+        }
+        set {
+            SDL_SetRenderDrawBlendMode(self._rendererPtr, newValue)
+        }
     }
 
     init(window: Window, flags: [RendererFlags] = [.accelerated]) {
@@ -20,24 +40,21 @@ class Renderer {
     }
 
     deinit {
+      self.destroy()
+    }
+
+    func destroy() {
         print("Destroying renderer")
         SDL_DestroyRenderer(self._rendererPtr)
         _rendererPtr = nil
     }
 
-    var drawColor: Color {
-        get {
-            var r: UInt8 = 0
-            var g: UInt8 = 0
-            var b: UInt8 = 0
-            var a: UInt8 = 0
-            SDL_GetRenderDrawColor(self._rendererPtr, &r, &g, &b, &a)
-            return Color(r: r, g: g, b: b, a: a)
-        }
-        set {
-            SDL_SetRenderDrawColor(self._rendererPtr, newValue.r, newValue.g, newValue.b, newValue.a)
-        }
+    func render(_ renderClosure: (Renderer?)->()) {
+        renderClosure(self)
+        SDL_RenderPresent(self._rendererPtr)
     }
+
+  
 }
 
 extension Renderer {
@@ -46,12 +63,28 @@ extension Renderer {
     }
 
     func fillRect(_ rect: Rect) {
-        var _sdlRect = SDL_Rect(x: Int32(rect.x), y: Int32(rect.y), w: Int32(rect.width), h: Int32(rect.height))
+        var _sdlRect = rect
         SDL_RenderFillRect(self._rendererPtr, &_sdlRect);		
+    }
+
+    func fillRects(_ rects: [Rect]) {
+        var fillRects: [SDL_Rect] = rects
+        SDL_RenderFillRects(self._rendererPtr, &fillRects, Int32(fillRects.endIndex))
+    }
+
+    func drawRect(_ rect: Rect) {
+        var _sdlRect = rect
+        SDL_RenderDrawRect(self._rendererPtr, &_sdlRect);		
+    }
+
+    func drawRects(_ rects: [Rect]) {
+        var fillRects: [SDL_Rect] = rects
+        SDL_RenderDrawRects(self._rendererPtr, &fillRects, Int32(fillRects.endIndex))
     }
 }
 
 extension Renderer {
+    // wrap with RendererInfo type
     var rendererInfo: SDL_RendererInfo {
         var info = SDL_RendererInfo()
         SDL_GetRendererInfo(self._rendererPtr, &info)

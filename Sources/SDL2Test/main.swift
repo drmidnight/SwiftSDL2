@@ -16,7 +16,14 @@ func main() {
 
     var quit = false
     var event = SDL_Event()
-
+    let points = [
+        Point(x: 10, y: 10),
+        Point(x: 20, y: 20),
+        Point(x: 30, y: 30),
+        Point(x: 40, y: 10),
+        Point(x: 50, y: 40),
+        Point(x: 60, y: 10)
+    ]
     while !quit {
         let start = SDL_GetPerformanceCounter()
          while(SDL_PollEvent(&event) != 0) {
@@ -27,7 +34,7 @@ func main() {
                 print(event.type)
             }
         }
-        
+        renderer.scale = Vector2(x: 2.0, y: 2.0)
         // probably some retain issue. 
         // Fix this so it isnt a self reference. Maybe window.render() which passes in its renderer?
         renderer.render { rndr in
@@ -37,6 +44,7 @@ func main() {
             let rect = Rect(x: 10, y: 10, w: 20, h: 20)
             rndr?.drawColor = Color(r: 255, g: 0, b: 0, a: 255)
             rndr?.fillRect(rect)
+            rndr?.drawLines(points: points, color: Color(r: 255, g: 255, b: 0, a: 255))
         }
 
         // print(renderer.rendererInfo)

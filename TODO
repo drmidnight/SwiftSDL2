@@ -2,42 +2,46 @@
 Todo:
     ☐ Handle SDL_Error everywhere
     ✔ SDL_CreateRenderer @done(20-06-02 11:53)
-    ☐ SDL_CreateSoftwareRenderer
-    ☐ SDL_CreateTexture
-    ☐ SDL_CreateTextureFromSurface
-    ☐ SDL_CreateWindowAndRenderer
     ✔ SDL_DestroyRenderer @done(20-06-02 12:14)
     ✔ SDL_GetRenderDrawBlendMode @done(20-06-02 12:17)
     ✔ SDL_GetRenderDrawColor @done(20-06-02 11:53)
     ✔ SDL_GetRendererInfo @done(20-06-02 11:53)
         ☐ Wrap with new RenderInfo type
-    ☐ SDL_GetRendererOutputSize
-    ☐ SDL_GetRenderTarget
+    ✔ SDL_GetRendererOutputSize @done(20-06-02 14:06)
     ✔ SDL_RenderClear @done(20-06-02 11:54)
-    ☐ SDL_RenderCopy
-    ☐ SDL_RenderCopyEx
-    ☐ SDL_RenderDrawLine
-    ☐ SDL_RenderDrawLines
-    ☐ SDL_RenderDrawPoint
-    ☐ SDL_RenderDrawPoints
+    ✔ SDL_RenderDrawLine @done(20-06-02 14:15)
+    ✔ SDL_RenderDrawLines      @done(20-06-02 14:15)
+        ☐ Figure out setting line width without resorting to openGL calls
+    ✔ SDL_RenderDrawPoint @done(20-06-02 14:19)
+    ✔ SDL_RenderDrawPoints @done(20-06-02 14:19)
     ✔ SDL_RenderDrawRect @done(20-06-02 12:06)
     ✔ SDL_RenderDrawRects @done(20-06-02 12:06)
     ✔ SDL_RenderFillRect @done(20-06-02 11:54)
     ✔ SDL_RenderFillRects @done(20-06-02 12:03)
-    ☐ SDL_RenderGetClipRect
-    ☐ SDL_RenderGetIntegerScale
-    ☐ SDL_RenderGetLogicalSize
-    ☐ SDL_RenderGetScale
-    ☐ SDL_RenderGetViewport
-    ☐ SDL_RenderIsClipEnabled
-    ☐ SDL_RenderPresent
-    ☐ SDL_RenderReadPixels
-    ☐ SDL_RenderSetClipRect
-    ☐ SDL_RenderSetIntegerScale
-    ☐ SDL_RenderSetLogicalSize
-    ☐ SDL_RenderSetScale
-    ☐ SDL_RenderSetViewport
-    ☐ SDL_RenderTargetSupported
+    ✔ SDL_RenderGetClipRect @done(20-06-02 12:24)
+    ✔ SDL_RenderGetIntegerScale @done(20-06-02 12:41)
+    ✔ SDL_RenderGetLogicalSize @done(20-06-02 14:30)
+    ✔ SDL_RenderSetLogicalSize @done(20-06-02 14:30)
+    ✔ SDL_RenderGetScale @done(20-06-02 12:35)
+    ✔ SDL_RenderGetViewport @done(20-06-02 12:21)
+    ✔ SDL_RenderIsClipEnabled @done(20-06-02 14:32)
+    ✔ SDL_RenderPresent @done(20-06-02 14:32)
+    ✔ SDL_RenderSetClipRect @done(20-06-02 12:24)
+    ✔ SDL_RenderSetIntegerScale @done(20-06-02 12:41)
+    ✔ SDL_RenderSetScale @done(20-06-02 12:35)
+    ✔ SDL_RenderSetViewport @done(20-06-02 12:21)
     ✔ SDL_SetRenderDrawBlendMode @done(20-06-02 12:17)
     ✔ SDL_SetRenderDrawColor @done(20-06-02 11:54)
+    ☐ SDL_RenderTargetSupported
     ☐ SDL_SetRenderTarget
+    ☐ SDL_GetRenderTarget
+        ☐ Wrap SDL_Texture. C version is not auto-exposed in Swift for some reason.
+    ☐ SDL_RenderReadPixels
+    ☐ SDL_RenderCopy
+    ☐ SDL_RenderCopyEx
+        ☐ Needs SDL_Texture wrapper
+    #Extra inits, backlog
+    ☐ SDL_CreateSoftwareRenderer
+    ☐ SDL_CreateTexture
+    ☐ SDL_CreateTextureFromSurface
+    ☐ SDL_CreateWindowAndRenderer

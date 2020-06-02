@@ -14,7 +14,7 @@ struct Size {
 }
 
 extension Size {
-    static var ZERO: Size {
+    static var zero: Size {
         return Size(width: 0, height: 0)
     }
 }

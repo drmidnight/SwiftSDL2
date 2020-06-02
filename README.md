@@ -11,7 +11,6 @@ My attempt at wrapping SDL2. Heavily work-in-progress so don't use it. Hoping to
     ✔ SDL_GetWindowSurface
     ✔ SDL_ShowSimpleMessageBox
 ### - Renderer
-     ☐ Handle SDL_Error everywhere
     ✔ SDL_CreateRenderer 
     ✔ SDL_DestroyRenderer 
     ✔ SDL_GetRenderDrawBlendMode
@@ -58,3 +57,7 @@ My attempt at wrapping SDL2. Heavily work-in-progress so don't use it. Hoping to
     #Extra inits, backlog
     ☐ SDL_CreateSoftwareRenderer
     ☐ SDL_CreateWindowAndRenderer
+
+### - Misc
+    ☐ Handle SDL_Error everywhere
+    ☐ Profile for leaks due to OpaquePointer usage

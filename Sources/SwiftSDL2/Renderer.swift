@@ -25,20 +25,6 @@ class Renderer {
         _rendererPtr = nil
     }
 
-    func render(_ renderClosure: (Renderer?)->()) {
-        renderClosure(self)
-        self.present()
-    }
-
-    func renderCopy(texture: Texture, srcRect: Rect?, dstRect: Rect?) {
-        var src = srcRect
-        var dst = dstRect
-        SDL_RenderCopy(self._rendererPtr, texture._texturePtr, nil, nil)
-    }
-
-    func present() {
-        SDL_RenderPresent(self._rendererPtr)
-    }
 }
 // Move and replace "Point" with vector2
 
@@ -161,6 +147,18 @@ extension Renderer {
 
 }
 extension Renderer {
+
+    func render(_ renderClosure: (Renderer?)->()) {
+        renderClosure(self)
+        self.present()
+    }
+
+   
+
+    func present() {
+        SDL_RenderPresent(self._rendererPtr)
+    }
+
     func clear() {
         SDL_RenderClear( self._rendererPtr )
     }
@@ -209,5 +207,18 @@ extension Renderer {
 }
 
 extension Renderer {
+    func renderCopy(texture: Texture, srcRect: Rect, dstRect: Rect) {
+        var src = srcRect
+        var dst = dstRect
+        SDL_RenderCopy(self._rendererPtr, texture._texturePtr, &src, &dst)
+    }
 
+    func renderCopy(texture: Texture, srcRect: Rect) {
+        var src = srcRect
+        SDL_RenderCopy(self._rendererPtr, texture._texturePtr, &src, nil)
+    }
+
+    func renderCopy(texture: Texture) {
+        SDL_RenderCopy(self._rendererPtr, texture._texturePtr, nil, nil)
+    }
 }

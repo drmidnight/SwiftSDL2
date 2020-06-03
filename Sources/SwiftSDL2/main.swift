@@ -52,7 +52,7 @@ func main() {
         //     rndr?.fillRect(rect)
         //     rndr?.drawLines(points: points, color: Color(r: 255, g: 255, b: 0, a: 255))
         // }
-        renderer.renderCopy(texture: tex, srcRect: nil, dstRect: nil)
+        renderer.renderCopy(texture: tex)
         // print(renderer.rendererInfo)
         renderer.present()
         let end = SDL_GetPerformanceCounter()

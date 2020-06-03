@@ -1,5 +1,5 @@
 
-Todo:
+Renderer:
     ☐ Handle SDL_Error everywhere
     ✔ SDL_CreateRenderer @done(20-06-02 11:53)
     ✔ SDL_DestroyRenderer @done(20-06-02 12:14)
@@ -37,7 +37,7 @@ Todo:
     ☐ SDL_GetRenderTarget
         ☐ Wrap SDL_Texture. C version is not auto-exposed in Swift for some reason.
     ☐ SDL_RenderReadPixels
-    ☐ SDL_RenderCopy
+    ✔ SDL_RenderCopy @done(20-06-03 13:10)
     ☐ SDL_RenderCopyEx
         ☐ Needs SDL_Texture wrapper
     #Extra inits, backlog
@@ -46,6 +46,21 @@ Todo:
     ☐ SDL_CreateTextureFromSurface
     ☐ SDL_CreateWindowAndRenderer
 
+Texture:
+    ✔ SDL_CreateTexture @done(20-06-03 12:47)
+    ✔ SDL_CreateTextureFromSurface @done(20-06-03 12:53)
+    ✔ SDL_DestroyTexture @done(20-06-03 12:47)
+    ☐ SDL_GetTextureAlphaMod
+    ☐ SDL_GetTextureBlendMode
+    ☐ SDL_GetTextureColorMod
+    ✔ SDL_LockTexture @done(20-06-03 12:53)
+    ☐ SDL_QueryTexture
+    ✔ SDL_RenderCopy @done(20-06-03 12:53)
+    ☐ SDL_SetTextureAlphaMod
+    ☐ SDL_SetTextureBlendMode
+    ☐ SDL_SetTextureColorMod
+    ✔ SDL_UnlockTexture @done(20-06-03 12:53)
+    ☐ SDL_UpdateTexture
 
 Enums:
     ☐ SDL_AssertState
@@ -80,7 +95,7 @@ Enums:
     ☐ SDL_TextureModulate
     ☐ SDL_ThreadPriority
     ☐ SDL_WinRT_Path
-    ☐ SDL_WindowEventID
+    ✔ SDL_WindowEventID @done(20-06-03 13:10)
     ✔ SDL_WindowFlags @done(20-06-02 15:06)
-    ☐ SDL_bool
+    ✔ SDL_bool @done(20-06-03 13:10)
 

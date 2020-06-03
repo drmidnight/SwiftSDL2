@@ -43,21 +43,32 @@ My attempt at wrapping SDL2. Heavily work-in-progress so don't use it. Hoping to
     ✔ SDL_SetRenderDrawBlendMode
     ✔ SDL_SetRenderDrawColor
     ☐ SDL_RenderReadPixels
+    ☐ SDL_RenderCopy
 
     # Needs SDL_Texture type
-        ☐ Wrap SDL_Texture. C struct is not auto-exposed in Swift so figure that out.
-        ☐ SDL_CreateTexture
-        ☐ SDL_CreateTextureFromSurface
         ☐ SDL_RenderTargetSupported
         ☐ SDL_SetRenderTarget
         ☐ SDL_GetRenderTarget
-        ☐ SDL_RenderCopy
         ☐ SDL_RenderCopyEx
 
     #Extra inits, backlog
     ☐ SDL_CreateSoftwareRenderer
     ☐ SDL_CreateWindowAndRenderer
-
+### - Texture
+    ✔ SDL_CreateTexture 
+    ✔ SDL_CreateTextureFromSurface
+    ✔ SDL_DestroyTexture
+    ☐ SDL_GetTextureAlphaMod
+    ☐ SDL_GetTextureBlendMode
+    ☐ SDL_GetTextureColorMod
+    ✔ SDL_LockTexture 
+    ☐ SDL_QueryTexture
+    ✔ SDL_RenderCopy 
+    ☐ SDL_SetTextureAlphaMod
+    ☐ SDL_SetTextureBlendMode
+    ☐ SDL_SetTextureColorMod
+    ✔ SDL_UnlockTexture
+    ☐ SDL_UpdateTexture
 ### - Misc
     ☐ Handle SDL_Error everywhere
     ☐ Profile for leaks due to OpaquePointer usage

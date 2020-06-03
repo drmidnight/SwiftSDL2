@@ -16,6 +16,13 @@ class Texture {
         self._texturePtr = SDL_CreateTexture(renderer._rendererPtr, format, access.rawValue, Int32(size.width), Int32(size.height))
     }
 
+
+    init(renderer: Renderer, image: String) {
+        let surfacePtr: UnsafeMutablePointer<SDL_Surface>? = IMG_Load(image)
+        self._texturePtr = Texture.createFromSurface(renderer: renderer, surface: surfacePtr)
+
+    }
+
     deinit {
         self.destroy()
     }
@@ -27,11 +34,12 @@ class Texture {
         self._pixelsPtr = nil
         self._pitchPtr = nil
     }
+}
 
-    init(renderer: Renderer, image: String) {
-        let surfacePtr: UnsafeMutablePointer<SDL_Surface>? = IMG_Load(image)
-        self._texturePtr = SDL_CreateTextureFromSurface(renderer._rendererPtr, surfacePtr)
-        
+extension Texture {
+      // wrap Surface next
+    static func createFromSurface(renderer: Renderer, surface:  UnsafeMutablePointer<SDL_Surface>?) -> OpaquePointer? {
+        return SDL_CreateTextureFromSurface(renderer._rendererPtr, surface)
     }
 
     func lock(rect: Rect) {
@@ -43,13 +51,6 @@ class Texture {
         SDL_UnlockTexture(self._texturePtr)
         self._pixelsPtr = nil
         self._pitchPtr = nil
+    }
         
-    }
-
-}
-
-extension String {
-    var unsafeMutablePtr: UnsafePointer<Int8>? {
-        return (self as NSString).utf8String
-    }
 }

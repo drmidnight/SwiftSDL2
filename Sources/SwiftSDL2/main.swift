@@ -3,17 +3,11 @@ import CSDL2
 let SCREEN_WIDTH: Int32 = 1024
 let SCREEN_HEIGHT: Int32 = 680
 
-// move to surface class
-// func drawRect(_ rect: Rect, surface: UnsafeMutablePointer<SDL_Surface>?, color: UInt32) {
-//     var _sdlRect = SDL_Rect(x: Int32(rect.x), y: Int32(rect.y), w: Int32(rect.width), h: Int32(rect.height))
-//     SDL_FillRect( surface, &_sdlRect, 0x00FF0000 );
-// }
 
 func main() {
     let windowTest = Window(title: "Title", position: Point(x: 10, y: 10), size: Size(width: 200, height: 400), flags: [.openGL]) 
     let screenSurface = windowTest.getSurface()
     let renderer = Renderer(window: windowTest)
-
     var quit = false
     var event = SDL_Event()
     let points = [
@@ -45,6 +39,7 @@ func main() {
         renderer.scale = Vector2(x: 2.0, y: 2.0)
         // probably some retain issue. 
         // Fix this so it isnt a self reference. Maybe window.render() which passes in its renderer?
+        // Definitely leaking. fix this.
         renderer.render { rndr in
             rndr?.drawColor = Color(hex: 0x005DAA)
             rndr?.clear()

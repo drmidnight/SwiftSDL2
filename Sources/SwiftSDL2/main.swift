@@ -23,13 +23,14 @@ func main() {
          while(SDL_PollEvent(&event) != 0) {
             switch event.type {
                 case SDL_WINDOWEVENT.rawValue:
-                    switch event.window.event {
-                        case WindowEventID.moved.rawValue:
+                if let eventType = WindowEventID(rawValue: event.window.event) {
+                    switch eventType {
+                        case .moved:
                             print("moved")
                         default:
-                            print("Event: \(event.window.event)")
+                            print("Event: \(eventType)!)")
                     }
-                
+                }
                 case SDL_QUIT.rawValue:
                     quit = true
             default:

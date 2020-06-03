@@ -28,10 +28,18 @@ func main() {
         let start = SDL_GetPerformanceCounter()
          while(SDL_PollEvent(&event) != 0) {
             switch event.type {
+                case SDL_WINDOWEVENT.rawValue:
+                    switch event.window.event {
+                        case WindowEventID.moved.rawValue:
+                            print("moved")
+                        default:
+                            print("Event: \(event.window.event)")
+                    }
+                
                 case SDL_QUIT.rawValue:
                     quit = true
             default:
-                print(event.type)
+                break
             }
         }
         renderer.scale = Vector2(x: 2.0, y: 2.0)

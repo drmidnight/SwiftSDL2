@@ -58,15 +58,15 @@ My attempt at wrapping SDL2. Heavily work-in-progress so don't use it. Hoping to
     ✔ SDL_CreateTexture 
     ✔ SDL_CreateTextureFromSurface
     ✔ SDL_DestroyTexture
-    ☐ SDL_GetTextureAlphaMod
-    ☐ SDL_GetTextureBlendMode
-    ☐ SDL_GetTextureColorMod
+    ✔ SDL_GetTextureAlphaMod
+    ✔ SDL_GetTextureBlendMode
+    ✔ SDL_GetTextureColorMod
     ✔ SDL_LockTexture 
-    ☐ SDL_QueryTexture
+    ✔ SDL_QueryTexture
     ✔ SDL_RenderCopy 
-    ☐ SDL_SetTextureAlphaMod
-    ☐ SDL_SetTextureBlendMode
-    ☐ SDL_SetTextureColorMod
+    ✔ SDL_SetTextureAlphaMod
+    ✔ SDL_SetTextureBlendMode
+    ✔ SDL_SetTextureColorMod
     ✔ SDL_UnlockTexture
     ☐ SDL_UpdateTexture
 ### - Misc

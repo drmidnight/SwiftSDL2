@@ -1,13 +1,13 @@
 import CSDL2
 
 // maybe think about making these all uppercase?
-struct PixelFormat: OptionSet
+struct PixelFormats: OptionSet
 {    
     let rawValue : UInt32
     init(rawValue: UInt32) {
         self.rawValue = rawValue
     }
-    
+
     static let unknown     = PixelFormat(rawValue: SDL_PIXELFORMAT_UNKNOWN.rawValue)
     static let index1lsb   = PixelFormat(rawValue: SDL_PIXELFORMAT_INDEX1LSB.rawValue)
     static let index1msb   = PixelFormat(rawValue: SDL_PIXELFORMAT_INDEX1MSB.rawValue)
@@ -39,10 +39,10 @@ struct PixelFormat: OptionSet
     static let abgr888     = PixelFormat(rawValue: SDL_PIXELFORMAT_ABGR8888.rawValue)
     static let bgra8888    = PixelFormat(rawValue: SDL_PIXELFORMAT_BGRA8888.rawValue)
     static let argb2101010 = PixelFormat(rawValue: SDL_PIXELFORMAT_ARGB2101010.rawValue)
-    static let rgba32      = PixelFormat(rawValue: ( SDL_BYTEORDER == SDL_BIG_ENDIAN ? SDL_PIXELFORMAT_RGBA8888.rawValue : SDL_PIXELFORMAT_ABGR8888.rawValue))
-    static let argb32      = PixelFormat(rawValue: ( SDL_BYTEORDER == SDL_BIG_ENDIAN ? SDL_PIXELFORMAT_ARGB8888.rawValue : SDL_PIXELFORMAT_BGRA8888.rawValue))
-    static let bgra32      = PixelFormat(rawValue: ( SDL_BYTEORDER == SDL_BIG_ENDIAN ? SDL_PIXELFORMAT_BGRA8888.rawValue : SDL_PIXELFORMAT_ARGB8888.rawValue))
-    static let abgr32      = PixelFormat(rawValue: ( SDL_BYTEORDER == SDL_BIG_ENDIAN ? SDL_PIXELFORMAT_ABGR8888.rawValue : SDL_PIXELFORMAT_RGBA8888.rawValue))
+    static let rgba32      = PixelFormat(rawValue: ( SDL_BYTEORDER == SDL_BIG_ENDIAN ? SDL_PIXELFORMAT_RGBA8888.rawValue : SDL_PIXELFORMAT_ABGR8888.rawValue) )
+    static let argb32      = PixelFormat(rawValue: ( SDL_BYTEORDER == SDL_BIG_ENDIAN ? SDL_PIXELFORMAT_ARGB8888.rawValue : SDL_PIXELFORMAT_BGRA8888.rawValue) )
+    static let bgra32      = PixelFormat(rawValue: ( SDL_BYTEORDER == SDL_BIG_ENDIAN ? SDL_PIXELFORMAT_BGRA8888.rawValue : SDL_PIXELFORMAT_ARGB8888.rawValue) )
+    static let abgr32      = PixelFormat(rawValue: ( SDL_BYTEORDER == SDL_BIG_ENDIAN ? SDL_PIXELFORMAT_ABGR8888.rawValue : SDL_PIXELFORMAT_RGBA8888.rawValue) )
     static let yv12        = PixelFormat(rawValue: SDL_PIXELFORMAT_YV12.rawValue)
     static let iyuv        = PixelFormat(rawValue: SDL_PIXELFORMAT_IYUV.rawValue)
     static let yuy2        = PixelFormat(rawValue: SDL_PIXELFORMAT_YUY2.rawValue)

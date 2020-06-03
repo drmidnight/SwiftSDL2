@@ -37,9 +37,56 @@ class Texture {
 }
 
 extension Texture {
+    var alphaMod: Int {
+        get {
+            var alphaPtr:Uint8 = 0
+            SDL_GetTextureAlphaMod(self._texturePtr, &alphaPtr)
+            return Int(alphaPtr)
+        } 
+        set {
+            SDL_SetTextureAlphaMod(self._texturePtr, UInt8(newValue))
+        }
+    }
+
+    var blendMode: BlendMode {
+        get {
+            var blendMode: SDL_BlendMode = SDL_BLENDMODE_NONE
+            SDL_GetTextureBlendMode(self._texturePtr, &blendMode)
+            return BlendMode(rawValue: blendMode.rawValue) ?? .none
+        }
+        set {
+            SDL_SetTextureBlendMode(self._texturePtr, SDL_BlendMode(rawValue: newValue.rawValue))
+        }
+    }
+
+    var colorMod: Color {
+        get {
+            var r: Uint8 = 0
+            var g: Uint8 = 0
+            var b: Uint8 = 0
+            SDL_GetTextureColorMod(self._texturePtr, &r, &g, &b)
+            return Color(r: r, g: g, b: b, a: 255)
+        }
+        set {
+            SDL_SetTextureColorMod(self._texturePtr, newValue.r, newValue.g, newValue.b)
+        }
+    }
+}
+
+extension Texture {
       // wrap Surface next
     static func createFromSurface(renderer: Renderer, surface:  UnsafeMutablePointer<SDL_Surface>?) -> OpaquePointer? {
         return SDL_CreateTextureFromSurface(renderer._rendererPtr, surface)
+    }
+
+    // move to texture info struct
+    func query() -> (format: Uint32, access: Int32, width: Int32, height: Int32) {
+        var format: Uint32 = 0
+        var access: Int32 = 0
+        var w: Int32 = 0
+        var h: Int32 = 0
+        SDL_QueryTexture(self._texturePtr, &format, &access, &w, &h)
+        return (format: format, access: access, width: w, height: h)
     }
 
     func lock(rect: Rect) {

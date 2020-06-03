@@ -153,8 +153,6 @@ extension Renderer {
         self.present()
     }
 
-   
-
     func present() {
         SDL_RenderPresent(self._rendererPtr)
     }

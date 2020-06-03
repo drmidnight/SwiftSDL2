@@ -50,17 +50,18 @@ Texture:
     ✔ SDL_CreateTexture @done(20-06-03 12:47)
     ✔ SDL_CreateTextureFromSurface @done(20-06-03 12:53)
     ✔ SDL_DestroyTexture @done(20-06-03 12:47)
-    ☐ SDL_GetTextureAlphaMod
-    ☐ SDL_GetTextureBlendMode
-    ☐ SDL_GetTextureColorMod
+    ✔ SDL_GetTextureAlphaMod @done(20-06-03 13:40)
+    ✔ SDL_GetTextureBlendMode @done(20-06-03 13:40)
+    ✔ SDL_GetTextureColorMod @done(20-06-03 13:40)
     ✔ SDL_LockTexture @done(20-06-03 12:53)
-    ☐ SDL_QueryTexture
+    ✔ SDL_QueryTexture @done(20-06-03 13:52)
     ✔ SDL_RenderCopy @done(20-06-03 12:53)
-    ☐ SDL_SetTextureAlphaMod
-    ☐ SDL_SetTextureBlendMode
-    ☐ SDL_SetTextureColorMod
+    ✔ SDL_SetTextureAlphaMod @done(20-06-03 13:40)
+    ✔ SDL_SetTextureBlendMode @done(20-06-03 13:40)
+    ✔ SDL_SetTextureColorMod @done(20-06-03 13:40)
     ✔ SDL_UnlockTexture @done(20-06-03 12:53)
     ☐ SDL_UpdateTexture
+        ☐ Need pixel buffer and pitch
 
 Enums:
     ☐ SDL_AssertState

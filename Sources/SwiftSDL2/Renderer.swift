@@ -30,6 +30,12 @@ class Renderer {
         self.present()
     }
 
+    func renderCopy(texture: Texture, srcRect: Rect?, dstRect: Rect?) {
+        var src = srcRect
+        var dst = dstRect
+        SDL_RenderCopy(self._rendererPtr, texture._texturePtr, nil, nil)
+    }
+
     func present() {
         SDL_RenderPresent(self._rendererPtr)
     }

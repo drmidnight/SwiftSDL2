@@ -18,6 +18,8 @@ func main() {
         Point(x: 50, y: 40),
         Point(x: 60, y: 10)
     ]
+    let tex = Texture(renderer: renderer, image: "/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg")
+    print(tex)
     while !quit {
         let start = SDL_GetPerformanceCounter()
          while(SDL_PollEvent(&event) != 0) {
@@ -41,18 +43,18 @@ func main() {
         // probably some retain issue. 
         // Fix this so it isnt a self reference. Maybe window.render() which passes in its renderer?
         // Definitely leaking. fix this.
-        renderer.render { rndr in
-            rndr?.drawColor = Color(hex: 0x005DAA)
-            rndr?.clear()
+        // renderer.render { rndr in
+        //     rndr?.drawColor = Color(hex: 0x005DAA)
+        //     rndr?.clear()
 
-            let rect = Rect(x: 10, y: 10, w: 20, h: 20)
-            rndr?.drawColor = Color(r: 255, g: 0, b: 0, a: 255)
-            rndr?.fillRect(rect)
-            rndr?.drawLines(points: points, color: Color(r: 255, g: 255, b: 0, a: 255))
-        }
-
+        //     let rect = Rect(x: 10, y: 10, w: 20, h: 20)
+        //     rndr?.drawColor = Color(r: 255, g: 0, b: 0, a: 255)
+        //     rndr?.fillRect(rect)
+        //     rndr?.drawLines(points: points, color: Color(r: 255, g: 255, b: 0, a: 255))
+        // }
+        renderer.renderCopy(texture: tex, srcRect: nil, dstRect: nil)
         // print(renderer.rendererInfo)
-
+        renderer.present()
         let end = SDL_GetPerformanceCounter()
         let elapsed:Float = Float(end-start) / Float(SDL_GetPerformanceFrequency())
         // print("FPS: \(1.0/elapsed)")

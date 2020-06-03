@@ -17,3 +17,9 @@ extension Bool {
         return (self) ? SDL_TRUE : SDL_FALSE
     }
 }
+
+public func flagify<T:RawRepresentable>(_ flags: [T]) -> UInt32 where T.RawValue==UInt32 {
+    var result: Uint32 = 0
+    flags.forEach { result = result | $0.rawValue }
+    return result
+}

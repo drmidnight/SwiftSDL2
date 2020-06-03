@@ -1,12 +1,4 @@
 import CSDL2
-// typealias Texture = SDL_Texture
-// Turn into OptionSet?
-public enum RendererFlags: UInt32 {
-    case software =      0x00000001     //SDL_RENDERER_SOFTWARE       /**< The renderer is a software fallback */
-    case accelerated =   0x00000002  //SDL_RENDERER_ACCELERATED       /**< The renderer uses hardware acceleration */
-    case vsync =         0x00000004        //SDL_RENDERER_PRESENTVSYNC      /**< Present is synchronized with the refresh rate */
-    case targetTexture = 0x0000000 // SDL_RENDERER_TARGETTEXTURE 
-}
 
 class Renderer {
     var _rendererPtr: OpaquePointer?
@@ -26,7 +18,6 @@ class Renderer {
     }
 
 }
-// Move and replace "Point" with vector2
 
 extension Renderer {
     var drawColor: Color {

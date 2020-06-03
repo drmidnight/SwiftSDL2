@@ -55,7 +55,7 @@ extension Texture {
             return BlendMode(rawValue: blendMode.rawValue) ?? .none
         }
         set {
-            SDL_SetTextureBlendMode(self._texturePtr, SDL_BlendMode(rawValue: newValue.rawValue))
+            SDL_SetTextureBlendMode(self._texturePtr, newValue.toSDL)
         }
     }
 
@@ -98,6 +98,10 @@ extension Texture {
         SDL_UnlockTexture(self._texturePtr)
         self._pixelsPtr = nil
         self._pitchPtr = nil
+    }
+
+    func update() {
+       //  SDL_UpdateTexture(texture: OpaquePointer!, rect: UnsafePointer<SDL_Rect>!, pixels: UnsafeRawPointer!, pitch: Int32)
     }
         
 }

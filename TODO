@@ -45,3 +45,42 @@ Todo:
     ☐ SDL_CreateTexture
     ☐ SDL_CreateTextureFromSurface
     ☐ SDL_CreateWindowAndRenderer
+
+
+Enums:
+    ☐ SDL_AssertState
+    ☐ SDL_AudioFormat
+    ☐ SDL_AudioStatus
+    ☐ SDL_BlendFactor
+    ✔ SDL_BlendMode @done(20-06-02 15:06)
+    ☐ SDL_BlendOperation
+    ☐ SDL_EventType
+    ☐ SDL_GLattr
+    ☐ SDL_GLcontextFlag
+    ☐ SDL_GLprofile
+    ☐ SDL_GameControllerAxis
+    ☐ SDL_GameControllerButton
+    ☐ SDL_HintPriority
+    ☐ SDL_HitTestResult
+    ☐ SDL_JoystickPowerLevel
+    ✔ SDL_Keycode @done(20-06-02 17:23)
+    ✔ SDL_Keymod @done(20-06-02 17:23)
+    ☐ SDL_LOG_CATEGORY
+    ☐ SDL_LogPriority
+    ☐ SDL_MessageBoxButtonFlags
+    ☐ SDL_MessageBoxColorType
+    ☐ SDL_MessageBoxFlags
+    ☐ SDL_PixelFormatEnum
+    ☐ SDL_PowerState
+    ✔ SDL_RendererFlags @done(20-06-02 15:06)
+    ☐ SDL_RendererFlip
+    ☐ SDL_SYSWM_TYPE
+    ☐ SDL_Scancode
+    ☐ SDL_TextureAccess
+    ☐ SDL_TextureModulate
+    ☐ SDL_ThreadPriority
+    ☐ SDL_WinRT_Path
+    ☐ SDL_WindowEventID
+    ✔ SDL_WindowFlags @done(20-06-02 15:06)
+    ☐ SDL_bool
+

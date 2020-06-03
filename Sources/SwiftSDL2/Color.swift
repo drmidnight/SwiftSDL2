@@ -5,6 +5,16 @@ public struct Color {
     let g: UInt8
     let b: UInt8
     let a: UInt8
+    init(r: UInt8, g: UInt8, b: UInt8, a: UInt8) {
+        self.r = r
+        self.g = g
+        self.b = b
+        self.a = a
+    }
+    
+    init(hex: Int, alpha: UInt8 = 255) {
+        self.init(r:UInt8((hex >> 16)) & 0xff, g: UInt8((hex >> 08) & 0xff), b: UInt8((hex >> 00) & 0xff), a: alpha)
+    }
 }
 
 extension Color {

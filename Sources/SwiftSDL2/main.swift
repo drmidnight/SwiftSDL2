@@ -38,7 +38,7 @@ func main() {
         // probably some retain issue. 
         // Fix this so it isnt a self reference. Maybe window.render() which passes in its renderer?
         renderer.render { rndr in
-            rndr?.drawColor = Color(r: 255, g: 255, b: 255, a: 255)
+            rndr?.drawColor = Color(hex: 0x005DAA)
             rndr?.clear()
 
             let rect = Rect(x: 10, y: 10, w: 20, h: 20)

@@ -86,7 +86,7 @@ Enums:
     ☐ SDL_MessageBoxButtonFlags
     ☐ SDL_MessageBoxColorType
     ☐ SDL_MessageBoxFlags
-    ☐ SDL_PixelFormatEnum
+    ✔ SDL_PixelFormatEnum @done(20-06-03 15:07)
     ☐ SDL_PowerState
     ✔ SDL_RendererFlags @done(20-06-02 15:06)
     ☐ SDL_RendererFlip

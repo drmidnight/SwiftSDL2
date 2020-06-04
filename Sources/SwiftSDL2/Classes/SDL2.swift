@@ -48,7 +48,7 @@ extension SDLSystem: CustomStringConvertible {
 
 public struct SDL {
     @available(*, unavailable) private init() {}
-    static func initialize(_ systems: [SDLSystem]) {
+    static func initialize(_ systems: [SDLSystem] = [.everything]) {
         print("Initializing SDL systems:\(systems)")
         SDL_Init(flagify(systems))
     }
@@ -66,5 +66,11 @@ public struct SDL {
     static func quit(subSystems: [SDLSystem]) {
         print("Quitting SDL subsystems:\(subSystems)")
         SDL_QuitSubSystem(flagify(subSystems))
+    }
+
+    static func calculateGammaRamp(_ gamma: Float) -> [UInt16] {
+        var ramp = [UInt16](repeating: 0, count: 256)
+        SDL_CalculateGammaRamp(gamma, &ramp)
+        return ramp
     }
 }

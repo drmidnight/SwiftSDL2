@@ -1,10 +1,12 @@
 import CSDL2
+import Foundation
 
 let SCREEN_WIDTH: Int32 = 1024
 let SCREEN_HEIGHT: Int32 = 680
 
 
 func main() {
+    SDL.start([.video])
     let windowTest = Window(title: "Title", position: Point(x: 10, y: 10), size: Size(width: 200, height: 400), flags: [.openGL]) 
     let surface = Surface(from:"/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg" )
     let renderer = Renderer(window: windowTest)
@@ -18,8 +20,26 @@ func main() {
         Point(x: 50, y: 40),
         Point(x: 60, y: 10)
     ]
-    let tex = Texture(renderer: renderer, image: "/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg")
 
+    // figure out best way to handle texture updating
+    // var bytesPointer = UnsafeMutableRawPointer.allocate(byteCount: 4, alignment: 4)
+    // bytesPointer.storeBytes(of: 255, as: UInt32.self)
+    // // hmm think of a way to handle texture updates internal to the class.
+    // var pixels = [UInt32](repeating: 0, count: 200 * 400)
+    // var surfacePixels = surface._surfacePtr?.pointee.pixels
+    // var value: UInt32 = 255
+    // memcpy(&pixels, bytesPointer, 200 * 400 * MemoryLayout<UInt32>.size)
+    // print(pixels)
+
+    let tex = Texture(renderer: renderer, image: "/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg")
+    print(tex.query())
+    let format = tex.query().format
+    switch format {
+        case .rgb888:
+            print("RGB8 \(format)")
+        default:
+            print(format)
+    }
     while !quit {
         let start = SDL_GetPerformanceCounter()
          while(SDL_PollEvent(&event) != 0) {

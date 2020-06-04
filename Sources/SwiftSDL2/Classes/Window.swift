@@ -13,8 +13,12 @@ public class Window {
         self.destroy()
     }
 
+}
+
+extension Window {
     func update() {
         SDL_UpdateWindowSurface( _windowPtr );
+
     }
 
     func destroy() {
@@ -27,8 +31,8 @@ public class Window {
         return SDL_GetWindowSurface(_windowPtr)
     }
 
-    func showMsg() {
-        SDL_ShowSimpleMessageBox(UInt32(0), "test", "message", _windowPtr)
+    func showSimpleMsg(msg: String, title: String = "", flag: MessageBoxFlags = .info) {
+        SDL_ShowSimpleMessageBox(flag.rawValue, title, msg, _windowPtr)
     }
 
     func setFullscreen(flag: WindowFlags) {
@@ -108,6 +112,15 @@ extension Window {
         }
     }
 
+    var screenSaverEnabled: Bool {
+        get {
+            return SDL_IsScreenSaverEnabled().toBool
+        }
+        set {
+            newValue == true ? SDL_EnableScreenSaver() : SDL_DisableScreenSaver()
+        }
+    }
+
     var windowFlags: [WindowFlags] {
         get {
             var flags = [WindowFlags]()
@@ -147,7 +160,6 @@ extension Window {
             SDL_SetWindowGrab(self._windowPtr, newValue.SDLBoolValue)
         }
     }
-
 
     var position: Point {
         get {
@@ -227,6 +239,8 @@ extension Window {
             SDL_SetWindowMinimumSize(self._windowPtr, Int32(newValue.width), Int32(newValue.height))
         }
     }
+
+ 
 
 }
 

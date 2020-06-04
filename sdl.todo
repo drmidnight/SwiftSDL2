@@ -130,7 +130,7 @@ Video:
             ☐ SDL_HitTestResult
             ☐ SDL_MessageBoxButtonFlags
             ☐ SDL_MessageBoxColorType
-            ☐ SDL_MessageBoxFlags
+            ✔ SDL_MessageBoxFlags @done(20-06-04 16:09)
             ✔ SDL_WindowEventID @done(20-06-04 13:02)
             ✔ SDL_WindowFlags @done(20-06-04 13:02)
         Structures:
@@ -145,8 +145,8 @@ Video:
             ☐ SDL_CreateWindowAndRenderer
             ☐ SDL_CreateWindowFrom
             ✔ SDL_DestroyWindow @done(20-06-04 13:02)
-            ☐ SDL_DisableScreenSaver
-            ☐ SDL_EnableScreenSaver
+            ✔ SDL_DisableScreenSaver @done(20-06-04 16:03)
+            ✔ SDL_EnableScreenSaver @done(20-06-04 16:03)
             ☐ SDL_GL_CreateContext
             ☐ SDL_GL_DeleteContext
             ☐ SDL_GL_ExtensionSupported
@@ -222,7 +222,7 @@ Video:
             ✔ SDL_SetWindowSize @done(20-06-04 15:08)
             ✔ SDL_SetWindowTitle @done(20-06-04 15:13)
             ☐ SDL_ShowMessageBox
-            ☐ SDL_ShowSimpleMessageBox
+            ✔ SDL_ShowSimpleMessageBox @done(20-06-04 16:11)
             ✔ SDL_ShowWindow @done(20-06-04 16:00)
             ✔ SDL_UpdateWindowSurface @done(20-06-04 13:03)
             ☐ SDL_UpdateWindowSurfaceRects

@@ -16,6 +16,9 @@ class Texture {
         self._texturePtr = SDL_CreateTexture(renderer._rendererPtr, format, access.rawValue, Int32(size.width), Int32(size.height))
     }
 
+    init(pointer: OpaquePointer?) {
+        self._texturePtr = pointer
+    }
 
     init(renderer: Renderer, image: String) {
         let surfacePtr: UnsafeMutablePointer<SDL_Surface>? = IMG_Load(image)

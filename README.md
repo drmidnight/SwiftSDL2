@@ -43,13 +43,11 @@ My attempt at wrapping SDL2. Heavily work-in-progress so don't use it. Hoping to
     ✔ SDL_SetRenderDrawBlendMode
     ✔ SDL_SetRenderDrawColor
     ☐ SDL_RenderReadPixels
-    ☐ SDL_RenderCopy
-
-    # Needs SDL_Texture type
-        ☐ SDL_RenderTargetSupported
-        ☐ SDL_SetRenderTarget
-        ☐ SDL_GetRenderTarget
-        ☐ SDL_RenderCopyEx
+    ✔ SDL_RenderCopy
+    ✔ SDL_RenderTargetSupported
+    ✔ SDL_SetRenderTarget
+    ✔ SDL_GetRenderTarget
+    ☐ SDL_RenderCopyEx
 
     #Extra inits, backlog
     ☐ SDL_CreateSoftwareRenderer
@@ -69,6 +67,33 @@ My attempt at wrapping SDL2. Heavily work-in-progress so don't use it. Hoping to
     ✔ SDL_SetTextureColorMod
     ✔ SDL_UnlockTexture
     ☐ SDL_UpdateTexture
+### - Surface
+    ☐ SDL_BlitSurface
+    ☐ SDL_ConvertSurface
+    ☐ SDL_CreateRGBSurface
+    ☐ SDL_CreateRGBSurfaceFrom
+    ✔ SDL_FillRect 
+    ✔ SDL_FillRects
+    ✔ SDL_FreeSurface
+    ✔ SDL_GetClipRect 
+    ☐ SDL_GetColorKey
+    ✔ SDL_GetSurfaceAlphaMod
+    ✔ SDL_GetSurfaceBlendMode
+    ✔ SDL_GetSurfaceColorMod
+    ☐ SDL_LoadBMP_RW
+    ✔ SDL_LockSurface
+    ☐ SDL_LowerBlit
+    ☐ SDL_MUSTLOCK
+    ☐ SDL_SaveBMP_RW
+    ✔ SDL_SetClipRect
+    ☐ SDL_SetColorKey
+    ✔ SDL_SetSurfaceAlphaMod
+    ✔ SDL_SetSurfaceBlendMode
+    ✔ SDL_SetSurfaceColorMod 
+    ☐ SDL_SetSurfacePalette
+    ☐ SDL_SetSurfaceRLE
+    ☐ SDL_SoftStretch
+    ✔ SDL_UnlockSurface
 ### - Misc
     ☐ Handle SDL_Error everywhere
     ☐ Profile for leaks due to OpaquePointer usage

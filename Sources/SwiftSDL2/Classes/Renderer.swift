@@ -124,17 +124,20 @@ extension Renderer {
         }
     }
 
+    var renderTarget: Texture {
+        get {
+            return Texture(pointer: SDL_GetRenderTarget(self._rendererPtr))
+        }
+        set {
+            SDL_SetRenderTarget(self._rendererPtr, newValue._texturePtr)
+        }
+    }
 
-    // wrap sdl_texture if possible, currently not exposed from C
-    // var renderTarget: SDL_Texture {
-    //     get {
-    //         return SDL_GetRenderTarget(self._rendererPtr)
-    //     }
-    //     set {
-    //         var texture = newValue
-    //         SDL_SetRenderTarget(self._rendererPtr, &texture)
-    //     }
-    // }
+    var renderTargetSupported: Bool {
+        get {
+            return SDL_RenderTargetSupported(self._rendererPtr).toBool
+        }
+    }
 
 }
 extension Renderer {

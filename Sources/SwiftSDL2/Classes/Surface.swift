@@ -19,6 +19,14 @@ class Surface {
     func free() {
         SDL_FreeSurface(self._surfacePtr)
     }
+
+    func lock() {
+        SDL_LockSurface(self._surfacePtr)
+    }
+
+    func unlock() {
+        SDL_UnlockSurface(self._surfacePtr)
+    }
 }
 
 extension Surface {

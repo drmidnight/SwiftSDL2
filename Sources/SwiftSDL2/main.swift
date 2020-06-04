@@ -19,7 +19,7 @@ func main() {
         Point(x: 60, y: 10)
     ]
     let tex = Texture(renderer: renderer, image: "/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg")
-    print(tex)
+
     while !quit {
         let start = SDL_GetPerformanceCounter()
          while(SDL_PollEvent(&event) != 0) {

@@ -32,18 +32,18 @@ Renderer:
     ✔ SDL_RenderSetViewport @done(20-06-02 12:21)
     ✔ SDL_SetRenderDrawBlendMode @done(20-06-02 12:17)
     ✔ SDL_SetRenderDrawColor @done(20-06-02 11:54)
-    ☐ SDL_RenderTargetSupported
-    ☐ SDL_SetRenderTarget
-    ☐ SDL_GetRenderTarget
-        ☐ Wrap SDL_Texture. C version is not auto-exposed in Swift for some reason.
+    ✔ SDL_RenderTargetSupported @done(20-06-03 17:35)
+    ✔ SDL_SetRenderTarget @done(20-06-03 17:34)
+    ✔ SDL_GetRenderTarget @done(20-06-03 17:34)
+        ✔ Wrap SDL_Texture. C version is not auto-exposed in Swift for some reason. @done(20-06-03 17:34)
     ☐ SDL_RenderReadPixels
     ✔ SDL_RenderCopy @done(20-06-03 13:10)
     ☐ SDL_RenderCopyEx
         ☐ Needs SDL_Texture wrapper
     #Extra inits, backlog
     ☐ SDL_CreateSoftwareRenderer
-    ☐ SDL_CreateTexture
-    ☐ SDL_CreateTextureFromSurface
+    ✔ SDL_CreateTexture @done(20-06-03 17:36)
+    ✔ SDL_CreateTextureFromSurface @done(20-06-03 17:36)
     ☐ SDL_CreateWindowAndRenderer
 
 Texture:
@@ -67,16 +67,16 @@ Surface:
     ☐ SDL_ConvertSurface
     ☐ SDL_CreateRGBSurface
     ☐ SDL_CreateRGBSurfaceFrom
-    ☐ SDL_FillRect
-    ☐ SDL_FillRects
-    ☐ SDL_FreeSurface
+    ✔ SDL_FillRect @done(20-06-03 17:40)
+    ✔ SDL_FillRects @done(20-06-03 17:40)
+    ✔ SDL_FreeSurface @done(20-06-03 17:42)
     ✔ SDL_GetClipRect @done(20-06-03 17:07)
     ☐ SDL_GetColorKey
     ✔ SDL_GetSurfaceAlphaMod @done(20-06-03 17:03)
     ✔ SDL_GetSurfaceBlendMode @done(20-06-03 17:03)
     ✔ SDL_GetSurfaceColorMod @done(20-06-03 17:03)
     ☐ SDL_LoadBMP_RW
-    ☐ SDL_LockSurface
+    ✔ SDL_LockSurface @done(20-06-03 17:42)
     ☐ SDL_LowerBlit
     ☐ SDL_MUSTLOCK
     ☐ SDL_SaveBMP_RW
@@ -88,7 +88,7 @@ Surface:
     ☐ SDL_SetSurfacePalette
     ☐ SDL_SetSurfaceRLE
     ☐ SDL_SoftStretch
-    ☐ SDL_UnlockSurface
+    ✔ SDL_UnlockSurface @done(20-06-03 17:42)
 Enums:
     ☐ SDL_AssertState
     ☐ SDL_AudioFormat

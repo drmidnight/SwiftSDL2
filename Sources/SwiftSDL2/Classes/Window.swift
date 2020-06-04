@@ -13,12 +13,15 @@ public class Window {
         self.destroy()
     }
 
+    func getRenderer() -> Renderer {
+        return Renderer(SDL_GetRenderer(self._windowPtr))
+    }
+
 }
 
 extension Window {
     func update() {
         SDL_UpdateWindowSurface( _windowPtr );
-
     }
 
     func destroy() {
@@ -76,6 +79,10 @@ extension Window {
         get {
             return SDL_GetWindowID(self._windowPtr)
         }
+    }
+    
+    var displayIndex: Int32 {
+        return SDL_GetWindowDisplayIndex(self._windowPtr)
     }
 
     var bordered: Bool {

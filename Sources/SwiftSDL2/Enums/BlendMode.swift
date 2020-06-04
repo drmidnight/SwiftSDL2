@@ -9,6 +9,13 @@ public enum BlendMode: UInt32 {
 }
 
 extension BlendMode {
+    // obviously not working, figure something out for this. Maybe make blendmode an optionSet since you can have arbitrary cases.
+    public static func composeCustom(srcColorFactor: BlendFactor, dstColorFactor: BlendFactor, colorOperation: BlendOperation, srcAlphaFactor: BlendFactor, dstAlphaFactor: BlendFactor, alphaOperation: BlendOperation) -> BlendMode {
+        return BlendMode(rawValue: SDL_ComposeCustomBlendMode(srcColorFactor.sdlValue, dstColorFactor.sdlValue, colorOperation.sdlValue, srcAlphaFactor.sdlValue, dstAlphaFactor.sdlValue, alphaOperation.sdlValue).rawValue) ?? none
+    }    
+}
+
+extension BlendMode {
     var toSDL: SDL_BlendMode {
         return SDL_BlendMode(rawValue: self.rawValue)
     }
@@ -20,6 +27,12 @@ public enum BlendOperation: UInt8 {
     case reverseSubtract = 0x3  /** SDL_BLENDOPERATION_REV_SUBTRACT < src - dst : supported by D3D9, D3D11, OpenGL, OpenGLES */
     case min             = 0x4  /** SDL_BLENDOPERATION_MINIMUM < min(dst, src) : supported by D3D11 */
     case max             = 0x5  /** SDL_BLENDOPERATION_MAXIMUM  < max(dst, src) : supported by D3D11 */
+}
+
+extension BlendOperation {
+    var sdlValue: SDL_BlendOperation {
+        return SDL_BlendOperation(rawValue: UInt32(self.rawValue))
+    }
 }
 
 public enum BlendFactor: UInt8
@@ -35,4 +48,10 @@ public enum BlendFactor: UInt8
     case destinationAlpha         = 0x9  /** SDL_BLENDFACTOR_DST_ALPHA < dstA, dstA, dstA, dstA */
     case oneMinusDestinationAlpha = 0xA  /** SDL_BLENDFACTOR_ONE_MINUS_DST_ALPHA < 1-dstA, 1-dstA, 1-dstA, 1-dstA */
 
+}
+
+extension BlendFactor {
+    var sdlValue: SDL_BlendFactor {
+        return SDL_BlendFactor(rawValue: UInt32(self.rawValue))
+    }
 }

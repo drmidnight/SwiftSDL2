@@ -181,7 +181,7 @@ Video:
                 - X11 only (currently only looking for linux, in future detect presence of x11)
             ✔ SDL_GetWindowBrightness @done(20-06-04 15:48)
             ☐ SDL_GetWindowData
-            ☐ SDL_GetWindowDisplayIndex
+            ✔ SDL_GetWindowDisplayIndex @done(20-06-04 16:18)
             ☐ SDL_GetWindowDisplayMode
             ✔ SDL_GetWindowFlags @done(20-06-04 15:02)
             ☐ SDL_GetWindowFromID
@@ -198,7 +198,7 @@ Video:
             ✔ SDL_GetWindowTitle @done(20-06-04 15:13)
             ☐ SDL_GetWindowWMInfo
             ✔ SDL_HideWindow @done(20-06-04 16:00)
-            ☐ SDL_IsScreenSaverEnabled
+            ✔ SDL_IsScreenSaverEnabled @done(20-06-04 16:19)
             ✔ SDL_MaximizeWindow @done(20-06-04 15:45)
             ✔ SDL_MinimizeWindow @done(20-06-04 15:45)
             ✔ SDL_RaiseWindow @done(20-06-04 15:46)
@@ -234,9 +234,9 @@ Video:
             ✔ SDL_BlendFactor @done(20-06-04 13:02)
             ✔ SDL_BlendOperation @done(20-06-04 13:01)
             ✔ SDL_RendererFlags @done(20-06-04 13:01)
-            ☐ SDL_RendererFlip
+            ✔ SDL_RendererFlip @done(20-06-04 16:23)
             ✔ SDL_TextureAccess @done(20-06-04 13:01)
-            ☐ SDL_TextureModulate
+            ✔ SDL_TextureModulate @done(20-06-04 16:25)
         Structures:
             ✔ SDL_Renderer @done(20-06-04 12:59)
             ✔ SDL_RendererInfo @done(20-06-04 12:59)
@@ -257,7 +257,7 @@ Video:
             ✔ SDL_GetRenderDrawColor @done(20-06-04 13:01)
             ☐ SDL_GetRenderDriverInfo
             ✔ SDL_GetRenderTarget @done(20-06-04 12:59)
-            ☐ SDL_GetRenderer
+            ✔ SDL_GetRenderer @done(20-06-04 16:28)
             ✔ SDL_GetRendererInfo @done(20-06-04 12:59)
             ✔ SDL_GetRendererOutputSize @done(20-06-04 13:01)
             ✔ SDL_GetTextureAlphaMod @done(20-06-04 12:59)
@@ -267,7 +267,7 @@ Video:
             ☐ SDL_QueryTexture
             ✔ SDL_RenderClear @done(20-06-04 12:59)
             ✔ SDL_RenderCopy @done(20-06-04 13:00)
-            ☐ SDL_RenderCopyEx
+            ✔ SDL_RenderCopyEx @done(20-06-04 16:44)
             ✔ SDL_RenderDrawLine @done(20-06-04 13:00)
             ✔ SDL_RenderDrawLines @done(20-06-04 13:00)
             ✔ SDL_RenderDrawPoint @done(20-06-04 13:00)
@@ -299,11 +299,6 @@ Video:
             ✔ SDL_UnlockTexture @done(20-06-04 13:01)
             ☐ SDL_UpdateTexture
             ☐ SDL_UpdateYUVTexture
-
-
-
-
-
     Pixel Formats and Conversion Routines:
         Enumerations:
             ✔ SDL_PixelFormatEnum @done(20-06-04 13:03)

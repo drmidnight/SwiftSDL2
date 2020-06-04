@@ -7,6 +7,10 @@ class Renderer {
         self._rendererPtr = SDL_CreateRenderer(window._windowPtr, driverIndex, flagify(flags))
     }
 
+    init(_ pointer: OpaquePointer) {
+        self._rendererPtr = pointer
+    }
+
     deinit {
         self.destroy()
     }
@@ -212,5 +216,13 @@ extension Renderer {
 
     func renderCopy(texture: Texture) {
         SDL_RenderCopy(self._rendererPtr, texture._texturePtr, nil, nil)
+    }
+
+    func renderCopyEx(texture: Texture, srcRect: Rect, dstRect: Rect, angle: Double, center: Point, flip: RendererFlip) {
+        var src = srcRect
+        var dst = dstRect
+        var center = center
+
+        SDL_RenderCopyEx(self._rendererPtr, texture._texturePtr, &src, &dst, angle, &center, flip.sdlValue)
     }
 }

@@ -44,7 +44,8 @@ extension SDLSystem: CustomStringConvertible {
     }
 }
 
-class SDL {
+struct SDL {
+    @available(*, unavailable) private init() {}
     static func initialize(_ systems: [SDLSystem]) {
         print("Initializing SDL systems:\(systems)")
         SDL_Init(flagify(systems))

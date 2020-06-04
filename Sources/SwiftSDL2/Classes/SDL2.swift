@@ -1,32 +1,32 @@
 import CSDL2
 
-struct SDLInit: OptionSet {
+struct SDLSystem: OptionSet {
     var rawValue: UInt32
     init(rawValue: UInt32) {
         self.rawValue = rawValue
     }
 
-    static let timer = SDLInit(rawValue: SDL_INIT_TIMER)
-    static let audio = SDLInit(rawValue: SDL_INIT_AUDIO)
-    static let video = SDLInit(rawValue: SDL_INIT_VIDEO) /**< SDL_INIT_VIDEO implies SDL_INIT_EVENTS */
-    static let joystick = SDLInit(rawValue: SDL_INIT_JOYSTICK) /**< SDL_INIT_JOYSTICK implies SDL_INIT_EVENTS */
-    static let haptic = SDLInit(rawValue: SDL_INIT_HAPTIC)
-    static let gameController = SDLInit(rawValue: SDL_INIT_GAMECONTROLLER) /**< SDL_INIT_GAMECONTROLLER implies SDL_INIT_JOYSTICK */
-    static let events = SDLInit(rawValue: SDL_INIT_EVENTS)
-    static let sensor = SDLInit(rawValue: SDL_INIT_SENSOR)
-    static let noParachute = SDLInit(rawValue: SDL_INIT_NOPARACHUTE) /**< compatibility; this flag is ignored. */
-    static let everything = SDLInit(rawValue: (   SDLInit.timer.rawValue 
-                                                | SDLInit.audio.rawValue  
-                                                | SDLInit.joystick.rawValue 
-                                                | SDLInit.haptic.rawValue 
-                                                | SDLInit.gameController.rawValue 
-                                                | SDLInit.events.rawValue 
-                                                | SDLInit.sensor.rawValue )
+    static let timer = SDLSystem(rawValue: SDL_INIT_TIMER)
+    static let audio = SDLSystem(rawValue: SDL_INIT_AUDIO)
+    static let video = SDLSystem(rawValue: SDL_INIT_VIDEO) /**< SDL_INIT_VIDEO implies SDL_INIT_EVENTS */
+    static let joystick = SDLSystem(rawValue: SDL_INIT_JOYSTICK) /**< SDL_INIT_JOYSTICK implies SDL_INIT_EVENTS */
+    static let haptic = SDLSystem(rawValue: SDL_INIT_HAPTIC)
+    static let gameController = SDLSystem(rawValue: SDL_INIT_GAMECONTROLLER) /**< SDL_INIT_GAMECONTROLLER implies SDL_INIT_JOYSTICK */
+    static let events = SDLSystem(rawValue: SDL_INIT_EVENTS)
+    static let sensor = SDLSystem(rawValue: SDL_INIT_SENSOR)
+    static let noParachute = SDLSystem(rawValue: SDL_INIT_NOPARACHUTE) /**< compatibility; this flag is ignored. */
+    static let everything = SDLSystem(rawValue: (   SDLSystem.timer.rawValue 
+                                                | SDLSystem.audio.rawValue  
+                                                | SDLSystem.joystick.rawValue 
+                                                | SDLSystem.haptic.rawValue 
+                                                | SDLSystem.gameController.rawValue 
+                                                | SDLSystem.events.rawValue 
+                                                | SDLSystem.sensor.rawValue )
                                                 )
 
 }
 
-extension SDLInit: CustomStringConvertible {
+extension SDLSystem: CustomStringConvertible {
     var description: String {
         switch self {
             case .timer         : return "timer"
@@ -45,8 +45,23 @@ extension SDLInit: CustomStringConvertible {
 }
 
 class SDL {
-    static func start(_ systems: [SDLInit]) {
+    static func initialize(_ systems: [SDLSystem]) {
         print("Initializing SDL systems:\(systems)")
         SDL_Init(flagify(systems))
+    }
+
+    static func start(subSystems: [SDLSystem]) {
+        print("Initializing SDL subsystems:\(subSystems)")
+        SDL_InitSubSystem(flagify(subSystems))
+    }
+
+    static func quit() {
+        print("Quitting SDL")
+        SDL_Quit()
+    }
+
+    static func quit(subSystems: [SDLSystem]) {
+        print("Quitting SDL subsystems:\(subSystems)")
+        SDL_QuitSubSystem(flagify(subSystems))
     }
 }

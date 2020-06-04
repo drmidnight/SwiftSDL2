@@ -6,7 +6,7 @@ let SCREEN_HEIGHT: Int32 = 680
 
 
 func main() {
-    SDL.start([.video])
+    SDL.initialize([.video])
     let windowTest = Window(title: "Title", position: Point(x: 10, y: 10), size: Size(width: 200, height: 400), flags: [.openGL]) 
     let surface = Surface(from:"/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg" )
     let renderer = Renderer(window: windowTest)
@@ -79,7 +79,7 @@ func main() {
     }
    
 
-    SDL_Quit()
+    SDL.quit()
     return 
 }
 

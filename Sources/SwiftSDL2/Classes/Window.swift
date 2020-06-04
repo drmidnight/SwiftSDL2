@@ -30,22 +30,49 @@ public class Window {
     func showMsg() {
         SDL_ShowSimpleMessageBox(UInt32(0), "test", "message", _windowPtr)
     }
+
+    func setFullscreen(flag: WindowFlags) {
+        if flag == .fullscreen || flag == .fullscreenDesktop {
+             SDL_SetWindowFullscreen(self._windowPtr, flag.rawValue) 
+        }
+    }
+
+    func setIcon(surface: Surface) {
+        defer{surface._surfacePtr?.deallocate()} // might not be necessary
+        SDL_SetWindowIcon(self._windowPtr, surface._surfacePtr)
+    }
+
+    func maximize() {
+        SDL_MaximizeWindow(self._windowPtr)
+    }
+
+    func minimize() {
+        SDL_MinimizeWindow(self._windowPtr)
+    }
+
+    func restore() {
+        SDL_RestoreWindow(self._windowPtr)
+    }
+
+    func raise() {
+        SDL_RaiseWindow(self._windowPtr)
+    }
+
+    func show() {
+        SDL_ShowWindow(self._windowPtr)
+    }
+
+    func hide() {
+        SDL_HideWindow(self._windowPtr)
+    }
 }
 
 extension Window {
-#if os(Linux) 
-    var borderSize: Edges {
-            get {
-                var top: Int32 = 0
-                var left: Int32 = 0
-                var bottom: Int32 = 0
-                var right: Int32 = 0
-
-                SDL_GetWindowBordersSize(self._windowPtr, &top, &left, &bottom, &right)
-                return Edges(top: Int(top), left: Int(left), bottom: Int(bottom), right: Int(right))
-            }
+    var id: UInt32 {
+        get {
+            return SDL_GetWindowID(self._windowPtr)
+        }
     }
-#endif
 
     var bordered: Bool {
         get {
@@ -53,6 +80,31 @@ extension Window {
         }
         set {
             SDL_SetWindowBordered(self._windowPtr, newValue.SDLBoolValue)
+        }
+    }
+
+    var fullscreen: Bool {
+        get {
+            return (SDL_GetWindowFlags(self._windowPtr) & WindowFlags.fullscreen.rawValue) == WindowFlags.fullscreen.rawValue
+        }
+    }
+
+    var resizeable: Bool {
+        get {
+            return (SDL_GetWindowFlags(self._windowPtr) & WindowFlags.resizeable.rawValue) == WindowFlags.resizeable.rawValue
+        }
+        set {
+            SDL_SetWindowResizable(self._windowPtr, newValue.SDLBoolValue)
+        }
+    }
+
+    var inputFocus: Bool {
+        get {
+            return (SDL_GetWindowFlags(self._windowPtr) & WindowFlags.inputFocus.rawValue) == WindowFlags.inputFocus.rawValue
+        }
+        set {
+            // use raise instead. Maybe dont even allow a setter? 
+            if newValue == true {  SDL_SetWindowInputFocus(self._windowPtr) }
         }
     }
 
@@ -86,4 +138,111 @@ extension Window {
             return flags
         }
     }
+
+    var inputGrabbed: Bool {
+        get {
+            return SDL_GetWindowGrab(self._windowPtr).toBool
+        }
+        set {
+            SDL_SetWindowGrab(self._windowPtr, newValue.SDLBoolValue)
+        }
+    }
+
+
+    var position: Point {
+        get {
+            var x: Int32 = 0
+            var y: Int32 = 0
+            SDL_GetWindowPosition(self._windowPtr, &x, &y)
+            return Point(x: x, y: y)
+        }
+        set {
+            SDL_SetWindowPosition(self._windowPtr, newValue.x, newValue.y)
+        }
+    }
+
+    var size: Size {
+        get {
+            var w: Int32 = 0
+            var h: Int32 = 0
+            SDL_GetWindowSize(self._windowPtr, &w, &h)
+            return Size(width: w, height: h)
+        }
+        set {
+            SDL_SetWindowSize(self._windowPtr, Int32(newValue.width), Int32(newValue.height))
+        }
+    }
+
+    var title: String {
+        get {
+            guard let titleValue = SDL_GetWindowTitle( self._windowPtr) else { return ""}
+            defer{titleValue.deallocate()}
+            return String(cString: titleValue)
+        }
+        set {
+            SDL_SetWindowTitle(self._windowPtr, newValue)
+        }
+    }
+
+    var brightness: Float {
+        get {
+            return SDL_GetWindowBrightness(self._windowPtr)
+        }
+        set {
+            SDL_SetWindowBrightness(self._windowPtr, newValue)
+        }
+    }
+
+    var opacity: Float {
+        get {
+            var opacity: Float = 0.0
+            SDL_GetWindowOpacity(self._windowPtr, &opacity)
+            return opacity
+        }
+        set {
+            SDL_SetWindowOpacity(self._windowPtr, newValue)
+        }
+    }
+
+    var maxSize: Size {
+        get {
+            var w: Int32 = 0
+            var h: Int32 = 0
+            SDL_GetWindowMaximumSize(self._windowPtr, &w, &h)
+            return Size(width: w, height: h)
+        }
+        set {
+            SDL_SetWindowMaximumSize(self._windowPtr, Int32(newValue.width), Int32(newValue.height))
+        }
+    }
+
+    var minSize: Size {
+        get {
+            var w: Int32 = 0
+            var h: Int32 = 0
+            SDL_GetWindowMinimumSize(self._windowPtr, &w, &h)
+            return Size(width: w, height: h)
+        }
+        set {
+            SDL_SetWindowMinimumSize(self._windowPtr, Int32(newValue.width), Int32(newValue.height))
+        }
+    }
+
 }
+
+
+#if os(Linux) 
+extension Window {
+    var borderSize: Edges {
+            get {
+                var top: Int32 = 0
+                var left: Int32 = 0
+                var bottom: Int32 = 0
+                var right: Int32 = 0
+
+                SDL_GetWindowBordersSize(self._windowPtr, &top, &left, &bottom, &right)
+                return Edges(top: Int(top), left: Int(left), bottom: Int(bottom), right: Int(right))
+            }
+    }
+}
+#endif

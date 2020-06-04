@@ -179,51 +179,51 @@ Video:
             ☐ SDL_GetVideoDriver
             ✔ SDL_GetWindowBordersSize @done(20-06-04 14:50)
                 - X11 only (currently only looking for linux, in future detect presence of x11)
-            ☐ SDL_GetWindowBrightness
+            ✔ SDL_GetWindowBrightness @done(20-06-04 15:48)
             ☐ SDL_GetWindowData
             ☐ SDL_GetWindowDisplayIndex
             ☐ SDL_GetWindowDisplayMode
             ✔ SDL_GetWindowFlags @done(20-06-04 15:02)
             ☐ SDL_GetWindowFromID
             ☐ SDL_GetWindowGammaRamp
-            ☐ SDL_GetWindowGrab
-            ☐ SDL_GetWindowID
-            ☐ SDL_GetWindowMaximumSize
-            ☐ SDL_GetWindowMinimumSize
-            ☐ SDL_GetWindowOpacity
+            ✔ SDL_GetWindowGrab @done(20-06-04 15:58)
+            ✔ SDL_GetWindowID @done(20-06-04 15:39)
+            ✔ SDL_GetWindowMaximumSize @done(20-06-04 15:55)
+            ✔ SDL_GetWindowMinimumSize @done(20-06-04 15:55)
+            ✔ SDL_GetWindowOpacity @done(20-06-04 15:50)
             ☐ SDL_GetWindowPixelFormat
-            ☐ SDL_GetWindowPosition
-            ☐ SDL_GetWindowSize
+            ✔ SDL_GetWindowPosition @done(20-06-04 15:06)
+            ✔ SDL_GetWindowSize @done(20-06-04 15:08)
             ✔ SDL_GetWindowSurface @done(20-06-04 13:03)
-            ☐ SDL_GetWindowTitle
+            ✔ SDL_GetWindowTitle @done(20-06-04 15:13)
             ☐ SDL_GetWindowWMInfo
-            ☐ SDL_HideWindow
+            ✔ SDL_HideWindow @done(20-06-04 16:00)
             ☐ SDL_IsScreenSaverEnabled
-            ☐ SDL_MaximizeWindow
-            ☐ SDL_MinimizeWindow
-            ☐ SDL_RaiseWindow
-            ☐ SDL_RestoreWindow
+            ✔ SDL_MaximizeWindow @done(20-06-04 15:45)
+            ✔ SDL_MinimizeWindow @done(20-06-04 15:45)
+            ✔ SDL_RaiseWindow @done(20-06-04 15:46)
+            ✔ SDL_RestoreWindow @done(20-06-04 15:45)
             ✔ SDL_SetWindowBordered @done(20-06-04 14:50)
-            ☐ SDL_SetWindowBrightness
+            ✔ SDL_SetWindowBrightness @done(20-06-04 15:47)
             ☐ SDL_SetWindowData
             ☐ SDL_SetWindowDisplayMode
-            ☐ SDL_SetWindowFullscreen
+            ✔ SDL_SetWindowFullscreen @done(20-06-04 15:42)
             ☐ SDL_SetWindowGammaRamp
-            ☐ SDL_SetWindowGrab
+            ✔ SDL_SetWindowGrab @done(20-06-04 15:58)
             ☐ SDL_SetWindowHitTest
-            ☐ SDL_SetWindowIcon
-            ☐ SDL_SetWindowInputFocus
-            ☐ SDL_SetWindowMaximumSize
-            ☐ SDL_SetWindowMinimumSize
+            ✔ SDL_SetWindowIcon @done(20-06-04 15:44)
+            ✔ SDL_SetWindowInputFocus @done(20-06-04 15:57)
+            ✔ SDL_SetWindowMaximumSize @done(20-06-04 15:55)
+            ✔ SDL_SetWindowMinimumSize @done(20-06-04 15:55)
             ☐ SDL_SetWindowModalFor
-            ☐ SDL_SetWindowOpacity
-            ☐ SDL_SetWindowPosition
-            ☐ SDL_SetWindowResizable
-            ☐ SDL_SetWindowSize
-            ☐ SDL_SetWindowTitle
+            ✔ SDL_SetWindowOpacity @done(20-06-04 15:50)
+            ✔ SDL_SetWindowPosition @done(20-06-04 15:06)
+            ✔ SDL_SetWindowResizable @done(20-06-04 15:52)
+            ✔ SDL_SetWindowSize @done(20-06-04 15:08)
+            ✔ SDL_SetWindowTitle @done(20-06-04 15:13)
             ☐ SDL_ShowMessageBox
             ☐ SDL_ShowSimpleMessageBox
-            ☐ SDL_ShowWindow
+            ✔ SDL_ShowWindow @done(20-06-04 16:00)
             ✔ SDL_UpdateWindowSurface @done(20-06-04 13:03)
             ☐ SDL_UpdateWindowSurfaceRects
             ☐ SDL_VideoInit

@@ -177,12 +177,13 @@ Video:
             ☐ SDL_GetNumVideoDisplays
             ☐ SDL_GetNumVideoDrivers
             ☐ SDL_GetVideoDriver
-            ☐ SDL_GetWindowBordersSize
+            ✔ SDL_GetWindowBordersSize @done(20-06-04 14:50)
+                - X11 only (currently only looking for linux, in future detect presence of x11)
             ☐ SDL_GetWindowBrightness
             ☐ SDL_GetWindowData
             ☐ SDL_GetWindowDisplayIndex
             ☐ SDL_GetWindowDisplayMode
-            ☐ SDL_GetWindowFlags
+            ✔ SDL_GetWindowFlags @done(20-06-04 15:02)
             ☐ SDL_GetWindowFromID
             ☐ SDL_GetWindowGammaRamp
             ☐ SDL_GetWindowGrab
@@ -202,7 +203,7 @@ Video:
             ☐ SDL_MinimizeWindow
             ☐ SDL_RaiseWindow
             ☐ SDL_RestoreWindow
-            ☐ SDL_SetWindowBordered
+            ✔ SDL_SetWindowBordered @done(20-06-04 14:50)
             ☐ SDL_SetWindowBrightness
             ☐ SDL_SetWindowData
             ☐ SDL_SetWindowDisplayMode

@@ -28,3 +28,32 @@ public struct WindowFlags: OptionSet {
     static let popupMenu         = WindowFlags(rawValue: SDL_WINDOW_POPUP_MENU.rawValue)          /**< window should be treated as a popup menu */
     static let vulkan            = WindowFlags(rawValue: SDL_WINDOW_VULKAN.rawValue)              /**< window should us vulkan */
 }
+
+extension WindowFlags: CustomStringConvertible {
+    public var description: String {
+        switch self {
+            case .fullscreen: return "fullscreen"        
+            case .openGL           : return "openGL"      
+            case .shown            : return "shown"      
+            case .hidden           : return "hidden"      
+            case .borderless       : return "borderless"      
+            case .resizeable       : return "resizeable"      
+            case .minimized        : return "minimized"      
+            case .maximized        : return "maximized"      
+            case .inputGrabbed     : return "inputGrabbed"      
+            case .inputFocus       : return "inputFocus"      
+            case .mouseFocus       : return "mouseFocus"      
+            case .fullscreenDesktop: return "fullscreenDesktop"      
+            case .foreign          : return "foreign"      
+            case .allowHIDPI       : return "allowHIDPI"      
+            case .mouseCapture     : return "mouseCapture"      
+            case .alwaysOnTop      : return "alwaysOnTop"      
+            case .skipTaskbar      : return "skipTaskbar"      
+            case .utility          : return "utility"      
+            case .tooltip          : return "tooltip"      
+            case .popupMenu        : return "popupMenu"      
+            case .vulkan           : return "vulkan"      
+            default: return "Unknown Window Flag value: \(self)"
+        }   
+    }
+}

@@ -13,7 +13,7 @@ extension SDL_bool {
 }
 
 extension Bool {
-    public var toSDLBool: SDL_bool {
+    public var SDLBoolValue: SDL_bool {
         return (self) ? SDL_TRUE : SDL_FALSE
     }
 }

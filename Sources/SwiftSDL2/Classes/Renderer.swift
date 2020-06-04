@@ -86,7 +86,7 @@ extension Renderer {
             return SDL_RenderGetIntegerScale(self._rendererPtr).toBool
         }
         set {
-            SDL_RenderSetIntegerScale(self._rendererPtr, newValue.toSDLBool)
+            SDL_RenderSetIntegerScale(self._rendererPtr, newValue.SDLBoolValue)
         }
     }
 

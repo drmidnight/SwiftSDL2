@@ -73,4 +73,14 @@ public struct SDL {
         SDL_CalculateGammaRamp(gamma, &ramp)
         return ramp
     }
+
+    static func wasInit(system: SDLSystem) -> SDLSystem {
+        return SDLSystem(rawValue: SDL_WasInit(system.rawValue))
+    }
+
+    // maybe auto-initialize sdl if it hasnt been already?
+    static func main(_ closure: ()->()) {
+        defer{ SDL.quit()}
+        closure()
+    }
 }

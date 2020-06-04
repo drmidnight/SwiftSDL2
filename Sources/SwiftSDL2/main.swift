@@ -4,9 +4,10 @@ import Foundation
 let SCREEN_WIDTH: Int32 = 1024
 let SCREEN_HEIGHT: Int32 = 680
 
-
-func main() {
+// test this a bit. Kind of like this more declaritive approach but might lead to memory issues.
+SDL.main {
     SDL.initialize([.video])
+    print(SDL.wasInit(system: .audio))
     let windowTest = Window(title: "Title", position: Point(x: 10, y: 10), size: Size(width: 200, height: 400), flags: [.openGL]) 
     let surface = Surface(from:"/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg" )
     let renderer = Renderer(window: windowTest)
@@ -78,9 +79,4 @@ func main() {
         // print("FPS: \(1.0/elapsed)")
     }
    
-
-    SDL.quit()
-    return 
 }
-
-main()

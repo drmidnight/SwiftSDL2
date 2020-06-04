@@ -62,7 +62,33 @@ Texture:
     ✔ SDL_UnlockTexture @done(20-06-03 12:53)
     ☐ SDL_UpdateTexture
         ☐ Need pixel buffer and pitch
-
+Surface:
+    ☐ SDL_BlitSurface
+    ☐ SDL_ConvertSurface
+    ☐ SDL_CreateRGBSurface
+    ☐ SDL_CreateRGBSurfaceFrom
+    ☐ SDL_FillRect
+    ☐ SDL_FillRects
+    ☐ SDL_FreeSurface
+    ✔ SDL_GetClipRect @done(20-06-03 17:07)
+    ☐ SDL_GetColorKey
+    ✔ SDL_GetSurfaceAlphaMod @done(20-06-03 17:03)
+    ✔ SDL_GetSurfaceBlendMode @done(20-06-03 17:03)
+    ✔ SDL_GetSurfaceColorMod @done(20-06-03 17:03)
+    ☐ SDL_LoadBMP_RW
+    ☐ SDL_LockSurface
+    ☐ SDL_LowerBlit
+    ☐ SDL_MUSTLOCK
+    ☐ SDL_SaveBMP_RW
+    ✔ SDL_SetClipRect @done(20-06-03 17:07)
+    ☐ SDL_SetColorKey
+    ✔ SDL_SetSurfaceAlphaMod @done(20-06-03 17:03)
+    ✔ SDL_SetSurfaceBlendMode @done(20-06-03 17:03)
+    ✔ SDL_SetSurfaceColorMod @done(20-06-03 17:03)
+    ☐ SDL_SetSurfacePalette
+    ☐ SDL_SetSurfaceRLE
+    ☐ SDL_SoftStretch
+    ☐ SDL_UnlockSurface
 Enums:
     ☐ SDL_AssertState
     ☐ SDL_AudioFormat

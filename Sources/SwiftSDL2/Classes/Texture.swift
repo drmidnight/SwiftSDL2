@@ -19,8 +19,12 @@ class Texture {
 
     init(renderer: Renderer, image: String) {
         let surfacePtr: UnsafeMutablePointer<SDL_Surface>? = IMG_Load(image)
+        defer{SDL_FreeSurface(surfacePtr)}
         self._texturePtr = Texture.createFromSurface(renderer: renderer, surface: surfacePtr)
+    }
 
+    init(renderer: Renderer, surface: Surface) {
+        self._texturePtr = Texture.createFromSurface(renderer: renderer, surface: surface._surfacePtr)
     }
 
     deinit {
@@ -96,6 +100,8 @@ extension Texture {
 
     func unlock() {
         SDL_UnlockTexture(self._texturePtr)
+        self._pixelsPtr?.deallocate()
+        self._pitchPtr?.deallocate()
         self._pixelsPtr = nil
         self._pitchPtr = nil
     }

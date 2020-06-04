@@ -3,18 +3,18 @@ import CSDL2
 class Renderer {
     var _rendererPtr: OpaquePointer?
 
-    init(window: Window, flags: [RendererFlags] = [.accelerated]) {
-        self._rendererPtr = SDL_CreateRenderer(window._windowPtr, -1, flagify(flags))
+    init(window: Window, flags: [RendererFlags] = [.accelerated], driverIndex: Int32 = -1) {
+        self._rendererPtr = SDL_CreateRenderer(window._windowPtr, driverIndex, flagify(flags))
     }
 
     deinit {
-      self.destroy()
+        self.destroy()
     }
 
     func destroy() {
         print("Destroying renderer")
         SDL_DestroyRenderer(self._rendererPtr)
-        _rendererPtr = nil
+        self._rendererPtr = nil
     }
 
 }

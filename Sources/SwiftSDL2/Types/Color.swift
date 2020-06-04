@@ -21,4 +21,10 @@ extension Color {
     var sdlColor: SDL_Color {
         return SDL_Color(r: self.r, g: self.g, b: self.b, a: self.a)
     }
+
+    // Needs PixelFormat struct. FIXME
+    var mapRGB: UInt32 {
+        var frmt = SDL_PixelFormat()
+        return SDL_MapRGB(&frmt, self.r, self.g, self.b)
+    }
 }

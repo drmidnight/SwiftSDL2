@@ -6,7 +6,7 @@ let SCREEN_HEIGHT: Int32 = 680
 
 func main() {
     let windowTest = Window(title: "Title", position: Point(x: 10, y: 10), size: Size(width: 200, height: 400), flags: [.openGL]) 
-    let screenSurface = windowTest.getSurface()
+    let surface = Surface(from:"/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg" )
     let renderer = Renderer(window: windowTest)
     var quit = false
     var event = SDL_Event()
@@ -27,10 +27,8 @@ func main() {
                 case SDL_WINDOWEVENT.rawValue:
                 if let eventType = WindowEventID(rawValue: event.window.event) {
                     switch eventType {
-                        case .moved:
-                            print("moved")
                         default:
-                            print("Event: \(eventType)!)")
+                            print("Event: \(eventType)")
                     }
                 }
                 case SDL_QUIT.rawValue:
@@ -38,7 +36,7 @@ func main() {
             default:
                 break
             }
-        }
+        }val
         renderer.scale = Vector2(x: 2.0, y: 2.0)
         // probably some retain issue. 
         // Fix this so it isnt a self reference. Maybe window.render() which passes in its renderer?

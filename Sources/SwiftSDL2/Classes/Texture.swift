@@ -80,6 +80,7 @@ extension Texture {
     }
 }
 
+
 extension Texture {
       // wrap Surface next
     static func createFromSurface(renderer: Renderer, surface:  UnsafeMutablePointer<SDL_Surface>?) -> OpaquePointer? {
@@ -87,13 +88,13 @@ extension Texture {
     }
 
     // move to texture info struct
-    func query() -> (format: Uint32, access: Int32, width: Int32, height: Int32) {
+    func query() -> TextureInfo {
         var format: Uint32 = 0
         var access: Int32 = 0
         var w: Int32 = 0
         var h: Int32 = 0
         SDL_QueryTexture(self._texturePtr, &format, &access, &w, &h)
-        return (format: format, access: access, width: w, height: h)
+        return TextureInfo(format: PixelFormats(rawValue:format), access: TextureAccess(rawValue:access), size: Size(width: w, height: h))
     }
 
     func lock(rect: Rect) {
@@ -109,7 +110,7 @@ extension Texture {
         self._pitchPtr = nil
     }
 
-    func update() {
+    func update(pixels: UnsafeRawPointer, pitch: Int32) {
        //  SDL_UpdateTexture(texture: OpaquePointer!, rect: UnsafePointer<SDL_Rect>!, pixels: UnsafeRawPointer!, pitch: Int32)
     }
         

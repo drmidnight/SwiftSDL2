@@ -36,7 +36,7 @@ func main() {
             default:
                 break
             }
-        }val
+        }
         renderer.scale = Vector2(x: 2.0, y: 2.0)
         // probably some retain issue. 
         // Fix this so it isnt a self reference. Maybe window.render() which passes in its renderer?

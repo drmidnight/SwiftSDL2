@@ -79,6 +79,22 @@ extension Surface {
 }
 
 extension Surface {
+
+    func blitSurface(dstSurface: Surface, dstRect: Rect, srcRect: Rect) {
+        var srcRect = srcRect
+        var dstRect = dstRect
+        SDL_UpperBlit(self._surfacePtr, &srcRect, dstSurface._surfacePtr, &dstRect)
+    }
+
+    func blitSurface(dstSurface: Surface, dstRect: Rect) {
+        var dstRect = dstRect
+        SDL_UpperBlit(self._surfacePtr, nil, dstSurface._surfacePtr, &dstRect)
+    }
+
+    func blitSurface(to surface: Surface) {
+        SDL_UpperBlit(self._surfacePtr, nil, surface._surfacePtr, nil)
+    }
+
     func fillRect(_ rect: Rect, color: Color) {
         var _sdlRect = rect
         SDL_FillRect(self._surfacePtr, &_sdlRect, color.mapRGB)

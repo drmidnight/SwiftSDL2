@@ -63,7 +63,7 @@ Texture:
     ☐ SDL_UpdateTexture
         ☐ Need pixel buffer and pitch
 Surface:
-    ☐ SDL_BlitSurface
+    ✔ SDL_BlitSurface @done(20-06-03 17:54)
     ☐ SDL_ConvertSurface
     ☐ SDL_CreateRGBSurface
     ☐ SDL_CreateRGBSurfaceFrom

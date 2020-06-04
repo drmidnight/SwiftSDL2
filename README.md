@@ -68,7 +68,7 @@ My attempt at wrapping SDL2. Heavily work-in-progress so don't use it. Hoping to
     ✔ SDL_UnlockTexture
     ☐ SDL_UpdateTexture
 ### - Surface
-    ☐ SDL_BlitSurface
+    ✔ SDL_BlitSurface
     ☐ SDL_ConvertSurface
     ☐ SDL_CreateRGBSurface
     ☐ SDL_CreateRGBSurfaceFrom

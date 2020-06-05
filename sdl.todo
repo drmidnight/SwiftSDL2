@@ -1,823 +1,816 @@
-Basics:
-    Initialization and Shutdown:
-        Functions:
-            ✔ SDL_Init @done(20-06-04 12:58)
-            ✔ SDL_InitSubSystem @done(20-06-04 12:58)
-            ✔ SDL_Quit @done(20-06-04 12:59)
-            ✔ SDL_QuitSubSystem @done(20-06-04 12:59)
-            ☐ SDL_SetMainReady
-            ☐ SDL_WasInit
-            ☐ SDL_WinRTRunApp      
-    Configuration Variables:
-        Hints:
-            ☐ SDL_HINT_ACCELEROMETER_AS_JOYSTICK
-            ☐ SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION
-            ☐ SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION
-            ☐ SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH
-            ☐ SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS
-            ☐ SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION
-            ☐ SDL_HINT_BMP_SAVE_LEGACY_FORMAT
-            ☐ SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT
-            ☐ SDL_HINT_FRAMEBUFFER_ACCELERATION
-            ☐ SDL_HINT_GAMECONTROLLERCONFIG
-            ☐ SDL_HINT_GRAB_KEYBOARD
-            ☐ SDL_HINT_IDLE_TIMER_DISABLED
-            ☐ SDL_HINT_IME_INTERNAL_EDITING
-            ☐ SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS
-            ☐ SDL_HINT_MAC_BACKGROUND_APP
-            ☐ SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK
-            ☐ SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH
-            ☐ SDL_HINT_MOUSE_RELATIVE_MODE_WARP
-            ☐ SDL_HINT_NO_SIGNAL_HANDLERS
-            ☐ SDL_HINT_ORIENTATIONS
-            ☐ SDL_HINT_RENDER_DIRECT3D11_DEBUG
-            ☐ SDL_HINT_RENDER_DIRECT3D_THREADSAFE
-            ☐ SDL_HINT_RENDER_DRIVER
-            ☐ SDL_HINT_RENDER_OPENGL_SHADERS
-            ☐ SDL_HINT_RENDER_SCALE_QUALITY
-            ☐ SDL_HINT_RENDER_VSYNC
-            ☐ SDL_HINT_RPI_VIDEO_LAYER
-            ☐ SDL_HINT_THREAD_STACK_SIZE
-            ☐ SDL_HINT_TIMER_RESOLUTION
-            ☐ SDL_HINT_VIDEO_ALLOW_SCREENSAVER
-            ☐ SDL_HINT_VIDEO_HIGHDPI_DISABLED
-            ☐ SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES
-            ☐ SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS
-            ☐ SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT
-            ☐ SDL_HINT_VIDEO_WIN_D3DCOMPILER
-            ☐ SDL_HINT_VIDEO_X11_NET_WM_PING
-            ☐ SDL_HINT_VIDEO_X11_XINERAMA
-            ☐ SDL_HINT_VIDEO_X11_XRANDR
-            ☐ SDL_HINT_VIDEO_X11_XVIDMODE
-            ☐ SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING
-            ☐ SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP
-            ☐ SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4
-            ☐ SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN
-            ☐ SDL_HINT_WINRT_HANDLE_BACK_BUTTON
-            ☐ SDL_HINT_WINRT_PRIVACY_POLICY_LABEL
-            ☐ SDL_HINT_WINRT_PRIVACY_POLICY_URL
-            ☐ SDL_HINT_XINPUT_ENABLED
-            ☐ SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING
-        Enumerations:
-            ☐ SDL_HintPriority
-        Functions:
-            ☐ SDL_AddHintCallback
-            ☐ SDL_ClearHints
-            ☐ SDL_DelHintCallback
-            ☐ SDL_GetHint
-            ☐ SDL_GetHintBoolean
-            ☐ SDL_SetHint
-            ☐ SDL_SetHintWithPriority
-    Error Handling:
-        Functions:
-            ☐ SDL_ClearError
-            ☐ SDL_GetError
-            ☐ SDL_SetError
-    Log Handling:
-        Enumerations:
-            ☐ SDL_LOG_CATEGORY
-            ☐ SDL_LogPriority
-        Functions:
-            ☐ SDL_Log
-            ☐ SDL_LogCritical
-            ☐ SDL_LogDebug
-            ☐ SDL_LogError
-            ☐ SDL_LogGetOutputFunction
-            ☐ SDL_LogGetPriority
-            ☐ SDL_LogInfo
-            ☐ SDL_LogMessage
-            ☐ SDL_LogMessageV
-            ☐ SDL_LogResetPriorities
-            ☐ SDL_LogSetAllPriority
-            ☐ SDL_LogSetOutputFunction
-            ☐ SDL_LogSetPriority
-            ☐ SDL_LogVerbose
-            ☐ SDL_LogWarn
-    Assertions:
-        Enumerations:
-            ☐ SDL_AssertState
-        Structures:
-            ☐ SDL_assert_data
-        Functions:
-            ☐ SDL_GetAssertionHandler
-            ☐ SDL_GetAssertionReport
-            ☐ SDL_GetDefaultAssertionHandler
-            ☐ SDL_ResetAssertionReport
-            ☐ SDL_SetAssertionHandler
-            ☐ SDL_TriggerBreakpoint
-            ☐ SDL_assert
-            ☐ SDL_assert_paranoid
-            ☐ SDL_assert_release
-    Querying SDL Version:
-        Structures:
-            ☐ SDL_version
-        Functions:
-            ☐ SDL_COMPILEDVERSION
-            ☐ SDL_GetRevision
-            ☐ SDL_GetRevisionNumber
-            ☐ SDL_GetVersion
-            ☐ SDL_REVISION
-            ☐ SDL_VERSION
-            ☐ SDL_VERSIONNUM
-            ☐ SDL_VERSION_ATLEAST
-Video:
-    Display and Window Management:
-        Enumerations:
-            ✔ SDL_BlendMode @done(20-06-04 13:02)
-            ☐ SDL_GLattr
-            ☐ SDL_GLcontextFlag
-            ☐ SDL_GLprofile
-            ☐ SDL_HitTestResult
-            ☐ SDL_MessageBoxButtonFlags
-            ☐ SDL_MessageBoxColorType
-            ✔ SDL_MessageBoxFlags @done(20-06-04 16:09)
-            ✔ SDL_WindowEventID @done(20-06-04 13:02)
-            ✔ SDL_WindowFlags @done(20-06-04 13:02)
-        Structures:
-            ☐ SDL_DisplayMode
-            ☐ SDL_MessageBoxButtonData
-            ☐ SDL_MessageBoxColor
-            ☐ SDL_MessageBoxColorScheme
-            ☐ SDL_MessageBoxData
-            ☐ SDL_WindowEvent
-        Functions:
-            ✔ SDL_CreateWindow @done(20-06-04 13:02)
-            ☐ SDL_CreateWindowAndRenderer
-            ☐ SDL_CreateWindowFrom
-            ✔ SDL_DestroyWindow @done(20-06-04 13:02)
-            ✔ SDL_DisableScreenSaver @done(20-06-04 16:03)
-            ✔ SDL_EnableScreenSaver @done(20-06-04 16:03)
-            ☐ SDL_GL_CreateContext
-            ☐ SDL_GL_DeleteContext
-            ☐ SDL_GL_ExtensionSupported
-            ☐ SDL_GL_GetAttribute
-            ☐ SDL_GL_GetCurrentContext
-            ☐ SDL_GL_GetCurrentWindow
-            ☐ SDL_GL_GetDrawableSize
-            ☐ SDL_GL_GetProcAddress
-            ☐ SDL_GL_GetSwapInterval
-            ☐ SDL_GL_LoadLibrary
-            ☐ SDL_GL_MakeCurrent
-            ☐ SDL_GL_ResetAttributes
-            ☐ SDL_GL_SetAttribute
-            ☐ SDL_GL_SetSwapInterval
-            ☐ SDL_GL_SwapWindow
-            ☐ SDL_GL_UnloadLibrary
-            ☐ SDL_GetClosestDisplayMode
-            ☐ SDL_GetCurrentDisplayMode
-            ☐ SDL_GetCurrentVideoDriver
-            ☐ SDL_GetDesktopDisplayMode
-            ☐ SDL_GetDisplayBounds
-            ☐ SDL_GetDisplayDPI
-            ☐ SDL_GetDisplayMode
-            ☐ SDL_GetDisplayName
-            ☐ SDL_GetDisplayUsableBounds
-            ☐ SDL_GetGrabbedWindow
-            ☐ SDL_GetNumDisplayModes
-            ☐ SDL_GetNumVideoDisplays
-            ☐ SDL_GetNumVideoDrivers
-            ☐ SDL_GetVideoDriver
-            ✔ SDL_GetWindowBordersSize @done(20-06-04 14:50)
-                - X11 only (currently only looking for linux, in future detect presence of x11)
-            ✔ SDL_GetWindowBrightness @done(20-06-04 15:48)
-            ☐ SDL_GetWindowData
-            ✔ SDL_GetWindowDisplayIndex @done(20-06-04 16:18)
-            ☐ SDL_GetWindowDisplayMode
-            ✔ SDL_GetWindowFlags @done(20-06-04 15:02)
-            ☐ SDL_GetWindowFromID
-            ☐ SDL_GetWindowGammaRamp
-            ✔ SDL_GetWindowGrab @done(20-06-04 15:58)
-            ✔ SDL_GetWindowID @done(20-06-04 15:39)
-            ✔ SDL_GetWindowMaximumSize @done(20-06-04 15:55)
-            ✔ SDL_GetWindowMinimumSize @done(20-06-04 15:55)
-            ✔ SDL_GetWindowOpacity @done(20-06-04 15:50)
-            ☐ SDL_GetWindowPixelFormat
-            ✔ SDL_GetWindowPosition @done(20-06-04 15:06)
-            ✔ SDL_GetWindowSize @done(20-06-04 15:08)
-            ✔ SDL_GetWindowSurface @done(20-06-04 13:03)
-            ✔ SDL_GetWindowTitle @done(20-06-04 15:13)
-            ☐ SDL_GetWindowWMInfo
-            ✔ SDL_HideWindow @done(20-06-04 16:00)
-            ✔ SDL_IsScreenSaverEnabled @done(20-06-04 16:19)
-            ✔ SDL_MaximizeWindow @done(20-06-04 15:45)
-            ✔ SDL_MinimizeWindow @done(20-06-04 15:45)
-            ✔ SDL_RaiseWindow @done(20-06-04 15:46)
-            ✔ SDL_RestoreWindow @done(20-06-04 15:45)
-            ✔ SDL_SetWindowBordered @done(20-06-04 14:50)
-            ✔ SDL_SetWindowBrightness @done(20-06-04 15:47)
-            ☐ SDL_SetWindowData
-            ☐ SDL_SetWindowDisplayMode
-            ✔ SDL_SetWindowFullscreen @done(20-06-04 15:42)
-            ☐ SDL_SetWindowGammaRamp
-            ✔ SDL_SetWindowGrab @done(20-06-04 15:58)
-            ☐ SDL_SetWindowHitTest
-            ✔ SDL_SetWindowIcon @done(20-06-04 15:44)
-            ✔ SDL_SetWindowInputFocus @done(20-06-04 15:57)
-            ✔ SDL_SetWindowMaximumSize @done(20-06-04 15:55)
-            ✔ SDL_SetWindowMinimumSize @done(20-06-04 15:55)
-            ☐ SDL_SetWindowModalFor
-            ✔ SDL_SetWindowOpacity @done(20-06-04 15:50)
-            ✔ SDL_SetWindowPosition @done(20-06-04 15:06)
-            ✔ SDL_SetWindowResizable @done(20-06-04 15:52)
-            ✔ SDL_SetWindowSize @done(20-06-04 15:08)
-            ✔ SDL_SetWindowTitle @done(20-06-04 15:13)
-            ☐ SDL_ShowMessageBox
-            ✔ SDL_ShowSimpleMessageBox @done(20-06-04 16:11)
-            ✔ SDL_ShowWindow @done(20-06-04 16:00)
-            ✔ SDL_UpdateWindowSurface @done(20-06-04 13:03)
-            ☐ SDL_UpdateWindowSurfaceRects
-            ☐ SDL_VideoInit
-            ☐ SDL_VideoQuit
+SDL2:
+    Basics:
+        Initialization and Shutdown:
+            Functions:
+                ✔ SDL_Init @done
+                ✔ SDL_InitSubSystem @done
+                ✔ SDL_Quit @done
+                ✔ SDL_QuitSubSystem @done
+                ✔ SDL_SetMainReady @done
+                ✔ SDL_WasInit @done
+                ☐ SDL_WinRTRunApp 
+                  Holding off on windows related functions for now     
+        Configuration Variables:
+            Hints:
+                ✔ SDL_HINT_ACCELEROMETER_AS_JOYSTICK @done
+                ✔ SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION @done
+                ✔ SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION @done
+                ✔ SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH @done
+                ✔ SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS @done
+                ✔ SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION @done
+                ✔ SDL_HINT_BMP_SAVE_LEGACY_FORMAT @done
+                ✔ SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT @done
+                ✔ SDL_HINT_FRAMEBUFFER_ACCELERATION @done
+                ✔ SDL_HINT_GAMECONTROLLERCONFIG @done
+                ✔ SDL_HINT_GRAB_KEYBOARD @done
+                ✔ SDL_HINT_IDLE_TIMER_DISABLED @done
+                ✔ SDL_HINT_IME_INTERNAL_EDITING @done
+                ✔ SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS @done
+                ✔ SDL_HINT_MAC_BACKGROUND_APP @done
+                ✔ SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK @done
+                ✔ SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH @done
+                ✔ SDL_HINT_MOUSE_RELATIVE_MODE_WARP @done
+                ✔ SDL_HINT_NO_SIGNAL_HANDLERS @done
+                ✔ SDL_HINT_ORIENTATIONS @done
+                ✔ SDL_HINT_RENDER_DIRECT3D11_DEBUG @done
+                ✔ SDL_HINT_RENDER_DIRECT3D_THREADSAFE @done
+                ✔ SDL_HINT_RENDER_DRIVER @done
+                ✔ SDL_HINT_RENDER_OPENGL_SHADERS @done
+                ✔ SDL_HINT_RENDER_SCALE_QUALITY @done
+                ✔ SDL_HINT_RENDER_VSYNC @done
+                ✔ SDL_HINT_RPI_VIDEO_LAYER @done
+                ✔ SDL_HINT_THREAD_STACK_SIZE @done
+                ✔ SDL_HINT_TIMER_RESOLUTION @done
+                ✔ SDL_HINT_VIDEO_ALLOW_SCREENSAVER @done
+                ✔ SDL_HINT_VIDEO_HIGHDPI_DISABLED @done
+                ✔ SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES @done
+                ✔ SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS @done
+                ✔ SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT @done
+                ✔ SDL_HINT_VIDEO_WIN_D3DCOMPILER @done
+                ✔ SDL_HINT_VIDEO_X11_NET_WM_PING @done
+                ✔ SDL_HINT_VIDEO_X11_XINERAMA @done
+                ✔ SDL_HINT_VIDEO_X11_XRANDR @done
+                ✔ SDL_HINT_VIDEO_X11_XVIDMODE @done
+                ✔ SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING @done
+                ✔ SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP @done
+                ✔ SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4 @done
+                ✔ SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN @done
+                ✔ SDL_HINT_WINRT_HANDLE_BACK_BUTTON @done
+                ✔ SDL_HINT_WINRT_PRIVACY_POLICY_LABEL @done
+                ✔ SDL_HINT_WINRT_PRIVACY_POLICY_URL @done
+                ✔ SDL_HINT_XINPUT_ENABLED @done
+                ✔ SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING @done
+            Enumerations:
+                ✔ SDL_HintPriority @done
+            Functions:
+                ✔ SDL_AddHintCallback @done
+                ✔ SDL_ClearHints @done
+                ✔ SDL_DelHintCallback @done
+                ✔ SDL_GetHint @done
+                ✔ SDL_GetHintBoolean @done
+                ✔ SDL_SetHint @done
+                ✔ SDL_SetHintWithPriority @done
+        Error Handling:
+            Functions:
+                ☐ SDL_ClearError
+                ☐ SDL_GetError
+                ☐ SDL_SetError
+        Log Handling:
+            Enumerations:
+                ☐ SDL_LOG_CATEGORY
+                ☐ SDL_LogPriority
+            Functions:
+                ☐ SDL_Log
+                ☐ SDL_LogCritical
+                ☐ SDL_LogDebug
+                ☐ SDL_LogError
+                ☐ SDL_LogGetOutputFunction
+                ☐ SDL_LogGetPriority
+                ☐ SDL_LogInfo
+                ☐ SDL_LogMessage
+                ☐ SDL_LogMessageV
+                ☐ SDL_LogResetPriorities
+                ☐ SDL_LogSetAllPriority
+                ☐ SDL_LogSetOutputFunction
+                ☐ SDL_LogSetPriority
+                ☐ SDL_LogVerbose
+                ☐ SDL_LogWarn
+        Assertions:
+            Enumerations:
+                ☐ SDL_AssertState
+            Structures:
+                ☐ SDL_assert_data
+            Functions:
+                ☐ SDL_GetAssertionHandler
+                ☐ SDL_GetAssertionReport
+                ☐ SDL_GetDefaultAssertionHandler
+                ☐ SDL_ResetAssertionReport
+                ☐ SDL_SetAssertionHandler
+                ☐ SDL_TriggerBreakpoint
+                ☐ SDL_assert
+                ☐ SDL_assert_paranoid
+                ☐ SDL_assert_release
+        Querying SDL Version:
+            Structures:
+                ☐ SDL_version
+            Functions:
+                ☐ SDL_COMPILEDVERSION
+                ☐ SDL_GetRevision
+                ☐ SDL_GetRevisionNumber
+                ☐ SDL_GetVersion
+                ☐ SDL_REVISION
+                ☐ SDL_VERSION
+                ☐ SDL_VERSIONNUM
+                ☐ SDL_VERSION_ATLEAST
+    Video:
+        Display and Window Management:
+            Enumerations:
+                ✔ SDL_BlendMode @done
+                ☐ SDL_GLattr
+                ☐ SDL_GLcontextFlag
+                ☐ SDL_GLprofile
+                ☐ SDL_HitTestResult
+                ☐ SDL_MessageBoxButtonFlags
+                ☐ SDL_MessageBoxColorType
+                ✔ SDL_MessageBoxFlags @done
+                ✔ SDL_WindowEventID @done
+                ✔ SDL_WindowFlags @done
+            Structures:
+                ☐ SDL_DisplayMode
+                ☐ SDL_MessageBoxButtonData
+                ☐ SDL_MessageBoxColor
+                ☐ SDL_MessageBoxColorScheme
+                ☐ SDL_MessageBoxData
+                ☐ SDL_WindowEvent
+            Functions:
+                ✔ SDL_CreateWindow @done
+                ☐ SDL_CreateWindowAndRenderer
+                ☐ SDL_CreateWindowFrom
+                ✔ SDL_DestroyWindow @done
+                ✔ SDL_DisableScreenSaver @done
+                ✔ SDL_EnableScreenSaver @done
+                ☐ SDL_GL_CreateContext
+                ☐ SDL_GL_DeleteContext
+                ☐ SDL_GL_ExtensionSupported
+                ☐ SDL_GL_GetAttribute
+                ☐ SDL_GL_GetCurrentContext
+                ☐ SDL_GL_GetCurrentWindow
+                ☐ SDL_GL_GetDrawableSize
+                ☐ SDL_GL_GetProcAddress
+                ☐ SDL_GL_GetSwapInterval
+                ☐ SDL_GL_LoadLibrary
+                ☐ SDL_GL_MakeCurrent
+                ☐ SDL_GL_ResetAttributes
+                ☐ SDL_GL_SetAttribute
+                ☐ SDL_GL_SetSwapInterval
+                ☐ SDL_GL_SwapWindow
+                ☐ SDL_GL_UnloadLibrary
+                ☐ SDL_GetClosestDisplayMode
+                ☐ SDL_GetCurrentDisplayMode
+                ☐ SDL_GetCurrentVideoDriver
+                ☐ SDL_GetDesktopDisplayMode
+                ☐ SDL_GetDisplayBounds
+                ☐ SDL_GetDisplayDPI
+                ☐ SDL_GetDisplayMode
+                ☐ SDL_GetDisplayName
+                ☐ SDL_GetDisplayUsableBounds
+                ☐ SDL_GetGrabbedWindow
+                ☐ SDL_GetNumDisplayModes
+                ☐ SDL_GetNumVideoDisplays
+                ☐ SDL_GetNumVideoDrivers
+                ☐ SDL_GetVideoDriver
+                ✔ SDL_GetWindowBordersSize @done
+                    - X11 only (currently only looking for linux, in future detect presence of x11)
+                ✔ SDL_GetWindowBrightness @done
+                ☐ SDL_GetWindowData
+                ✔ SDL_GetWindowDisplayIndex @done
+                ☐ SDL_GetWindowDisplayMode
+                ✔ SDL_GetWindowFlags @done
+                ☐ SDL_GetWindowFromID
+                ☐ SDL_GetWindowGammaRamp
+                ✔ SDL_GetWindowGrab @done
+                ✔ SDL_GetWindowID @done
+                ✔ SDL_GetWindowMaximumSize @done
+                ✔ SDL_GetWindowMinimumSize @done
+                ✔ SDL_GetWindowOpacity @done
+                ☐ SDL_GetWindowPixelFormat
+                ✔ SDL_GetWindowPosition @done
+                ✔ SDL_GetWindowSize @done
+                ✔ SDL_GetWindowSurface @done
+                ✔ SDL_GetWindowTitle @done
+                ☐ SDL_GetWindowWMInfo
+                ✔ SDL_HideWindow @done
+                ✔ SDL_IsScreenSaverEnabled @done
+                ✔ SDL_MaximizeWindow @done
+                ✔ SDL_MinimizeWindow @done
+                ✔ SDL_RaiseWindow @done
+                ✔ SDL_RestoreWindow @done
+                ✔ SDL_SetWindowBordered @done
+                ✔ SDL_SetWindowBrightness @done
+                ☐ SDL_SetWindowData
+                ☐ SDL_SetWindowDisplayMode
+                ✔ SDL_SetWindowFullscreen @done
+                ☐ SDL_SetWindowGammaRamp
+                ✔ SDL_SetWindowGrab @done
+                ☐ SDL_SetWindowHitTest
+                ✔ SDL_SetWindowIcon @done
+                ✔ SDL_SetWindowInputFocus @done
+                ✔ SDL_SetWindowMaximumSize @done
+                ✔ SDL_SetWindowMinimumSize @done
+                ☐ SDL_SetWindowModalFor
+                ✔ SDL_SetWindowOpacity @done
+                ✔ SDL_SetWindowPosition @done
+                ✔ SDL_SetWindowResizable @done
+                ✔ SDL_SetWindowSize @done
+                ✔ SDL_SetWindowTitle @done
+                ☐ SDL_ShowMessageBox
+                ✔ SDL_ShowSimpleMessageBox @done
+                ✔ SDL_ShowWindow @done
+                ✔ SDL_UpdateWindowSurface @done
+                ☐ SDL_UpdateWindowSurfaceRects
+                ☐ SDL_VideoInit
+                ☐ SDL_VideoQuit
 
-    2D Accelerated Rendering:
-        Enumerations:
-            ✔ SDL_BlendFactor @done(20-06-04 13:02)
-            ✔ SDL_BlendOperation @done(20-06-04 13:01)
-            ✔ SDL_RendererFlags @done(20-06-04 13:01)
-            ✔ SDL_RendererFlip @done(20-06-04 16:23)
-            ✔ SDL_TextureAccess @done(20-06-04 13:01)
-            ✔ SDL_TextureModulate @done(20-06-04 16:25)
-        Structures:
-            ✔ SDL_Renderer @done(20-06-04 12:59)
-            ✔ SDL_RendererInfo @done(20-06-04 12:59)
-            ✔ SDL_Texture @done(20-06-04 12:59)
-        Functions:
-            ☐ SDL_ComposeCustomBlendMode
-            ✔ SDL_CreateRenderer @done(20-06-04 12:59)
-            ☐ SDL_CreateSoftwareRenderer
-            ✔ SDL_CreateTexture @done(20-06-04 12:59)
-            ☐ SDL_CreateTextureFromSurface
-            ☐ SDL_CreateWindowAndRenderer
-            ✔ SDL_DestroyRenderer @done(20-06-04 12:59)
-            ✔ SDL_DestroyTexture @done(20-06-04 12:59)
-            ☐ SDL_GL_BindTexture
-            ☐ SDL_GL_UnbindTexture
-            ☐ SDL_GetNumRenderDrivers
-            ✔ SDL_GetRenderDrawBlendMode @done(20-06-04 13:01)
-            ✔ SDL_GetRenderDrawColor @done(20-06-04 13:01)
-            ☐ SDL_GetRenderDriverInfo
-            ✔ SDL_GetRenderTarget @done(20-06-04 12:59)
-            ✔ SDL_GetRenderer @done(20-06-04 16:28)
-            ✔ SDL_GetRendererInfo @done(20-06-04 12:59)
-            ✔ SDL_GetRendererOutputSize @done(20-06-04 13:01)
-            ✔ SDL_GetTextureAlphaMod @done(20-06-04 12:59)
-            ✔ SDL_GetTextureBlendMode @done(20-06-04 12:59)
-            ✔ SDL_GetTextureColorMod @done(20-06-04 12:59)
-            ✔ SDL_LockTexture @done(20-06-04 13:01)
-            ☐ SDL_QueryTexture
-            ✔ SDL_RenderClear @done(20-06-04 12:59)
-            ✔ SDL_RenderCopy @done(20-06-04 13:00)
-            ✔ SDL_RenderCopyEx @done(20-06-04 16:44)
-            ✔ SDL_RenderDrawLine @done(20-06-04 13:00)
-            ✔ SDL_RenderDrawLines @done(20-06-04 13:00)
-            ✔ SDL_RenderDrawPoint @done(20-06-04 13:00)
-            ✔ SDL_RenderDrawPoints @done(20-06-04 13:00)
-            ✔ SDL_RenderDrawRect @done(20-06-04 13:00)
-            ✔ SDL_RenderDrawRects @done(20-06-04 13:00)
-            ✔ SDL_RenderFillRect @done(20-06-04 13:00)
-            ✔ SDL_RenderFillRects @done(20-06-04 13:00)
-            ✔ SDL_RenderGetClipRect @done(20-06-04 13:00)
-            ✔ SDL_RenderGetIntegerScale @done(20-06-04 13:00)
-            ✔ SDL_RenderGetLogicalSize @done(20-06-04 13:00)
-            ✔ SDL_RenderGetScale @done(20-06-04 13:00)
-            ✔ SDL_RenderGetViewport @done(20-06-04 13:00)
-            ✔ SDL_RenderIsClipEnabled @done(20-06-04 13:00)
-            ✔ SDL_RenderPresent @done(20-06-04 13:00)
-            ☐ SDL_RenderReadPixels
-            ✔ SDL_RenderSetClipRect @done(20-06-04 13:00)
-            ✔ SDL_RenderSetIntegerScale @done(20-06-04 13:00)
-            ✔ SDL_RenderSetLogicalSize @done(20-06-04 13:00)
-            ✔ SDL_RenderSetScale @done(20-06-04 13:00)
-            ✔ SDL_RenderSetViewport @done(20-06-04 13:00)
-            ✔ SDL_RenderTargetSupported @done(20-06-04 13:01)
-            ✔ SDL_SetRenderDrawBlendMode @done(20-06-04 13:00)
-            ✔ SDL_SetRenderDrawColor @done(20-06-04 13:00)
-            ✔ SDL_SetRenderTarget @done(20-06-04 13:01)
-            ✔ SDL_SetTextureAlphaMod @done(20-06-04 13:01)
-            ✔ SDL_SetTextureBlendMode @done(20-06-04 13:01)
-            ✔ SDL_SetTextureColorMod @done(20-06-04 13:01)
-            ✔ SDL_UnlockTexture @done(20-06-04 13:01)
-            ☐ SDL_UpdateTexture
-            ☐ SDL_UpdateYUVTexture
-    Pixel Formats and Conversion Routines:
-        Enumerations:
-            ✔ SDL_PixelFormatEnum @done(20-06-04 13:03)
-        Structures:
-            ✔ SDL_Color @done(20-06-04 13:04)
-            ☐ SDL_Palette
-            ✔ SDL_PixelFormat @done(20-06-04 13:04)
-        Functions:
-            ☐ SDL_AllocFormat
-            ☐ SDL_AllocPalette
-            ✔ SDL_CalculateGammaRamp @done(20-06-04 13:04)
-            ☐ SDL_FreeFormat
-            ☐ SDL_FreePalette
-            ☐ SDL_GetPixelFormatName
-            ☐ SDL_GetRGB
-            ☐ SDL_GetRGBA
-            ☐ SDL_MapRGB
-            ☐ SDL_MapRGBA
-            ☐ SDL_MasksToPixelFormatEnum
-            ☐ SDL_PixelFormatEnumToMasks
-            ☐ SDL_SetPaletteColors
-            ☐ SDL_SetPixelFormatPalette
-    Rectangle Functions:
-        Structures:
-            ✔ SDL_Point @done(20-06-04 13:04)
-            ✔ SDL_Rect @done(20-06-04 13:04)
-        Functions:
-            ☐ SDL_EnclosePoints
-            ☐ SDL_HasIntersection
-            ☐ SDL_IntersectRect
-            ☐ SDL_IntersectRectAndLine
-            ☐ SDL_PointInRect
-            ☐ SDL_RectEmpty
-            ☐ SDL_RectEquals
-            ☐ SDL_UnionRect
-    Surface Creation and Simple Drawing:
-        Structures:
-            ✔ SDL_Surface @done(20-06-04 13:04)
-        Functions:
-            ☐ SDL_BlitScaled
-            ✔ SDL_BlitSurface @done(20-06-04 13:04)
-            ☐ SDL_ConvertPixels
-            ☐ SDL_ConvertSurface
-            ☐ SDL_ConvertSurfaceFormat
-            ☐ SDL_CreateRGBSurface
-            ☐ SDL_CreateRGBSurfaceFrom
-            ☐ SDL_CreateRGBSurfaceWithFormat
-            ☐ SDL_CreateRGBSurfaceWithFormatFrom
-            ✔ SDL_FillRect @done(20-06-04 13:04)
-            ✔ SDL_FillRects @done(20-06-04 13:04)
-            ✔ SDL_FreeSurface @done(20-06-04 13:04)
-            ✔ SDL_GetClipRect @done(20-06-04 13:04)
-            ☐ SDL_GetColorKey
-            ✔ SDL_GetSurfaceAlphaMod @done(20-06-04 13:04)
-            ✔ SDL_GetSurfaceBlendMode @done(20-06-04 13:04)
-            ✔ SDL_GetSurfaceColorMod @done(20-06-04 13:04)
-            ☐ SDL_LoadBMP
-            ☐ SDL_LoadBMP_RW
-            ☐ SDL_LockSurface
-            ☐ SDL_LowerBlit
-            ☐ SDL_LowerBlitScaled
-            ☐ SDL_MUSTLOCK
-            ☐ SDL_SaveBMP
-            ☐ SDL_SaveBMP_RW
-            ✔ SDL_SetClipRect @done(20-06-04 13:04)
-            ☐ SDL_SetColorKey
-            ✔ SDL_SetSurfaceAlphaMod @done(20-06-04 13:04)
-            ✔ SDL_SetSurfaceBlendMode @done(20-06-04 13:04)
-            ✔ SDL_SetSurfaceColorMod @done(20-06-04 13:05)
-            ☐ SDL_SetSurfacePalette
-            ☐ SDL_SetSurfaceRLE
-            ✔ SDL_UnlockSurface @done(20-06-04 13:05)
-    Platform-specific Window Management:
-        Enumerations:
-            ☐ SDL_SYSWM_TYPE
-        Structures:
-            ☐ SDL_SysWMinfo
-            ☐ SDL_SysWMmsg
-        Functions:
-            ☐ SDL_GetWindowWMInfo
-    Clipboard Handling:
-        Functions:
-            ☐ SDL_GetClipboardText
-            ☐ SDL_HasClipboardText
-            ☐ SDL_SetClipboardText
-    Vulkan Support:
-        Functions:
-            ☐ SDL_Vulkan_CreateSurface
-            ☐ SDL_Vulkan_GetDrawableSize
-            ☐ SDL_Vulkan_GetInstanceExtensions
-            ☐ SDL_Vulkan_GetVkInstanceProcAddr
-            ☐ SDL_Vulkan_LoadLibrary
-            ☐ SDL_Vulkan_UnloadLibrary             
-Input Events:
-    Event Handling:
-        Enumerations:
-            ☐ SDL_EventType
-            ✔ SDL_WindowEventID @done(20-06-04 13:06)
-        Structures:
-            ☐ SDL_AudioDeviceEvent
-            ☐ SDL_ControllerAxisEvent
-            ☐ SDL_ControllerButtonEvent
-            ☐ SDL_ControllerDeviceEvent
-            ☐ SDL_DollarGestureEvent
-            ☐ SDL_DropEvent
-            ☐ SDL_Event
-            ☐ SDL_Finger
-            ☐ SDL_JoyAxisEvent
-            ☐ SDL_JoyBallEvent
-            ☐ SDL_JoyButtonEvent
-            ☐ SDL_JoyDeviceEvent
-            ☐ SDL_JoyHatEvent
-            ☐ SDL_KeyboardEvent
-            ☐ SDL_MouseButtonEvent
-            ☐ SDL_MouseMotionEvent
-            ☐ SDL_MouseWheelEvent
-            ☐ SDL_MultiGestureEvent
-            ☐ SDL_QuitEvent
-            ☐ SDL_SysWMEvent
-            ☐ SDL_TextEditingEvent
-            ☐ SDL_TextInputEvent
-            ☐ SDL_TouchFingerEvent
-            ☐ SDL_UserEvent
-            ☐ SDL_WindowEvent
-        Functions:
-            ☐ SDL_AddEventWatch
-            ☐ SDL_DelEventWatch
-            ☐ SDL_EventState
-            ☐ SDL_FilterEvents
-            ☐ SDL_FlushEvent
-            ☐ SDL_FlushEvents
-            ☐ SDL_GetEventFilter
-            ☐ SDL_GetEventState
-            ☐ SDL_GetNumTouchDevices
-            ☐ SDL_GetNumTouchFingers
-            ☐ SDL_GetTouchDevice
-            ☐ SDL_GetTouchFinger
-            ☐ SDL_HasEvent
-            ☐ SDL_HasEvents
-            ☐ SDL_LoadDollarTemplates
-            ☐ SDL_PeepEvents
-            ☐ SDL_PollEvent
-            ☐ SDL_PumpEvents
-            ☐ SDL_PushEvent
-            ☐ SDL_QuitRequested
-            ☐ SDL_RecordGesture
-            ☐ SDL_RegisterEvents
-            ☐ SDL_SaveAllDollarTemplates
-            ☐ SDL_SaveDollarTemplate
-            ☐ SDL_SetEventFilter
-            ☐ SDL_WaitEvent
-            ☐ SDL_WaitEventTimeout
-    Keyboard Support:
-        Enumerations:
-            ☐ SDL_Keycode
-            ☐ SDL_Keymod
-            ☐ SDL_Scancode
-        Structures:
-            ☐ SDL_Keysym
-        Functions:
-            ☐ SDL_GetKeyFromName
-            ☐ SDL_GetKeyFromScancode
-            ☐ SDL_GetKeyName
-            ☐ SDL_GetKeyboardFocus
-            ☐ SDL_GetKeyboardState
-            ☐ SDL_GetModState
-            ☐ SDL_GetScancodeFromKey
-            ☐ SDL_GetScancodeFromName
-            ☐ SDL_GetScancodeName
-            ☐ SDL_HasScreenKeyboardSupport
-            ☐ SDL_IsScreenKeyboardShown
-            ☐ SDL_IsTextInputActive
-            ☐ SDL_SetModState
-            ☐ SDL_SetTextInputRect
-            ☐ SDL_StartTextInput
-            ☐ SDL_StopTextInput
-    
-    
-    Mouse Support:
-        Functions:
-            ☐ SDL_CaptureMouse
-            ☐ SDL_CreateColorCursor
-            ☐ SDL_CreateCursor
-            ☐ SDL_CreateSystemCursor
-            ☐ SDL_FreeCursor
-            ☐ SDL_GetCursor
-            ☐ SDL_GetDefaultCursor
-            ☐ SDL_GetGlobalMouseState
-            ☐ SDL_GetMouseFocus
-            ☐ SDL_GetMouseState
-            ☐ SDL_GetRelativeMouseMode
-            ☐ SDL_GetRelativeMouseState
-            ☐ SDL_SetCursor
-            ☐ SDL_SetRelativeMouseMode
-            ☐ SDL_ShowCursor
-            ☐ SDL_WarpMouseGlobal
-            ☐ SDL_WarpMouseInWindow
-
-
-    Joystick Support:
-        Enumerations:
-            ☐ SDL_JoystickPowerLevel
-        Functions:
-            ☐ SDL_JoystickClose
-            ☐ SDL_JoystickCurrentPowerLevel
-            ☐ SDL_JoystickEventState
-            ☐ SDL_JoystickFromInstanceID
-            ☐ SDL_JoystickGetAttached
-            ☐ SDL_JoystickGetAxis
-            ☐ SDL_JoystickGetBall
-            ☐ SDL_JoystickGetButton
-            ☐ SDL_JoystickGetDeviceGUID
-            ☐ SDL_JoystickGetGUID
-            ☐ SDL_JoystickGetGUIDFromString
-            ☐ SDL_JoystickGetGUIDString
-            ☐ SDL_JoystickGetHat
-            ☐ SDL_JoystickInstanceID
-            ☐ SDL_JoystickName
-            ☐ SDL_JoystickNameForIndex
-            ☐ SDL_JoystickNumAxes
-            ☐ SDL_JoystickNumBalls
-            ☐ SDL_JoystickNumButtons
-            ☐ SDL_JoystickNumHats
-            ☐ SDL_JoystickOpen
-            ☐ SDL_JoystickUpdate
-            ☐ SDL_NumJoysticks
+        2D Accelerated Rendering:
+            Enumerations:
+                ✔ SDL_BlendFactor @done
+                ✔ SDL_BlendOperation @done
+                ✔ SDL_RendererFlags @done
+                ✔ SDL_RendererFlip @done
+                ✔ SDL_TextureAccess @done
+                ✔ SDL_TextureModulate @done
+            Structures:
+                ✔ SDL_Renderer @done
+                ✔ SDL_RendererInfo @done
+                ✔ SDL_Texture @done
+            Functions:
+                ☐ SDL_ComposeCustomBlendMode
+                ✔ SDL_CreateRenderer @done
+                ☐ SDL_CreateSoftwareRenderer
+                ✔ SDL_CreateTexture @done
+                ☐ SDL_CreateTextureFromSurface
+                ☐ SDL_CreateWindowAndRenderer
+                ✔ SDL_DestroyRenderer @done
+                ✔ SDL_DestroyTexture @done
+                ☐ SDL_GL_BindTexture
+                ☐ SDL_GL_UnbindTexture
+                ☐ SDL_GetNumRenderDrivers
+                ✔ SDL_GetRenderDrawBlendMode @done
+                ✔ SDL_GetRenderDrawColor @done
+                ☐ SDL_GetRenderDriverInfo
+                ✔ SDL_GetRenderTarget @done
+                ✔ SDL_GetRenderer @done
+                ✔ SDL_GetRendererInfo @done
+                ✔ SDL_GetRendererOutputSize @done
+                ✔ SDL_GetTextureAlphaMod @done
+                ✔ SDL_GetTextureBlendMode @done
+                ✔ SDL_GetTextureColorMod @done
+                ✔ SDL_LockTexture @done
+                ☐ SDL_QueryTexture
+                ✔ SDL_RenderClear @done
+                ✔ SDL_RenderCopy @done
+                ✔ SDL_RenderCopyEx @done
+                ✔ SDL_RenderDrawLine @done
+                ✔ SDL_RenderDrawLines @done
+                ✔ SDL_RenderDrawPoint @done
+                ✔ SDL_RenderDrawPoints @done
+                ✔ SDL_RenderDrawRect @done
+                ✔ SDL_RenderDrawRects @done
+                ✔ SDL_RenderFillRect @done
+                ✔ SDL_RenderFillRects @done
+                ✔ SDL_RenderGetClipRect @done
+                ✔ SDL_RenderGetIntegerScale @done
+                ✔ SDL_RenderGetLogicalSize @done
+                ✔ SDL_RenderGetScale @done
+                ✔ SDL_RenderGetViewport @done
+                ✔ SDL_RenderIsClipEnabled @done
+                ✔ SDL_RenderPresent @done
+                ☐ SDL_RenderReadPixels
+                ✔ SDL_RenderSetClipRect @done
+                ✔ SDL_RenderSetIntegerScale @done
+                ✔ SDL_RenderSetLogicalSize @done
+                ✔ SDL_RenderSetScale @done
+                ✔ SDL_RenderSetViewport @done
+                ✔ SDL_RenderTargetSupported @done
+                ✔ SDL_SetRenderDrawBlendMode @done
+                ✔ SDL_SetRenderDrawColor @done
+                ✔ SDL_SetRenderTarget @done
+                ✔ SDL_SetTextureAlphaMod @done
+                ✔ SDL_SetTextureBlendMode @done
+                ✔ SDL_SetTextureColorMod @done
+                ✔ SDL_UnlockTexture @done
+                ☐ SDL_UpdateTexture
+                ☐ SDL_UpdateYUVTexture
+        Pixel Formats and Conversion Routines:
+            Enumerations:
+                ✔ SDL_PixelFormatEnum @done
+            Structures:
+                ✔ SDL_Color @done
+                ☐ SDL_Palette
+                ✔ SDL_PixelFormat @done
+            Functions:
+                ☐ SDL_AllocFormat
+                ☐ SDL_AllocPalette
+                ✔ SDL_CalculateGammaRamp @done
+                ☐ SDL_FreeFormat
+                ☐ SDL_FreePalette
+                ☐ SDL_GetPixelFormatName
+                ☐ SDL_GetRGB
+                ☐ SDL_GetRGBA
+                ☐ SDL_MapRGB
+                ☐ SDL_MapRGBA
+                ☐ SDL_MasksToPixelFormatEnum
+                ☐ SDL_PixelFormatEnumToMasks
+                ☐ SDL_SetPaletteColors
+                ☐ SDL_SetPixelFormatPalette
+        Rectangle Functions:
+            Structures:
+                ✔ SDL_Point @done
+                ✔ SDL_Rect @done
+            Functions:
+                ☐ SDL_EnclosePoints
+                ☐ SDL_HasIntersection
+                ☐ SDL_IntersectRect
+                ☐ SDL_IntersectRectAndLine
+                ☐ SDL_PointInRect
+                ☐ SDL_RectEmpty
+                ☐ SDL_RectEquals
+                ☐ SDL_UnionRect
+        Surface Creation and Simple Drawing:
+            Structures:
+                ✔ SDL_Surface @done
+            Functions:
+                ☐ SDL_BlitScaled
+                ✔ SDL_BlitSurface @done
+                ☐ SDL_ConvertPixels
+                ☐ SDL_ConvertSurface
+                ☐ SDL_ConvertSurfaceFormat
+                ☐ SDL_CreateRGBSurface
+                ☐ SDL_CreateRGBSurfaceFrom
+                ☐ SDL_CreateRGBSurfaceWithFormat
+                ☐ SDL_CreateRGBSurfaceWithFormatFrom
+                ✔ SDL_FillRect @done
+                ✔ SDL_FillRects @done
+                ✔ SDL_FreeSurface @done
+                ✔ SDL_GetClipRect @done
+                ☐ SDL_GetColorKey
+                ✔ SDL_GetSurfaceAlphaMod @done
+                ✔ SDL_GetSurfaceBlendMode @done
+                ✔ SDL_GetSurfaceColorMod @done
+                ☐ SDL_LoadBMP
+                ☐ SDL_LoadBMP_RW
+                ☐ SDL_LockSurface
+                ☐ SDL_LowerBlit
+                ☐ SDL_LowerBlitScaled
+                ☐ SDL_MUSTLOCK
+                ☐ SDL_SaveBMP
+                ☐ SDL_SaveBMP_RW
+                ✔ SDL_SetClipRect @done
+                ☐ SDL_SetColorKey
+                ✔ SDL_SetSurfaceAlphaMod @done
+                ✔ SDL_SetSurfaceBlendMode @done
+                ✔ SDL_SetSurfaceColorMod @done
+                ☐ SDL_SetSurfacePalette
+                ☐ SDL_SetSurfaceRLE
+                ✔ SDL_UnlockSurface @done
+        Platform-specific Window Management:
+            Enumerations:
+                ☐ SDL_SYSWM_TYPE
+            Structures:
+                ☐ SDL_SysWMinfo
+                ☐ SDL_SysWMmsg
+            Functions:
+                ☐ SDL_GetWindowWMInfo
+        Clipboard Handling:
+            Functions:
+                ☐ SDL_GetClipboardText
+                ☐ SDL_HasClipboardText
+                ☐ SDL_SetClipboardText
+        Vulkan Support:
+            Functions:
+                ☐ SDL_Vulkan_CreateSurface
+                ☐ SDL_Vulkan_GetDrawableSize
+                ☐ SDL_Vulkan_GetInstanceExtensions
+                ☐ SDL_Vulkan_GetVkInstanceProcAddr
+                ☐ SDL_Vulkan_LoadLibrary
+                ☐ SDL_Vulkan_UnloadLibrary             
+    Input Events:
+        Event Handling:
+            Enumerations:
+                ☐ SDL_EventType
+                ✔ SDL_WindowEventID @done
+            Structures:
+                ☐ SDL_AudioDeviceEvent
+                ☐ SDL_ControllerAxisEvent
+                ☐ SDL_ControllerButtonEvent
+                ☐ SDL_ControllerDeviceEvent
+                ☐ SDL_DollarGestureEvent
+                ☐ SDL_DropEvent
+                ☐ SDL_Event
+                ☐ SDL_Finger
+                ☐ SDL_JoyAxisEvent
+                ☐ SDL_JoyBallEvent
+                ☐ SDL_JoyButtonEvent
+                ☐ SDL_JoyDeviceEvent
+                ☐ SDL_JoyHatEvent
+                ☐ SDL_KeyboardEvent
+                ☐ SDL_MouseButtonEvent
+                ☐ SDL_MouseMotionEvent
+                ☐ SDL_MouseWheelEvent
+                ☐ SDL_MultiGestureEvent
+                ☐ SDL_QuitEvent
+                ☐ SDL_SysWMEvent
+                ☐ SDL_TextEditingEvent
+                ☐ SDL_TextInputEvent
+                ☐ SDL_TouchFingerEvent
+                ☐ SDL_UserEvent
+                ☐ SDL_WindowEvent
+            Functions:
+                ☐ SDL_AddEventWatch
+                ☐ SDL_DelEventWatch
+                ☐ SDL_EventState
+                ☐ SDL_FilterEvents
+                ☐ SDL_FlushEvent
+                ☐ SDL_FlushEvents
+                ☐ SDL_GetEventFilter
+                ☐ SDL_GetEventState
+                ☐ SDL_GetNumTouchDevices
+                ☐ SDL_GetNumTouchFingers
+                ☐ SDL_GetTouchDevice
+                ☐ SDL_GetTouchFinger
+                ☐ SDL_HasEvent
+                ☐ SDL_HasEvents
+                ☐ SDL_LoadDollarTemplates
+                ☐ SDL_PeepEvents
+                ☐ SDL_PollEvent
+                ☐ SDL_PumpEvents
+                ☐ SDL_PushEvent
+                ☐ SDL_QuitRequested
+                ☐ SDL_RecordGesture
+                ☐ SDL_RegisterEvents
+                ☐ SDL_SaveAllDollarTemplates
+                ☐ SDL_SaveDollarTemplate
+                ☐ SDL_SetEventFilter
+                ☐ SDL_WaitEvent
+                ☐ SDL_WaitEventTimeout
+        Keyboard Support:
+            Enumerations:
+                ☐ SDL_Keycode
+                ☐ SDL_Keymod
+                ☐ SDL_Scancode
+            Structures:
+                ☐ SDL_Keysym
+            Functions:
+                ☐ SDL_GetKeyFromName
+                ☐ SDL_GetKeyFromScancode
+                ☐ SDL_GetKeyName
+                ☐ SDL_GetKeyboardFocus
+                ☐ SDL_GetKeyboardState
+                ☐ SDL_GetModState
+                ☐ SDL_GetScancodeFromKey
+                ☐ SDL_GetScancodeFromName
+                ☐ SDL_GetScancodeName
+                ☐ SDL_HasScreenKeyboardSupport
+                ☐ SDL_IsScreenKeyboardShown
+                ☐ SDL_IsTextInputActive
+                ☐ SDL_SetModState
+                ☐ SDL_SetTextInputRect
+                ☐ SDL_StartTextInput
+                ☐ SDL_StopTextInput
+        
+        
+        Mouse Support:
+            Functions:
+                ☐ SDL_CaptureMouse
+                ☐ SDL_CreateColorCursor
+                ☐ SDL_CreateCursor
+                ☐ SDL_CreateSystemCursor
+                ☐ SDL_FreeCursor
+                ☐ SDL_GetCursor
+                ☐ SDL_GetDefaultCursor
+                ☐ SDL_GetGlobalMouseState
+                ☐ SDL_GetMouseFocus
+                ☐ SDL_GetMouseState
+                ☐ SDL_GetRelativeMouseMode
+                ☐ SDL_GetRelativeMouseState
+                ☐ SDL_SetCursor
+                ☐ SDL_SetRelativeMouseMode
+                ☐ SDL_ShowCursor
+                ☐ SDL_WarpMouseGlobal
+                ☐ SDL_WarpMouseInWindow
 
 
-    Game Controller Support:
-        Enumerations:
-            ☐ SDL_GameControllerAxis
-            ☐ SDL_GameControllerButton
-        Functions:
-            ☐ SDL_GameControllerAddMapping
-            ☐ SDL_GameControllerAddMappingsFromFile
-            ☐ SDL_GameControllerAddMappingsFromRW
-            ☐ SDL_GameControllerClose
-            ☐ SDL_GameControllerEventState
-            ☐ SDL_GameControllerFromInstanceID
-            ☐ SDL_GameControllerGetAttached
-            ☐ SDL_GameControllerGetAxis
-            ☐ SDL_GameControllerGetAxisFromString
-            ☐ SDL_GameControllerGetBindForAxis
-            ☐ SDL_GameControllerGetBindForButton
-            ☐ SDL_GameControllerGetButton
-            ☐ SDL_GameControllerGetButtonFromString
-            ☐ SDL_GameControllerGetJoystick
-            ☐ SDL_GameControllerGetStringForAxis
-            ☐ SDL_GameControllerGetStringForButton
-            ☐ SDL_GameControllerMapping
-            ☐ SDL_GameControllerMappingForGUID
-            ☐ SDL_GameControllerName
-            ☐ SDL_GameControllerNameForIndex
-            ☐ SDL_GameControllerOpen
-            ☐ SDL_GameControllerUpdate
-            ☐ SDL_IsGameController
+        Joystick Support:
+            Enumerations:
+                ☐ SDL_JoystickPowerLevel
+            Functions:
+                ☐ SDL_JoystickClose
+                ☐ SDL_JoystickCurrentPowerLevel
+                ☐ SDL_JoystickEventState
+                ☐ SDL_JoystickFromInstanceID
+                ☐ SDL_JoystickGetAttached
+                ☐ SDL_JoystickGetAxis
+                ☐ SDL_JoystickGetBall
+                ☐ SDL_JoystickGetButton
+                ☐ SDL_JoystickGetDeviceGUID
+                ☐ SDL_JoystickGetGUID
+                ☐ SDL_JoystickGetGUIDFromString
+                ☐ SDL_JoystickGetGUIDString
+                ☐ SDL_JoystickGetHat
+                ☐ SDL_JoystickInstanceID
+                ☐ SDL_JoystickName
+                ☐ SDL_JoystickNameForIndex
+                ☐ SDL_JoystickNumAxes
+                ☐ SDL_JoystickNumBalls
+                ☐ SDL_JoystickNumButtons
+                ☐ SDL_JoystickNumHats
+                ☐ SDL_JoystickOpen
+                ☐ SDL_JoystickUpdate
+                ☐ SDL_NumJoysticks
 
 
-    Sensors:
-        Functions:
-            ☐ SDL_NumSensors
-            ☐ SDL_SensorClose
-            ☐ SDL_SensorFromInstanceID
-            ☐ SDL_SensorGetData
-            ☐ SDL_SensorGetDeviceInstanceID
-            ☐ SDL_SensorGetDeviceName
-            ☐ SDL_SensorGetDeviceNonPortableType
-            ☐ SDL_SensorGetDeviceType
-            ☐ SDL_SensorGetInstanceID
-            ☐ SDL_SensorGetName
-            ☐ SDL_SensorGetNonPortableType
-            ☐ SDL_SensorGetType
-            ☐ SDL_SensorOpen
-            ☐ SDL_SensorType
-            ☐ SDL_SensorUpdate
+        Game Controller Support:
+            Enumerations:
+                ☐ SDL_GameControllerAxis
+                ☐ SDL_GameControllerButton
+            Functions:
+                ☐ SDL_GameControllerAddMapping
+                ☐ SDL_GameControllerAddMappingsFromFile
+                ☐ SDL_GameControllerAddMappingsFromRW
+                ☐ SDL_GameControllerClose
+                ☐ SDL_GameControllerEventState
+                ☐ SDL_GameControllerFromInstanceID
+                ☐ SDL_GameControllerGetAttached
+                ☐ SDL_GameControllerGetAxis
+                ☐ SDL_GameControllerGetAxisFromString
+                ☐ SDL_GameControllerGetBindForAxis
+                ☐ SDL_GameControllerGetBindForButton
+                ☐ SDL_GameControllerGetButton
+                ☐ SDL_GameControllerGetButtonFromString
+                ☐ SDL_GameControllerGetJoystick
+                ☐ SDL_GameControllerGetStringForAxis
+                ☐ SDL_GameControllerGetStringForButton
+                ☐ SDL_GameControllerMapping
+                ☐ SDL_GameControllerMappingForGUID
+                ☐ SDL_GameControllerName
+                ☐ SDL_GameControllerNameForIndex
+                ☐ SDL_GameControllerOpen
+                ☐ SDL_GameControllerUpdate
+                ☐ SDL_IsGameController
 
 
-    
-Force Feedback:
-    Force Feedback Support:
-        Structures:
-            ☐ SDL_HapticCondition
-            ☐ SDL_HapticConstant
-            ☐ SDL_HapticCustom
-            ☐ SDL_HapticDirection
-            ☐ SDL_HapticEffect
-            ☐ SDL_HapticLeftRight
-            ☐ SDL_HapticPeriodic
-            ☐ SDL_HapticRamp
-        Functions:
-            ☐ SDL_HapticClose
-            ☐ SDL_HapticDestroyEffect
-            ☐ SDL_HapticEffectSupported
-            ☐ SDL_HapticGetEffectStatus
-            ☐ SDL_HapticIndex
-            ☐ SDL_HapticName
-            ☐ SDL_HapticNewEffect
-            ☐ SDL_HapticNumAxes
-            ☐ SDL_HapticNumEffects
-            ☐ SDL_HapticNumEffectsPlaying
-            ☐ SDL_HapticOpen
-            ☐ SDL_HapticOpenFromJoystick
-            ☐ SDL_HapticOpenFromMouse
-            ☐ SDL_HapticOpened
-            ☐ SDL_HapticPause
-            ☐ SDL_HapticQuery
-            ☐ SDL_HapticRumbleInit
-            ☐ SDL_HapticRumblePlay
-            ☐ SDL_HapticRumbleStop
-            ☐ SDL_HapticRumbleSupported
-            ☐ SDL_HapticRunEffect
-            ☐ SDL_HapticSetAutocenter
-            ☐ SDL_HapticSetGain
-            ☐ SDL_HapticStopAll
-            ☐ SDL_HapticStopEffect
-            ☐ SDL_HapticUnpause
-            ☐ SDL_HapticUpdateEffect
-            ☐ SDL_JoystickIsHaptic
-            ☐ SDL_MouseIsHaptic
-            ☐ SDL_NumHaptics
+        Sensors:
+            Functions:
+                ☐ SDL_NumSensors
+                ☐ SDL_SensorClose
+                ☐ SDL_SensorFromInstanceID
+                ☐ SDL_SensorGetData
+                ☐ SDL_SensorGetDeviceInstanceID
+                ☐ SDL_SensorGetDeviceName
+                ☐ SDL_SensorGetDeviceNonPortableType
+                ☐ SDL_SensorGetDeviceType
+                ☐ SDL_SensorGetInstanceID
+                ☐ SDL_SensorGetName
+                ☐ SDL_SensorGetNonPortableType
+                ☐ SDL_SensorGetType
+                ☐ SDL_SensorOpen
+                ☐ SDL_SensorType
+                ☐ SDL_SensorUpdate
 
 
-    
-
-
-Audio:
-    Audio Device Management, Playing and Recording:
-        Enumerations:
-            ☐ SDL_AudioFormat
-            ☐ SDL_AudioStatus
-        Structures:
-            ☐ SDL_AudioCVT
-            ☐ SDL_AudioSpec
-            ☐ SDL_AudioStream
-        Functions:
-            ☐ SDL_AudioInit
-            ☐ SDL_AudioQuit
-            ☐ SDL_BuildAudioCVT
-            ☐ SDL_ClearQueuedAudio
-            ☐ SDL_CloseAudio
-            ☐ SDL_CloseAudioDevice
-            ☐ SDL_ConvertAudio
-            ☐ SDL_DequeueAudio
-            ☐ SDL_FreeWAV
-            ☐ SDL_GetAudioDeviceName
-            ☐ SDL_GetAudioDeviceStatus
-            ☐ SDL_GetAudioDriver
-            ☐ SDL_GetAudioStatus
-            ☐ SDL_GetCurrentAudioDriver
-            ☐ SDL_GetNumAudioDevices
-            ☐ SDL_GetNumAudioDrivers
-            ☐ SDL_GetQueuedAudioSize
-            ☐ SDL_LoadWAV
-            ☐ SDL_LoadWAV_RW
-            ☐ SDL_LockAudio
-            ☐ SDL_LockAudioDevice
-            ☐ SDL_MixAudio
-            ☐ SDL_MixAudioFormat
-            ☐ SDL_OpenAudio
-            ☐ SDL_OpenAudioDevice
-            ☐ SDL_PauseAudio
-            ☐ SDL_PauseAudioDevice
-            ☐ SDL_QueueAudio
-            ☐ SDL_UnlockAudio
-            ☐ SDL_UnlockAudioDevice
-
-
-    
-
-Threads:
-    Thread Management:
-        Enumerations:
-            ☐ SDL_ThreadPriority
-        Functions:
-            ☐ SDL_CreateThread
-            ☐ SDL_DetachThread
-            ☐ SDL_GetThreadID
-            ☐ SDL_GetThreadName
-            ☐ SDL_SetThreadPriority
-            ☐ SDL_TLSCreate
-            ☐ SDL_TLSGet
-            ☐ SDL_TLSSet
-            ☐ SDL_ThreadID
-            ☐ SDL_WaitThread
-    Thread Synchronization Primitives:
-        Functions:
-            ☐ SDL_CondBroadcast
-            ☐ SDL_CondSignal
-            ☐ SDL_CondWait
-            ☐ SDL_CondWaitTimeout
-            ☐ SDL_CreateCond
-            ☐ SDL_CreateMutex
-            ☐ SDL_CreateSemaphore
-            ☐ SDL_DestroyCond
-            ☐ SDL_DestroyMutex
-            ☐ SDL_DestroySemaphore
-            ☐ SDL_LockMutex
-            ☐ SDL_SemPost
-            ☐ SDL_SemTryWait
-            ☐ SDL_SemValue
-            ☐ SDL_SemWait
-            ☐ SDL_SemWaitTimeout
-            ☐ SDL_TryLockMutex
-            ☐ SDL_UnlockMutex
-    Atomic Operations:
-        Structures:
-            ☐ SDL_atomic_t
-        Functions:
-            ☐ SDL_AtomicAdd
-            ☐ SDL_AtomicCAS
-            ☐ SDL_AtomicCASPtr
-            ☐ SDL_AtomicDecRef
-            ☐ SDL_AtomicGet
-            ☐ SDL_AtomicGetPtr
-            ☐ SDL_AtomicIncRef
-            ☐ SDL_AtomicLock
-            ☐ SDL_AtomicSet
-            ☐ SDL_AtomicSetPtr
-            ☐ SDL_AtomicTryLock
-            ☐ SDL_AtomicUnlock
-            ☐ SDL_CompilerBarrier
-Timers:
-    Timer Support:
-        Functions:
-            ☐ SDL_AddTimer
-            ☐ SDL_Delay
-            ☐ SDL_GetPerformanceCounter
-            ☐ SDL_GetPerformanceFrequency
-            ☐ SDL_GetTicks
-            ☐ SDL_RemoveTimer
-            ☐ SDL_TICKS_PASSED
-File Abstraction:
-    Filesystem Paths:
-        Functions:
-            ☐ SDL_GetBasePath
-            ☐ SDL_GetPrefPath
-    File I/O Abstraction:
-        Structures:
-            ☐ SDL_RWops
-        Functions:
-            ☐ SDL_AllocRW
-            ☐ SDL_FreeRW
-            ☐ SDL_RWFromConstMem
-            ☐ SDL_RWFromFP
-            ☐ SDL_RWFromFile
-            ☐ SDL_RWFromMem
-            ☐ SDL_RWclose
-            ☐ SDL_RWread
-            ☐ SDL_RWseek
-            ☐ SDL_RWsize
-            ☐ SDL_RWtell
-            ☐ SDL_RWwrite
-            ☐ SDL_ReadBE16
-            ☐ SDL_ReadBE32
-            ☐ SDL_ReadBE64
-            ☐ SDL_ReadLE16
-            ☐ SDL_ReadLE32
-            ☐ SDL_ReadLE64
-            ☐ SDL_ReadU8
-            ☐ SDL_WriteBE16
-            ☐ SDL_WriteBE32
-            ☐ SDL_WriteBE64
-            ☐ SDL_WriteLE16
-            ☐ SDL_WriteLE32
-            ☐ SDL_WriteLE64
-            ☐ SDL_WriteU8
-Shared Object Support:
-    Shared Object Loading and Function Lookup:
-        Functions:
-        ☐ SDL_LoadFunction
-        ☐ SDL_LoadObject
-        ☐ SDL_UnloadObject
-Platform and CPU Information:
-    Platform Detection:
-        Functions:
-            ☐ SDL_GetPlatform    
-    CPU Feature Detection:
-        Functions:
-            ☐ SDL_GetCPUCacheLineSize
-            ☐ SDL_GetCPUCount
-            ☐ SDL_GetSystemRAM
-            ☐ SDL_Has3DNow
-            ☐ SDL_HasAVX
-            ☐ SDL_HasAVX2
-            ☐ SDL_HasAltiVec
-            ☐ SDL_HasMMX
-            ☐ SDL_HasRDTSC
-            ☐ SDL_HasSSE
-            ☐ SDL_HasSSE2
-            ☐ SDL_HasSSE3
-            ☐ SDL_HasSSE41
-            ☐ SDL_HasSSE42
-    Byte Order and Byte Swapping:
-        Functions:
-            ☐ SDL_Swap16
-            ☐ SDL_Swap32
-            ☐ SDL_Swap64
-            ☐ SDL_SwapBE16
-            ☐ SDL_SwapBE32
-            ☐ SDL_SwapBE64
-            ☐ SDL_SwapFloat
-            ☐ SDL_SwapFloatBE
-            ☐ SDL_SwapFloatLE
-            ☐ SDL_SwapLE16
-            ☐ SDL_SwapLE32
-            ☐ SDL_SwapLE64 
-    Bit Manipulation:
-        Functions:
-            ☐ SDL_MostSignificantBitIndex32
-Power Management:
-    Power Management Status:
-        Enumerations:
-            ☐ SDL_PowerState
-        Functions:
-            ☐ SDL_GetPowerInfo
+        
+    Force Feedback:
+        Force Feedback Support:
+            Structures:
+                ☐ SDL_HapticCondition
+                ☐ SDL_HapticConstant
+                ☐ SDL_HapticCustom
+                ☐ SDL_HapticDirection
+                ☐ SDL_HapticEffect
+                ☐ SDL_HapticLeftRight
+                ☐ SDL_HapticPeriodic
+                ☐ SDL_HapticRamp
+            Functions:
+                ☐ SDL_HapticClose
+                ☐ SDL_HapticDestroyEffect
+                ☐ SDL_HapticEffectSupported
+                ☐ SDL_HapticGetEffectStatus
+                ☐ SDL_HapticIndex
+                ☐ SDL_HapticName
+                ☐ SDL_HapticNewEffect
+                ☐ SDL_HapticNumAxes
+                ☐ SDL_HapticNumEffects
+                ☐ SDL_HapticNumEffectsPlaying
+                ☐ SDL_HapticOpen
+                ☐ SDL_HapticOpenFromJoystick
+                ☐ SDL_HapticOpenFromMouse
+                ☐ SDL_HapticOpened
+                ☐ SDL_HapticPause
+                ☐ SDL_HapticQuery
+                ☐ SDL_HapticRumbleInit
+                ☐ SDL_HapticRumblePlay
+                ☐ SDL_HapticRumbleStop
+                ☐ SDL_HapticRumbleSupported
+                ☐ SDL_HapticRunEffect
+                ☐ SDL_HapticSetAutocenter
+                ☐ SDL_HapticSetGain
+                ☐ SDL_HapticStopAll
+                ☐ SDL_HapticStopEffect
+                ☐ SDL_HapticUnpause
+                ☐ SDL_HapticUpdateEffect
+                ☐ SDL_JoystickIsHaptic
+                ☐ SDL_MouseIsHaptic
+                ☐ SDL_NumHaptics
+    Audio:
+        Audio Device Management, Playing and Recording:
+            Enumerations:
+                ☐ SDL_AudioFormat
+                ☐ SDL_AudioStatus
+            Structures:
+                ☐ SDL_AudioCVT
+                ☐ SDL_AudioSpec
+                ☐ SDL_AudioStream
+            Functions:
+                ☐ SDL_AudioInit
+                ☐ SDL_AudioQuit
+                ☐ SDL_BuildAudioCVT
+                ☐ SDL_ClearQueuedAudio
+                ☐ SDL_CloseAudio
+                ☐ SDL_CloseAudioDevice
+                ☐ SDL_ConvertAudio
+                ☐ SDL_DequeueAudio
+                ☐ SDL_FreeWAV
+                ☐ SDL_GetAudioDeviceName
+                ☐ SDL_GetAudioDeviceStatus
+                ☐ SDL_GetAudioDriver
+                ☐ SDL_GetAudioStatus
+                ☐ SDL_GetCurrentAudioDriver
+                ☐ SDL_GetNumAudioDevices
+                ☐ SDL_GetNumAudioDrivers
+                ☐ SDL_GetQueuedAudioSize
+                ☐ SDL_LoadWAV
+                ☐ SDL_LoadWAV_RW
+                ☐ SDL_LockAudio
+                ☐ SDL_LockAudioDevice
+                ☐ SDL_MixAudio
+                ☐ SDL_MixAudioFormat
+                ☐ SDL_OpenAudio
+                ☐ SDL_OpenAudioDevice
+                ☐ SDL_PauseAudio
+                ☐ SDL_PauseAudioDevice
+                ☐ SDL_QueueAudio
+                ☐ SDL_UnlockAudio
+                ☐ SDL_UnlockAudioDevice
+    Threads:
+        Thread Management:
+            Enumerations:
+                ☐ SDL_ThreadPriority
+            Functions:
+                ☐ SDL_CreateThread
+                ☐ SDL_DetachThread
+                ☐ SDL_GetThreadID
+                ☐ SDL_GetThreadName
+                ☐ SDL_SetThreadPriority
+                ☐ SDL_TLSCreate
+                ☐ SDL_TLSGet
+                ☐ SDL_TLSSet
+                ☐ SDL_ThreadID
+                ☐ SDL_WaitThread
+        Thread Synchronization Primitives:
+            Functions:
+                ☐ SDL_CondBroadcast
+                ☐ SDL_CondSignal
+                ☐ SDL_CondWait
+                ☐ SDL_CondWaitTimeout
+                ☐ SDL_CreateCond
+                ☐ SDL_CreateMutex
+                ☐ SDL_CreateSemaphore
+                ☐ SDL_DestroyCond
+                ☐ SDL_DestroyMutex
+                ☐ SDL_DestroySemaphore
+                ☐ SDL_LockMutex
+                ☐ SDL_SemPost
+                ☐ SDL_SemTryWait
+                ☐ SDL_SemValue
+                ☐ SDL_SemWait
+                ☐ SDL_SemWaitTimeout
+                ☐ SDL_TryLockMutex
+                ☐ SDL_UnlockMutex
+        Atomic Operations:
+            Structures:
+                ☐ SDL_atomic_t
+            Functions:
+                ☐ SDL_AtomicAdd
+                ☐ SDL_AtomicCAS
+                ☐ SDL_AtomicCASPtr
+                ☐ SDL_AtomicDecRef
+                ☐ SDL_AtomicGet
+                ☐ SDL_AtomicGetPtr
+                ☐ SDL_AtomicIncRef
+                ☐ SDL_AtomicLock
+                ☐ SDL_AtomicSet
+                ☐ SDL_AtomicSetPtr
+                ☐ SDL_AtomicTryLock
+                ☐ SDL_AtomicUnlock
+                ☐ SDL_CompilerBarrier
+    Timers:
+        Timer Support:
+            Functions:
+                ☐ SDL_AddTimer
+                ☐ SDL_Delay
+                ☐ SDL_GetPerformanceCounter
+                ☐ SDL_GetPerformanceFrequency
+                ☐ SDL_GetTicks
+                ☐ SDL_RemoveTimer
+                ☐ SDL_TICKS_PASSED
+    File Abstraction:
+        Filesystem Paths:
+            Functions:
+                ☐ SDL_GetBasePath
+                ☐ SDL_GetPrefPath
+        File I/O Abstraction:
+            Structures:
+                ☐ SDL_RWops
+            Functions:
+                ☐ SDL_AllocRW
+                ☐ SDL_FreeRW
+                ☐ SDL_RWFromConstMem
+                ☐ SDL_RWFromFP
+                ☐ SDL_RWFromFile
+                ☐ SDL_RWFromMem
+                ☐ SDL_RWclose
+                ☐ SDL_RWread
+                ☐ SDL_RWseek
+                ☐ SDL_RWsize
+                ☐ SDL_RWtell
+                ☐ SDL_RWwrite
+                ☐ SDL_ReadBE16
+                ☐ SDL_ReadBE32
+                ☐ SDL_ReadBE64
+                ☐ SDL_ReadLE16
+                ☐ SDL_ReadLE32
+                ☐ SDL_ReadLE64
+                ☐ SDL_ReadU8
+                ☐ SDL_WriteBE16
+                ☐ SDL_WriteBE32
+                ☐ SDL_WriteBE64
+                ☐ SDL_WriteLE16
+                ☐ SDL_WriteLE32
+                ☐ SDL_WriteLE64
+                ☐ SDL_WriteU8
+    Shared Object Support:
+        Shared Object Loading and Function Lookup:
+            Functions:
+            ☐ SDL_LoadFunction
+            ☐ SDL_LoadObject
+            ☐ SDL_UnloadObject
+    Platform and CPU Information:
+        Platform Detection:
+            Functions:
+                ☐ SDL_GetPlatform    
+        CPU Feature Detection:
+            Functions:
+                ☐ SDL_GetCPUCacheLineSize
+                ☐ SDL_GetCPUCount
+                ☐ SDL_GetSystemRAM
+                ☐ SDL_Has3DNow
+                ☐ SDL_HasAVX
+                ☐ SDL_HasAVX2
+                ☐ SDL_HasAltiVec
+                ☐ SDL_HasMMX
+                ☐ SDL_HasRDTSC
+                ☐ SDL_HasSSE
+                ☐ SDL_HasSSE2
+                ☐ SDL_HasSSE3
+                ☐ SDL_HasSSE41
+                ☐ SDL_HasSSE42
+        Byte Order and Byte Swapping:
+            Functions:
+                ☐ SDL_Swap16
+                ☐ SDL_Swap32
+                ☐ SDL_Swap64
+                ☐ SDL_SwapBE16
+                ☐ SDL_SwapBE32
+                ☐ SDL_SwapBE64
+                ☐ SDL_SwapFloat
+                ☐ SDL_SwapFloatBE
+                ☐ SDL_SwapFloatLE
+                ☐ SDL_SwapLE16
+                ☐ SDL_SwapLE32
+                ☐ SDL_SwapLE64 
+        Bit Manipulation:
+            Functions:
+                ☐ SDL_MostSignificantBitIndex32
+    Power Management:
+        Power Management Status:
+            Enumerations:
+                ☐ SDL_PowerState
+            Functions:
+                ☐ SDL_GetPowerInfo
 
 
 
-Additional Functionality:
+    Additional Functionality:
     Platform-specific Functionality:
         Enumerations:
             ☐ SDL_WinRT_Path
@@ -837,7 +830,7 @@ Additional Functionality:
             ☐ SDL_iPhoneSetEventPump
     Standard Library Functionality:
         Enumerations:
-            ☐ SDL_bool
+            ✔ SDL_bool @done
         Functions:
             ☐ SDL_acos
 

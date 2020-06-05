@@ -22,15 +22,39 @@ public struct SDL {
         SDL_QuitSubSystem(flagify(subSystems))
     }
 
+    static func wasInit(system: SDLSystem) -> Bool {
+        let flagValue = SDL_WasInit(0)
+        return (flagValue & system.rawValue) ==  system.rawValue 
+    }
+
+
     static func calculateGammaRamp(_ gamma: Float) -> [UInt16] {
         var ramp = [UInt16](repeating: 0, count: 256)
         SDL_CalculateGammaRamp(gamma, &ramp)
         return ramp
     }
 
-    static func wasInit(system: SDLSystem) -> Bool {
-        let flagValue = SDL_WasInit(0)
-        return (flagValue & system.rawValue) ==  system.rawValue 
+    typealias SDLVersion = SDL_version
+    static var version: SDLVersion {
+        var ver = SDLVersion()
+        SDL_GetVersion(&ver)
+        return ver
+    }
+
+    static var revision: String {
+        guard var strPtr = SDL_GetRevision() else { return ""}
+        defer { strPtr.deallocate()}
+        return String(cString:strPtr)
+    }
+
+    static var revisionNumber: Int32 {
+        return SDL_GetRevisionNumber() 
+    }
+}
+
+extension SDL.SDLVersion: CustomStringConvertible {
+    public var description: String {
+        return "SDL Version: \(self.major).\(self.minor).\(self.patch)"
     }
 }
 
@@ -40,7 +64,6 @@ extension SDL {
         SDL_SetMainReady()
     }
 }
-
 
 // Hint functions
 extension SDL {

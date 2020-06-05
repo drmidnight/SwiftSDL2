@@ -22,6 +22,7 @@ SDL.main {
         Point(x: 50, y: 40),
         Point(x: 60, y: 10)
     ]
+    print(SDL.version)
 
     // figure out best way to handle texture updating
     // var bytesPointer = UnsafeMutableRawPointer.allocate(byteCount: 4, alignment: 4)

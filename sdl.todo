@@ -112,12 +112,12 @@ SDL2:
                 ☐ SDL_assert_release
         Querying SDL Version:
             Structures:
-                ☐ SDL_version
+                ✔ SDL_version @done
             Functions:
-                ☐ SDL_COMPILEDVERSION
-                ☐ SDL_GetRevision
-                ☐ SDL_GetRevisionNumber
-                ☐ SDL_GetVersion
+                ☐ ~SDL_COMPILEDVERSION~
+                ✔ SDL_GetRevision @done
+                ✔ SDL_GetRevisionNumber @done
+                ✔ SDL_GetVersion @done
                 ☐ SDL_REVISION
                 ☐ SDL_VERSION
                 ☐ SDL_VERSIONNUM

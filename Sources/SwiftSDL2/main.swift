@@ -22,6 +22,18 @@ SDL.main {
         Point(x: 50, y: 40),
         Point(x: 60, y: 10)
     ]
+    TTF_Init()
+    var font = TTF_OpenFont( "/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/monogram.ttf", 16 );
+    print(String(cString: SDL_GetError()))
+    var surfacePtr = TTF_RenderText_Solid(font, "WE HAVE FONTS", SDL_Color.init(r: 255, g: 255, b: 255, a: 255))
+    var surfaceText = Surface(surfacePtr) 
+    var textTexture = Texture(renderer: renderer, surface: surfaceText)
+    var textureInfo = textTexture.query()
+    defer {
+        TTF_CloseFont(font)
+        TTF_Quit()
+    }
+    surfaceText.free()
     print(SDL.version)
 
     // figure out best way to handle texture updating
@@ -73,7 +85,10 @@ SDL.main {
         //     rndr?.fillRect(rect)
         //     rndr?.drawLines(points: points, color: Color(r: 255, g: 255, b: 0, a: 255))
         // }
-        renderer.renderCopy(texture: tex)
+        // .render()
+        renderer.drawColor = Color(r: 0, g: 0, b: 0, a: 255)
+        renderer.clear()
+        renderer.renderCopy(texture: textTexture, dstRect: Rect(x: 10, y: 10, w: Int32(textureInfo.size.width), h: Int32(textureInfo.size.height)))
         // print(renderer.rendererInfo)
         renderer.present()
         let end = SDL_GetPerformanceCounter()

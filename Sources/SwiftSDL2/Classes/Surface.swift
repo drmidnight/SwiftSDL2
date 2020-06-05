@@ -7,6 +7,10 @@ class Surface {
         self._surfacePtr = SDL_GetWindowSurface(window._windowPtr)
     }
 
+    init(_ pointer: UnsafeMutablePointer<SDL_Surface>?) {
+        self._surfacePtr = pointer
+    }
+
     init(from image: String) {
        self._surfacePtr = IMG_Load(image)
     }

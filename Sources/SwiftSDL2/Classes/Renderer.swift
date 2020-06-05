@@ -214,6 +214,11 @@ extension Renderer {
         SDL_RenderCopy(self._rendererPtr, texture._texturePtr, &src, nil)
     }
 
+    func renderCopy(texture: Texture, dstRect: Rect) {
+        var dst = dstRect
+        SDL_RenderCopy(self._rendererPtr, texture._texturePtr, nil, &dst)
+    }
+
     func renderCopy(texture: Texture) {
         SDL_RenderCopy(self._rendererPtr, texture._texturePtr, nil, nil)
     }

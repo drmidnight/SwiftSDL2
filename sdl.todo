@@ -187,7 +187,7 @@ SDL2:
                 ☐ SDL_GetWindowDisplayMode
                 ✔ SDL_GetWindowFlags @done
                 ☐ SDL_GetWindowFromID
-                ☐ SDL_GetWindowGammaRamp
+                ✔ SDL_GetWindowGammaRamp @done
                 ✔ SDL_GetWindowGrab @done
                 ✔ SDL_GetWindowID @done
                 ✔ SDL_GetWindowMaximumSize @done
@@ -210,7 +210,7 @@ SDL2:
                 ☐ SDL_SetWindowData
                 ☐ SDL_SetWindowDisplayMode
                 ✔ SDL_SetWindowFullscreen @done
-                ☐ SDL_SetWindowGammaRamp
+                ✔ SDL_SetWindowGammaRamp @done
                 ✔ SDL_SetWindowGrab @done
                 ☐ SDL_SetWindowHitTest
                 ✔ SDL_SetWindowIcon @done

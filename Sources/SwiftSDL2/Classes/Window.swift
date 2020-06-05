@@ -247,7 +247,23 @@ extension Window {
         }
     }
 
- 
+
+    typealias GammaRamp = (red: [UInt16], blue: [UInt16], green: [UInt16])
+    var gammaRamp: GammaRamp {
+        get {
+            var red =  [UInt16](repeating: 0, count: 256)
+            var green =  [UInt16](repeating: 0, count: 256)
+            var blue =  [UInt16](repeating: 0, count: 256)
+            SDL_GetWindowGammaRamp(self._windowPtr, &red, &green, &blue)
+            return GammaRamp(red: red, blue: blue, green: green)
+        }
+        set {
+            var red = newValue.red
+            var green = newValue.green
+            var blue = newValue.blue
+            SDL_SetWindowGammaRamp(self._windowPtr, &red, &green, &blue)
+        }
+    }
 
 }
 

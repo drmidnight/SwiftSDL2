@@ -7,3 +7,4 @@ massif.out.*
 callgrind.out.*
 .vscode/launch.json
 .vscode/tasks.json
+Sources/SwiftSDL2/monogram.ttf

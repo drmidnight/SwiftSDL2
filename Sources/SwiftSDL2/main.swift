@@ -7,7 +7,7 @@ let SCREEN_HEIGHT: Int32 = 680
 // test this a bit. Kind of like this more declaritive approach but might lead to memory issues.
 SDL.main {
     SDL.initialize([.video])
-    print(SDL.wasInit(system: .audio))
+    print(SDL.wasInit(system: .video))
     let windowTest = Window(title: "Title", position: Point(x: 10, y: 10), size: Size(width: 200, height: 400), flags: [.openGL]) 
     print(windowTest.id)
     let surface = Surface(from:"/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg" )

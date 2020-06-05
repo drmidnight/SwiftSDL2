@@ -74,11 +74,13 @@ public struct SDL {
         return ramp
     }
 
+    // change this to return a bool instead of the system type. 
     static func wasInit(system: SDLSystem) -> SDLSystem {
         return SDLSystem(rawValue: SDL_WasInit(system.rawValue))
     }
 
     // maybe auto-initialize sdl if it hasnt been already?
+    /// Runs the passed in closure until a return and will then proceed to call SDL_Quit()
     static func main(_ closure: ()->()) {
         defer{ SDL.quit()}
         closure()

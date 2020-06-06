@@ -117,4 +117,11 @@ extension SDL {
         defer{ SDL.quit()}
         closure()
     }
+
+    static func pollEvents(_ closure:(SDL_Event)->() ){
+        var event = SDL_Event()
+        while SDL_PollEvent(&event) != 0 {
+            closure(event)
+        }
+    }
 }

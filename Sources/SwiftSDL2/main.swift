@@ -1,5 +1,5 @@
 import CSDL2
-import Foundation
+// import Foundation
 
 let SCREEN_WIDTH: Int32 = 1024
 let SCREEN_HEIGHT: Int32 = 680
@@ -67,7 +67,8 @@ SDL.main {
 
     while !quit {
         let start = SDL_GetPerformanceCounter()
-         while(SDL_PollEvent(&event) != 0) {
+        
+        SDL.pollEvents { event in
             switch event.type {
                 case SDL_WINDOWEVENT.rawValue:
                 if let eventType = WindowEventID(rawValue: event.window.event) {
@@ -82,6 +83,9 @@ SDL.main {
                 break
             }
         }
+        //  while(SDL_PollEvent(&event) != 0) {
+  
+        // }
         
         // probably some retain issue. 
         // Fix this so it isnt a self reference. Maybe window.render() which passes in its renderer?

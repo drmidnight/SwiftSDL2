@@ -4,8 +4,10 @@ import CSDL2
 let SCREEN_WIDTH: Int32 = 1024
 let SCREEN_HEIGHT: Int32 = 680
 
+// initialize subsystems
 SDL.initialize([.video])
-// test this a bit. Kind of like this more declaritive approach but might lead to memory issues.
+
+// playground. write some tests.
 SDL.main {
     print(SDL.version)
     TTF_Init()
@@ -15,11 +17,11 @@ SDL.main {
 
     let scale: Int = 2
     let renderer = Renderer(window: windowTest)
+    renderer.scale = Vector2(x: Float(scale), y: Float(scale))
     let tex = Texture(renderer: renderer, image: "/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg")
 
     var quit = false
-    // TODO: Wrap SDL_Event next, could be fun...
-    var event = SDL_Event()
+   
     // let points = [
     //     Point(x: 10, y: 10),
     //     Point(x: 20, y: 20),
@@ -54,7 +56,7 @@ SDL.main {
     // memcpy(&pixels, bytesPointer, 200 * 400 * MemoryLayout<UInt32>.size)
     // print(pixels)
 
-    renderer.scale = Vector2(x: Float(scale), y: Float(scale))
+    
 
 
     let format = tex.query().format
@@ -66,29 +68,28 @@ SDL.main {
     }
 
     while !quit {
-        let start = SDL_GetPerformanceCounter()
-        
+        // let start = SDL_GetPerformanceCounter()
+
         SDL.pollEvents { event in
-            switch event.type {
-                case SDL_WINDOWEVENT.rawValue:
-                if let eventType = WindowEventID(rawValue: event.window.event) {
-                    switch eventType {
-                        default:
-                            print("Event: \(eventType)")
+            switch event.kind {
+                case .keyDown:
+                    if event.isPressed(.escape) {
+                        quit = true
                     }
-                }
-                case SDL_QUIT.rawValue:
-                    quit = true
-            default:
-                break
+                case .window:
+                    if let eventType = WindowEventID(rawValue: event.window.event) {
+                            switch eventType {
+                                default:
+                                    print("Event: \(eventType)")
+                            }
+                        }
+                case .quit: quit = true
+                case .none:
+                    break
             }
         }
-        //  while(SDL_PollEvent(&event) != 0) {
-  
-        // }
-        
-        // probably some retain issue. 
-        // Fix this so it isnt a self reference. Maybe window.render() which passes in its renderer?
+           
+       
         // Definitely leaking. fix this.
         // renderer.render { rndr in
         //     rndr?.drawColor = Color(hex: 0x005DAA)
@@ -106,10 +107,10 @@ SDL.main {
         renderer.renderCopy(texture: textTexture, dstRect: fontRect)
         // print(renderer.rendererInfo)
         renderer.present()
-        let end = SDL_GetPerformanceCounter()
-        let elapsed:Float = Float(end-start) / Float(SDL_GetPerformanceFrequency())
+        // let end = SDL_GetPerformanceCounter()
+        // let elapsed:Float = Float(end-start) / Float(SDL_GetPerformanceFrequency())
         // print("FPS: \(1.0/elapsed)")
     }
-       print(String(cString: SDL_GetError()))
+    SDL.printError()
 
 }

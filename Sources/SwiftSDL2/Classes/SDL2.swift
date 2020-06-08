@@ -119,9 +119,13 @@ extension SDL {
     }
 
     static func pollEvents(_ closure:(SDL_Event)->() ){
-        var event = SDL_Event()
+        var event = Event()
         while SDL_PollEvent(&event) != 0 {
             closure(event)
         }
+    }
+
+    static func printError() {
+        print(String(cString: SDL_GetError()))
     }
 }

@@ -78,6 +78,11 @@ extension Texture {
             SDL_SetTextureColorMod(self._texturePtr, newValue.r, newValue.g, newValue.b)
         }
     }
+
+    //convinence
+    var info: TextureInfo {
+        return self.query()
+    }
 }
 
 

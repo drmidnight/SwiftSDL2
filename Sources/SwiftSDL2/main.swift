@@ -1,6 +1,14 @@
 import CSDL2
 // import Foundation
+class Game {
+    internal init(renderer: Renderer, window: Window) {
+        self.renderer = renderer
+        self.window = window
+    }
 
+    let renderer: Renderer
+    let window: Window
+}
 let SCREEN_WIDTH: Int32 = 1024
 let SCREEN_HEIGHT: Int32 = 680
 
@@ -11,32 +19,33 @@ SDL.initialize([.video])
 SDL.main {
     print(SDL.version)
     TTF_Init()
-    let windowTest = Window(title: "Title", position: Point(x: 10, y: 10), size: Size(width: SCREEN_WIDTH, height: SCREEN_HEIGHT), flags: [.openGL]) 
+   
+    let windowTest = Window(title: "SDL2-Swift", position: Point(x: 10, y: 10), size: Size(width: SCREEN_WIDTH, height: SCREEN_HEIGHT), flags: [.openGL]) 
 
     //let surface = Surface(from:"/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg" )
 
     let scale: Int = 2
     let renderer = Renderer(window: windowTest)
     renderer.scale = Vector2(x: Float(scale), y: Float(scale))
+    let game = Game(renderer: renderer, window: windowTest)
     let tex = Texture(renderer: renderer, image: "/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg")
 
     var quit = false
    
-    // let points = [
-    //     Point(x: 10, y: 10),
-    //     Point(x: 20, y: 20),
-    //     Point(x: 30, y: 30),
-    //     Point(x: 40, y: 10),
-    //     Point(x: 50, y: 40),
-    //     Point(x: 60, y: 10)
-    // ]
+    let points = [
+        Point(x: 10, y: 10),
+        Point(x: 20, y: 20),
+        Point(x: 30, y: 30),
+        Point(x: 40, y: 10),
+        Point(x: 50, y: 40),
+        Point(x: 60, y: 10)
+    ]
 
     let font = TTF_OpenFont( "/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/monogram.ttf", 16 );
     let surfacePtr = TTF_RenderText_Solid(font, "WE HAVE FONTS", Color.black)
     let surfaceText = Surface(surfacePtr) 
     let textTexture = Texture(renderer: renderer, surface: surfaceText)
-    let textureInfo = textTexture.query()
-    let textureSize = textureInfo.size
+    let textureSize = textTexture.info.size
     let scaledX =  (SCREEN_WIDTH / Int32(2*scale))
     let fontRect = Rect(x:scaledX - (Int32(textureSize.width) / 2), y: 10, w: Int32(textureSize.width), h: Int32(textureSize.height))
     print(fontRect)
@@ -90,21 +99,23 @@ SDL.main {
         }
            
        
-        // Definitely leaking. fix this.
-        // renderer.render { rndr in
-        //     rndr?.drawColor = Color(hex: 0x005DAA)
-        //     rndr?.clear()
-
-        //     let rect = Rect(x: 10, y: 10, w: 20, h: 20)
-        //     rndr?.drawColor = Color(r: 255, g: 0, b: 0, a: 255)
-        //     rndr?.fillRect(rect)
-        //     rndr?.drawLines(points: points, color: Color(r: 255, g: 255, b: 0, a: 255))
-        // }
+      
         // .render()
         renderer.drawColor = Color(r: 0, g: 0, b: 0, a: 255)
         renderer.clear()
         renderer.renderCopy(texture: tex)
         renderer.renderCopy(texture: textTexture, dstRect: fontRect)
+
+
+        renderer.render { rndr in
+            rndr?.drawColor = Color(hex: 0x005DAA)
+            // rndr?.clear()
+
+            let rect = Rect(x: 10, y: 10, w: 20, h: 20)
+            rndr?.drawColor = Color(r: 255, g: 0, b: 0, a: 255)
+            rndr?.fillRect(rect)
+            rndr?.drawLines(points: points, color: Color(r: 255, g: 255, b: 0, a: 255))
+        }
         // print(renderer.rendererInfo)
         renderer.present()
         // let end = SDL_GetPerformanceCounter()
@@ -114,3 +125,4 @@ SDL.main {
     SDL.printError()
 
 }
+

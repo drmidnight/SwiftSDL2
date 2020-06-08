@@ -5,7 +5,9 @@ typealias Event = SDL_Event
 enum EventType: UInt32 {
     case quit = 0x100
     case window = 0x200
+    case system = 0x201
     case keyDown = 0x300
+    case keyUp = 0x301
 } 
 
 extension Event {
@@ -23,5 +25,14 @@ extension Event {
             default: break
         }
         return nil
+    }
+}
+
+typealias WindowEvent = SDL_WindowEvent 
+
+extension WindowEvent {
+    var eventID: WindowEventID {
+        guard let eventType = WindowEventID(rawValue: self.event) else { return .none }
+       return eventType
     }
 }

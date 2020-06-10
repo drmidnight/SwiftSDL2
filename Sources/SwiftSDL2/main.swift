@@ -32,11 +32,12 @@ let SCREEN_HEIGHT: Int32 = 680
 
 // initialize subsystems
 SDL.initialize([.video])
-
+SDL.initialize(imageSupport: [.png])
 // playground. write some tests.
 SDL.main {
     print(SDL.version)
     TTF_Init()
+
    
 
     //let surface = Surface(from:"/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/sdl.jpeg" )
@@ -93,7 +94,7 @@ SDL.main {
     }
 
     while !quit {
-        // let start = SDL_GetPerformanceCounter()
+        let start = SDL_GetPerformanceCounter()
 
         SDL.pollEvents { event in
             switch event.kind {
@@ -105,7 +106,6 @@ SDL.main {
                 case .quit: quit = true
                 default:
                     print("Event unknown: \(event.type)")
-
             }
         }
            
@@ -122,13 +122,15 @@ SDL.main {
             let rect = Rect(x: 10, y: 10, w: 20, h: 20)
             rndr.drawColor = Color(r: 255, g: 0, b: 0, a: 255)
             rndr.fillRect(rect)
-            rndr.drawLines(points: points, color: Color(r: 255, g: 255, b: 0, a: 255))
+            rndr.drawLines(points: points, color: Color.red)
         }
         // print(renderer.rendererInfo)
         game.renderer.present()
-        // let end = SDL_GetPerformanceCounter()
-        // let elapsed:Float = Float(end-start) / Float(SDL_GetPerformanceFrequency())
-        // print("FPS: \(1.0/elapsed)")
+        let end = SDL_GetPerformanceCounter()
+        let elapsed:Double = Double(end-start) / Double(SDL_GetPerformanceFrequency()) * 1000
+        
+        SDL_Delay(UInt32(floor(max(0,16.666 - elapsed))))
+
     }
     SDL.printError()
 

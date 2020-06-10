@@ -3,13 +3,23 @@ import CSDL2
 public struct SDL {
     @available(*, unavailable) private init() {}
     static func initialize(_ systems: [SDLSystem] = [.everything]) {
+        do {
+            try wrap {  SDL_Init(flagify(systems)) }
+        } catch {
+            print(error)
+        }
         print("Initializing SDL systems:\(systems)")
-        SDL_Init(flagify(systems))
+       
     }
 
     static func start(subSystems: [SDLSystem]) {
         print("Initializing SDL subsystems:\(subSystems)")
         SDL_InitSubSystem(flagify(subSystems))
+    }
+
+    static func initialize(imageSupport imageType: [ImageType]) {
+        print("Initializing SDL Image support for: \(imageType)")
+        IMG_Init(flagify(imageType))
     }
 
     static func quit() {

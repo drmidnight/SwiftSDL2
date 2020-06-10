@@ -92,7 +92,7 @@ SDL.main {
         default:
             print(format)
     }
-
+    print(EventType.keyUp.rawValue)
     while !quit {
         let start = SDL_GetPerformanceCounter()
 
@@ -105,7 +105,10 @@ SDL.main {
                 case .window: print(event.window.eventID)
                 case .quit: quit = true
                 default:
-                    print("Event unknown: \(event.type)")
+                    if let eventKind = event.kind {
+                        print("Event not handled: \(eventKind)")
+                    }
+                   
             }
         }
            

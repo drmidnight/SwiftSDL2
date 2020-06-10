@@ -29,7 +29,9 @@ class Game {
 }
 let SCREEN_WIDTH: Int32 = 1024
 let SCREEN_HEIGHT: Int32 = 680
+SDL_LogSetAllPriority(SDL_LOG_PRIORITY_INFO)
 
+SDL.Log(cat:SDL_LOG_CATEGORY_APPLICATION,  "test")
 // initialize subsystems
 SDL.initialize([.video])
 SDL.initialize(imageSupport: [.png])

@@ -1,5 +1,5 @@
 import CSDL2
-
+import Foundation
 
 // import Foundation
 // @discardableResult
@@ -11,6 +11,7 @@ import CSDL2
 //     task.waitUntilExit()
 //     return task.terminationStatus
 // }
+let Log = Logger(label: "com.sdl2.logger", level: .verbose, sources: [.console, .file(URL(fileURLWithPath:"test.txt"))])
 
 class Game {
     var renderer: Renderer
@@ -104,11 +105,11 @@ SDL.main {
                     if event.isPressed(.escape) {
                         quit = true
                     }
-                case .window: print(event.window.eventID)
+                case .window: Log.out(.verbose, "\(event.window.eventID)")
                 case .quit: quit = true
                 default:
                     if let eventKind = event.kind {
-                        print("Event not handled: \(eventKind)")
+                        Log.out(.verbose, "Event not handled: \(eventKind)")
                     }
                    
             }

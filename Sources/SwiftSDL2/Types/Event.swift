@@ -1,8 +1,8 @@
 import CSDL2
 
-typealias Event = SDL_Event
+public typealias Event = SDL_Event
 
-enum EventType: UInt32 {
+public enum EventType: UInt32 {
     case firstEvent = 0
     case quit = 0x100
     case appTerminating
@@ -69,11 +69,27 @@ enum EventType: UInt32 {
     case userEvent = 0x8000
 } 
 
-extension Event {
+public enum MouseBtnType: UInt8 {
+    case left = 1
+    case middle
+    case right
+    case x1
+    case x2
+}
+
+// TODO: Wrap events in a command queue?
+public extension Event {
     func isPressed(_ keyCode: KeyCode) -> Bool {
         let key = self.key.keysym.sym
-        if key == keyCode.rawValue { return true }
-        return false
+        guard key == keyCode.rawValue else { return false }
+        return true
+    }
+
+    func clicked(mouseBtn: MouseBtnType, clicks: Int = 1) -> Bool {
+        let key = self.button.button
+        guard key == mouseBtn.rawValue else { return false }
+        return self.button.clicks == clicks
+
     }
 
     var kind: EventType? {
@@ -81,11 +97,10 @@ extension Event {
     }
 }
 
-typealias WindowEvent = SDL_WindowEvent 
-
-extension WindowEvent {
+public typealias WindowEvent = SDL_WindowEvent 
+public extension WindowEvent {
     var eventID: WindowEventID {
         guard let eventType = WindowEventID(rawValue: self.event) else { return .none }
-       return eventType
+        return eventType
     }
 }

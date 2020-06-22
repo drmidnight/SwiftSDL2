@@ -117,6 +117,10 @@ extension SDL {
     static func deleteHintCallback(name: String, callback: HintCallback?, userData: UnsafeMutableRawPointer){
         SDL_DelHintCallback(name, callback, userData)
     }
+
+    static func getPerformanceCounter() -> Int {
+        return Int(SDL_GetPerformanceCounter())
+    }
     
 }
 

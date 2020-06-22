@@ -1,6 +1,6 @@
 import CSDL2
 
-class Renderer {
+public class Renderer {
     var _rendererPtr: OpaquePointer?
 
     init(window: Window, flags: [RendererFlags] = [.accelerated], driverIndex: Int32 = -1) {
@@ -23,7 +23,7 @@ class Renderer {
 
 }
 
-extension Renderer {
+public extension Renderer {
     var drawColor: Color {
         get {
             var r: UInt8 = 0

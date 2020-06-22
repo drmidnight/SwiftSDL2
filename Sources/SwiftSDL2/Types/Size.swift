@@ -1,4 +1,4 @@
-struct Size {
+public struct Size {
     let width: Int
     let height: Int
 
@@ -13,7 +13,7 @@ struct Size {
     }
 }
 
-extension Size {
+public extension Size {
     static var zero: Size {
         return Size(width: 0, height: 0)
     }

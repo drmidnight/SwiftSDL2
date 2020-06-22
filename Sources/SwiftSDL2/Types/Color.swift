@@ -1,7 +1,7 @@
 import CSDL2
-typealias Color = SDL_Color
+public typealias Color = SDL_Color
 
-extension Color {
+public extension Color {
     init(hex: Int, alpha: UInt8 = 255) {
         self.init(r:UInt8((hex >> 16)) & 0xff, g: UInt8((hex >> 08) & 0xff), b: UInt8((hex >> 00) & 0xff), a: alpha)
     }

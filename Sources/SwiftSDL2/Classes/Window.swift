@@ -19,7 +19,7 @@ public class Window {
 
 }
 
-extension Window {
+public extension Window {
     func update() {
         SDL_UpdateWindowSurface( _windowPtr );
     }
@@ -74,7 +74,7 @@ extension Window {
     }
 }
 
-extension Window {
+public extension Window {
     var id: UInt32 {
         get {
             return SDL_GetWindowID(self._windowPtr)
@@ -269,7 +269,7 @@ extension Window {
 
 
 #if os(Linux) 
-extension Window {
+public extension Window {
     var borderSize: Edges {
             get {
                 var top: Int32 = 0

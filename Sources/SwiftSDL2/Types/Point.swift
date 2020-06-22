@@ -3,9 +3,9 @@
 //     let y: Int
 // }
 import CSDL2
-typealias Point = SDL_Point
+public typealias Point = SDL_Point
 
-extension Point {
+public extension Point {
     static var zero: Point {
         return Point(x: 0, y: 0)
     }

@@ -3,13 +3,13 @@ import CSDL2
 let scanCodeMask:Uint32 = 1<<30
 
 @inline(__always) 
-func scanCodeToKeyCode(_ code: UInt32) -> Int {
+private func scanCodeToKeyCode(_ code: UInt32) -> Int {
     return Int(code | scanCodeMask)
 }
 
-struct KeyCode: OptionSet {
-    let rawValue : Int
-    init(rawValue: Int) {
+public struct KeyCode: OptionSet {
+    public let rawValue : Int
+    public init(rawValue: Int) {
         self.rawValue = rawValue
     }
 
@@ -271,9 +271,9 @@ struct KeyCode: OptionSet {
     static let audioFastForward = scanCodeToKeyCode(SDL_SCANCODE_AUDIOFASTFORWARD.rawValue)
 }
 
-struct KeyMod: OptionSet {
-    let rawValue : UInt32
-    init(rawValue: UInt32) {
+public struct KeyMod: OptionSet {
+    public let rawValue : UInt32
+    public init(rawValue: UInt32) {
         self.rawValue = rawValue
     }
 

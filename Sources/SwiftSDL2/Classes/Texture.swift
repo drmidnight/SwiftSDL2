@@ -1,13 +1,13 @@
 import CSDL2
 import Foundation
 
-enum TextureAccess: Int32 {
+public enum TextureAccess: Int32 {
     case `static`  /** SDL_TEXTUREACCESS_STATIC < Changes rarely, not lockable */
     case streaming /** SDL_TEXTUREACCESS_STREAMING < Changes frequently, lockable */
     case target    /** SDL_TEXTUREACCESS_TARGET < Texture can be used as a render target */
 }
 
-class Texture {
+public class Texture {
     var _texturePtr: OpaquePointer?
     var _pixelsPtr: UnsafeMutablePointer<UnsafeMutableRawPointer?>?
     var _pitchPtr: UnsafeMutablePointer<Int32>?
@@ -43,7 +43,7 @@ class Texture {
     }
 }
 
-extension Texture {
+public extension Texture {
     var alphaMod: Int {
         get {
             var alphaPtr:Uint8 = 0
@@ -86,7 +86,7 @@ extension Texture {
 }
 
 
-extension Texture {
+public extension Texture {
       // wrap Surface next
     static func createFromSurface(renderer: Renderer, surface:  UnsafeMutablePointer<SDL_Surface>?) -> OpaquePointer? {
         return SDL_CreateTextureFromSurface(renderer._rendererPtr, surface)

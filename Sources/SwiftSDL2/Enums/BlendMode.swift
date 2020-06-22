@@ -8,14 +8,14 @@ public enum BlendMode: UInt32 {
     case invalid  = 0x7FFFFFFF  /** SDL_BLENDMODE_INVALID */
 }
 
-extension BlendMode {
+public extension BlendMode {
     // obviously not working, figure something out for this. Maybe make blendmode an optionSet since you can have arbitrary cases.
     public static func composeCustom(srcColorFactor: BlendFactor, dstColorFactor: BlendFactor, colorOperation: BlendOperation, srcAlphaFactor: BlendFactor, dstAlphaFactor: BlendFactor, alphaOperation: BlendOperation) -> BlendMode {
         return BlendMode(rawValue: SDL_ComposeCustomBlendMode(srcColorFactor.sdlValue, dstColorFactor.sdlValue, colorOperation.sdlValue, srcAlphaFactor.sdlValue, dstAlphaFactor.sdlValue, alphaOperation.sdlValue).rawValue) ?? none
     }    
 }
 
-extension BlendMode {
+public extension BlendMode {
     var toSDL: SDL_BlendMode {
         return SDL_BlendMode(rawValue: self.rawValue)
     }
@@ -29,7 +29,7 @@ public enum BlendOperation: UInt8 {
     case max             = 0x5  /** SDL_BLENDOPERATION_MAXIMUM  < max(dst, src) : supported by D3D11 */
 }
 
-extension BlendOperation {
+public extension BlendOperation {
     var sdlValue: SDL_BlendOperation {
         return SDL_BlendOperation(rawValue: UInt32(self.rawValue))
     }
@@ -50,7 +50,7 @@ public enum BlendFactor: UInt8
 
 }
 
-extension BlendFactor {
+public extension BlendFactor {
     var sdlValue: SDL_BlendFactor {
         return SDL_BlendFactor(rawValue: UInt32(self.rawValue))
     }

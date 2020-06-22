@@ -1,6 +1,6 @@
 import CSDL2
 
-class Surface {
+public class Surface {
     var _surfacePtr: UnsafeMutablePointer<SDL_Surface>?
 
     init(_ window: Window) {
@@ -33,7 +33,7 @@ class Surface {
     }
 }
 
-extension Surface {
+public extension Surface {
     var clipRect: Rect {
         get {
             var rect = Rect()
@@ -82,7 +82,7 @@ extension Surface {
     }
 }
 
-extension Surface {
+public extension Surface {
 
     func blitSurface(dstSurface: Surface, dstRect: Rect, srcRect: Rect) {
         var srcRect = srcRect

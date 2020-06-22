@@ -1,8 +1,8 @@
 import CSDL2
 
-struct ImageType: OptionSet {
-    let rawValue : Int32
-    init(rawValue: Int32) {
+public struct ImageType: OptionSet {
+    public let rawValue : Int32
+    public init(rawValue: Int32) {
         self.rawValue = rawValue
     }
     static let jpg = ImageType(rawValue: Int32(IMG_INIT_JPG.rawValue))

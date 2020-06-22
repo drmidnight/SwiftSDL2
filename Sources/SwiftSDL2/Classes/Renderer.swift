@@ -230,18 +230,3 @@ extension Renderer {
         SDL_RenderCopyEx(self._rendererPtr, texture._texturePtr, &src, &dst, angle, &center, flip.sdlValue)
     }
 }
-
-// #IF ttf
-extension Renderer {
-    func renderText(_ text: String, rect: Rect = .zero) {
-        let font = TTF_OpenFont( "/home/derp/Developer/Swift/SDL2Test/Sources/SwiftSDL2/monogram.ttf", 16 );
-          defer { TTF_CloseFont(font) }
-        let surfacePtr = TTF_RenderText_Solid(font, text, Color.black)
-        let surfaceText = Surface(surfacePtr) 
-        let textTexture = Texture(renderer: self, surface: surfaceText)
-        let textureSize = textTexture.info.size
-        let scaledX =  (SCREEN_WIDTH / Int32(2*scale.x))
-        let fontRect = Rect(x:scaledX - (Int32(textureSize.width) / 2), y: 10, w: Int32(textureSize.width), h: Int32(textureSize.height))
-        self.renderCopy(texture: textTexture, dstRect: fontRect)
-    }
-}

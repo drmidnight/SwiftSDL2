@@ -15,6 +15,10 @@ public class Surface {
        self._surfacePtr = IMG_Load(image)
     }
 
+    init(size: Size, color: Color) {
+        self._surfacePtr = SDL_CreateRGBSurface(0, Int32(size.width), Int32(size.height), 8, Uint32(color.r), Uint32(color.g), Uint32(color.b), Uint32(color.a))
+    }
+
     deinit {
         print("Destroying Surface")
         self.free()
@@ -78,6 +82,13 @@ public extension Surface {
         }
         set {
             SDL_SetSurfaceColorMod(self._surfacePtr, newValue.r, newValue.g, newValue.b)
+        }
+    }
+    
+    // TODO: fix this
+   var pixelFormat: SDL_PixelFormat {
+        get {
+            return self._surfacePtr!.pointee.format.pointee
         }
     }
 }

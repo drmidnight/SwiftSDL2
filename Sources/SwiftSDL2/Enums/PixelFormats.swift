@@ -1,11 +1,11 @@
 import CSDL2
 
 // maybe think about making these all uppercase?
-struct PixelFormats: OptionSet
+public struct PixelFormats: OptionSet
 {
     
-    let rawValue : UInt32
-    init(rawValue: UInt32) {
+    public let rawValue : UInt32
+    public init(rawValue: UInt32) {
         self.rawValue = rawValue
     }
 

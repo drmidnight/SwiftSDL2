@@ -79,10 +79,15 @@ public enum MouseBtnType: UInt8 {
 
 // TODO: Wrap events in a command queue?
 public extension Event {
-    func isPressed(_ keyCode: KeyCode) -> Bool {
+    func isPressed(_ keyCode: KeyCode, repeats: Bool = false) -> Bool {
         let key = self.key.keysym.sym
         guard key == keyCode.rawValue else { return false }
-        return true
+        return repeats ? true : self.key.repeat == 0
+    }
+
+    func isModDown(_ keyMod: KeyMod) -> Bool {
+        let modStates = SDL_GetModState()
+        return (UInt32(modStates.rawValue) & keyMod.rawValue) == keyMod.rawValue
     }
 
     func clicked(mouseBtn: MouseBtnType, clicks: Int = 1) -> Bool {
@@ -94,6 +99,11 @@ public extension Event {
 
     var kind: EventType? {
         return EventType(rawValue: self.type)
+    }
+
+    var keyCode: KeyCode {
+        let code = KeyCode(rawValue: Int(self.key.keysym.sym))
+        return code
     }
 }
 

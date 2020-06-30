@@ -2,7 +2,7 @@
 
 Swift wrapper for SDL2.
 
-Heavily work-in-progress, so use at your own risk. Things will change and evolve as I tackle more of SDL2. I'm hoping to have the core and all additions (image, ttf, mixer, net) fully wrapped eventually. 
+Heavily work-in-progress, so use at your own risk. Things will change and evolve as I tackle more of SDL2. SDL_mixer and SDL_net will be added as separate wrappers.
 
 *See [CSDL2](https://github.com/drmidnight/CSDL2) for bare C wrapper*
 

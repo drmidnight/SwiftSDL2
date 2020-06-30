@@ -33,8 +33,7 @@ public struct SDL {
     }
 
     static func wasInit(system: SDLSystem) -> Bool {
-        let flagValue = SDL_WasInit(0)
-        return (flagValue & system.rawValue) ==  system.rawValue 
+        return SDLSystem(rawValue: SDL_WasInit(0)).contains(system)
     }
 
 
@@ -126,18 +125,7 @@ extension SDL {
 
 extension SDL {
     // maybe auto-initialize sdl if it hasnt been already?
-    /// Runs the passed in closure until a return and will then proceed to call SDL_Quit()
-    static func main(_ closure: ()->()) {
-        defer{ SDL.quit()}
-        closure()
-    }
-
-    static func pollEvents(_ closure:(SDL_Event)->() ){
-        var event = Event()
-        while SDL_PollEvent(&event) != 0 {
-            closure(event)
-        }
-    }
+   
 
     static func printError() {
         print(String(cString: SDL_GetError()))

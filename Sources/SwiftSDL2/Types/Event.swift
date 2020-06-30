@@ -86,8 +86,8 @@ public extension Event {
     }
 
     func isModDown(_ keyMod: KeyMod) -> Bool {
-        let modStates = SDL_GetModState()
-        return (UInt32(modStates.rawValue) & keyMod.rawValue) == keyMod.rawValue
+        let modStates = KeyMod(rawValue: SDL_GetModState().rawValue)
+        return modStates.contains(keyMod)
     }
 
     func clicked(mouseBtn: MouseBtnType, clicks: Int = 1) -> Bool {

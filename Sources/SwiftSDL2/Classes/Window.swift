@@ -87,7 +87,7 @@ public extension Window {
 
     var bordered: Bool {
         get {
-            return (SDL_GetWindowFlags(self._windowPtr) & WindowFlags.borderless.rawValue) == WindowFlags.borderless.rawValue
+            return WindowFlags(rawValue: SDL_GetWindowFlags(self._windowPtr)).contains(.borderless) == false
         }
         set {
             SDL_SetWindowBordered(self._windowPtr, newValue.SDLBoolValue)
@@ -96,13 +96,13 @@ public extension Window {
 
     var fullscreen: Bool {
         get {
-            return (SDL_GetWindowFlags(self._windowPtr) & WindowFlags.fullscreen.rawValue) == WindowFlags.fullscreen.rawValue
+            return WindowFlags(rawValue: SDL_GetWindowFlags(self._windowPtr)).contains(.fullscreen)
         }
     }
 
     var resizeable: Bool {
         get {
-            return (SDL_GetWindowFlags(self._windowPtr) & WindowFlags.resizeable.rawValue) == WindowFlags.resizeable.rawValue
+            return WindowFlags(rawValue: SDL_GetWindowFlags(self._windowPtr)).contains(.resizeable)
         }
         set {
             SDL_SetWindowResizable(self._windowPtr, newValue.SDLBoolValue)
@@ -111,7 +111,7 @@ public extension Window {
 
     var inputFocus: Bool {
         get {
-            return (SDL_GetWindowFlags(self._windowPtr) & WindowFlags.inputFocus.rawValue) == WindowFlags.inputFocus.rawValue
+            return WindowFlags(rawValue: SDL_GetWindowFlags(self._windowPtr)).contains(.inputFocus)
         }
         set {
             // use raise instead. Maybe dont even allow a setter? 
@@ -128,34 +128,9 @@ public extension Window {
         }
     }
 
-    var windowFlags: [WindowFlags] {
+    var windowFlags: WindowFlags {
         get {
-            var flags = [WindowFlags]()
-            let flagValue = SDL_GetWindowFlags(self._windowPtr)
-            if (flagValue & WindowFlags.fullscreen.rawValue) == WindowFlags.fullscreen.rawValue {flags.append(.fullscreen)}
-            if (flagValue & WindowFlags.openGL.rawValue) == WindowFlags.openGL.rawValue {flags.append(.openGL)}
-            if (flagValue & WindowFlags.shown.rawValue) == WindowFlags.shown.rawValue {flags.append(.shown)}
-            if (flagValue & WindowFlags.hidden.rawValue) == WindowFlags.hidden.rawValue {flags.append(.hidden)}
-            if (flagValue & WindowFlags.borderless.rawValue) == WindowFlags.borderless.rawValue {flags.append(.borderless)}
-            if (flagValue & WindowFlags.resizeable.rawValue) == WindowFlags.resizeable.rawValue {flags.append(.resizeable)}
-            if (flagValue & WindowFlags.minimized.rawValue) == WindowFlags.minimized.rawValue {flags.append(.minimized)}
-            if (flagValue & WindowFlags.maximized.rawValue) == WindowFlags.maximized.rawValue {flags.append(.maximized)}
-            if (flagValue & WindowFlags.inputGrabbed.rawValue) == WindowFlags.inputGrabbed.rawValue {flags.append(.inputGrabbed)}
-            if (flagValue & WindowFlags.inputFocus.rawValue) == WindowFlags.inputFocus.rawValue {flags.append(.inputFocus)}
-            if (flagValue & WindowFlags.mouseFocus.rawValue) == WindowFlags.mouseFocus.rawValue {flags.append(.mouseFocus)}
-            if (flagValue & WindowFlags.fullscreenDesktop.rawValue) == WindowFlags.fullscreenDesktop.rawValue {flags.append(.fullscreenDesktop)}
-            if (flagValue & WindowFlags.foreign.rawValue) == WindowFlags.foreign.rawValue {flags.append(.foreign)}
-            if (flagValue & WindowFlags.allowHIDPI.rawValue) == WindowFlags.allowHIDPI.rawValue {flags.append(.allowHIDPI)}
-            if (flagValue & WindowFlags.mouseCapture.rawValue) == WindowFlags.mouseCapture.rawValue {flags.append(.mouseCapture)}
-            if (flagValue & WindowFlags.vulkan.rawValue) == WindowFlags.vulkan.rawValue {flags.append(.vulkan)}
-#if os(Linux) 
-            if (flagValue & WindowFlags.alwaysOnTop.rawValue) == WindowFlags.alwaysOnTop.rawValue {flags.append(.alwaysOnTop)}
-            if (flagValue & WindowFlags.skipTaskbar.rawValue) == WindowFlags.skipTaskbar.rawValue {flags.append(.skipTaskbar)}
-            if (flagValue & WindowFlags.utility.rawValue) == WindowFlags.utility.rawValue {flags.append(.utility)}
-            if (flagValue & WindowFlags.tooltip.rawValue) == WindowFlags.tooltip.rawValue {flags.append(.tooltip)}
-            if (flagValue & WindowFlags.popupMenu.rawValue) == WindowFlags.popupMenu.rawValue {flags.append(.popupMenu)}
-#endif
-            return flags
+            return WindowFlags(rawValue: SDL_GetWindowFlags(self._windowPtr))
         }
     }
 

@@ -1,6 +1,6 @@
 public struct Edges {
-    let top: Int
-    let left: Int
-    let bottom: Int
-    let right: Int
+    public let top: Int
+    public let left: Int
+    public let bottom: Int
+    public let right: Int
 }

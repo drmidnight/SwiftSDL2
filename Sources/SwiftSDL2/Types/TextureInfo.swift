@@ -1,5 +1,5 @@
 public struct TextureInfo {
-    let format: PixelFormats
-    let access: TextureAccess?
-    let size: Size
+    public let format: PixelFormats
+    public let access: TextureAccess?
+    public let size: Size
 }

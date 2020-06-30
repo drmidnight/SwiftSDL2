@@ -1,13 +1,13 @@
 public struct Size {
-    let width: Int
-    let height: Int
+    public let width: Int
+    public let height: Int
 
-    init(width: Int, height: Int) {
+    public init(width: Int, height: Int) {
         self.width = width
         self.height = height
     }
 
-     init(width: Int32, height: Int32) {
+    public init(width: Int32, height: Int32) {
         self.width = Int(width)
         self.height = Int(height)
     }

@@ -77,6 +77,13 @@ public extension Font {
 }
 
 public extension Font {
+    func texture(with text: String, using renderer: Renderer, type: FontRenderType = .solid, fgColor: Color = .white, bgColor: Color = .black) -> Texture {
+        let surface = self.renderText(text, type: type, fgColor: fgColor, bgColor: bgColor)
+        return Texture(renderer: renderer, surface: surface)
+    }
+}
+
+public extension Font {
     var style: FontStyle {
         get {
             return FontStyle(rawValue: TTF_GetFontStyle(self._fontPtr)) 

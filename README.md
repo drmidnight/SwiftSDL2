@@ -3,7 +3,8 @@
 Swift 5.2+ wrapper for SDL2.
 
 Heavily work-in-progress, so use at your own risk. Things will change and evolve as I tackle more of SDL2. 
-_SDL_mixer and SDL_net will be added as separate wrappers_
+
+`SDL_mixer and SDL_net will be added as separate wrappers`
 
 *See [CSDL2](https://github.com/drmidnight/CSDL2) for bare C wrapper*
 

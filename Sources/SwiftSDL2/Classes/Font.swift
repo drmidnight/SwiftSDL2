@@ -30,7 +30,7 @@ public class Font {
     }
 
     public init(_ fileName: String, size: Int, index: Int) {
-        if Self.wasInit() { Self.initialize() }
+        if Self.wasInit() == false { Self.initialize() }
         self._fontPtr = TTF_OpenFontIndex(fileName, Int32(size), index)
     }
 

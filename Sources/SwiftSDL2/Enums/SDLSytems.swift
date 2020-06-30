@@ -6,16 +6,16 @@ public struct SDLSystem: OptionSet {
         self.rawValue = rawValue
     }
 
-    static let timer          = SDLSystem(rawValue: SDL_INIT_TIMER)
-    static let audio          = SDLSystem(rawValue: SDL_INIT_AUDIO)
-    static let video          = SDLSystem(rawValue: SDL_INIT_VIDEO)                /**< SDL_INIT_VIDEO implies SDL_INIT_EVENTS */
-    static let joystick       = SDLSystem(rawValue: SDL_INIT_JOYSTICK)             /**< SDL_INIT_JOYSTICK implies SDL_INIT_EVENTS */
-    static let haptic         = SDLSystem(rawValue: SDL_INIT_HAPTIC)
-    static let gameController = SDLSystem(rawValue: SDL_INIT_GAMECONTROLLER)       /**< SDL_INIT_GAMECONTROLLER implies SDL_INIT_JOYSTICK */
-    static let events         = SDLSystem(rawValue: SDL_INIT_EVENTS)
-    static let sensor         = SDLSystem(rawValue: SDL_INIT_SENSOR)
-    static let noParachute    = SDLSystem(rawValue: SDL_INIT_NOPARACHUTE)          /**< compatibility; this flag is ignored. */
-    static let everything     = SDLSystem(rawValue: (   
+    public static let  timer          = SDLSystem(rawValue: SDL_INIT_TIMER)
+    public static let  audio          = SDLSystem(rawValue: SDL_INIT_AUDIO)
+    public static let  video          = SDLSystem(rawValue: SDL_INIT_VIDEO)                /**< SDL_INIT_VIDEO implies SDL_INIT_EVENTS */
+    public static let  joystick       = SDLSystem(rawValue: SDL_INIT_JOYSTICK)             /**< SDL_INIT_JOYSTICK implies SDL_INIT_EVENTS */
+    public static let  haptic         = SDLSystem(rawValue: SDL_INIT_HAPTIC)
+    public static let  gameController = SDLSystem(rawValue: SDL_INIT_GAMECONTROLLER)       /**< SDL_INIT_GAMECONTROLLER implies SDL_INIT_JOYSTICK */
+    public static let  events         = SDLSystem(rawValue: SDL_INIT_EVENTS)
+    public static let  sensor         = SDLSystem(rawValue: SDL_INIT_SENSOR)
+    public static let  noParachute    = SDLSystem(rawValue: SDL_INIT_NOPARACHUTE)          /**< compatibility; this flag is ignored. */
+    public static let  everything     = SDLSystem(rawValue: (   
                                                     SDLSystem.timer.rawValue 
                                                     | SDLSystem.audio.rawValue  
                                                     | SDLSystem.joystick.rawValue 

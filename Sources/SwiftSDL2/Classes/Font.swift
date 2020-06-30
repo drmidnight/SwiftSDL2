@@ -8,11 +8,11 @@ public struct FontStyle: OptionSet
         self.rawValue = rawValue
     }
 
-    static let normal = FontStyle(rawValue: TTF_STYLE_NORMAL)
-    static let bold = FontStyle(rawValue: TTF_STYLE_BOLD)
-    static let italic = FontStyle(rawValue: TTF_STYLE_ITALIC)
-    static let underline = FontStyle(rawValue: TTF_STYLE_UNDERLINE)
-    static let strikethrough = FontStyle(rawValue: TTF_STYLE_STRIKETHROUGH)
+    public static let normal = FontStyle(rawValue: TTF_STYLE_NORMAL)
+    public static let bold = FontStyle(rawValue: TTF_STYLE_BOLD)
+    public static let italic = FontStyle(rawValue: TTF_STYLE_ITALIC)
+    public static let underline = FontStyle(rawValue: TTF_STYLE_UNDERLINE)
+    public static let strikethrough = FontStyle(rawValue: TTF_STYLE_STRIKETHROUGH)
 }
 
 public enum FontHinting: Int32 {

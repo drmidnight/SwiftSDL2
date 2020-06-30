@@ -6,8 +6,8 @@ public struct RendererFlags: OptionSet {
         self.rawValue = rawValue
     }
     
-    static let software      = RendererFlags(rawValue: SDL_RENDERER_SOFTWARE.rawValue)       /**< The renderer is a software fallback */
-    static let accelerated   = RendererFlags(rawValue: SDL_RENDERER_ACCELERATED.rawValue)    /**< The renderer uses hardware acceleration */
-    static let vsync         = RendererFlags(rawValue: SDL_RENDERER_PRESENTVSYNC.rawValue)   /**< Present is synchronized with the refresh rate */
-    static let targetTexture = RendererFlags(rawValue: SDL_RENDERER_TARGETTEXTURE.rawValue)  /**< The renderer supports rendering to texture */
+    public static let  software      = RendererFlags(rawValue: SDL_RENDERER_SOFTWARE.rawValue)       /**< The renderer is a software fallback */
+    public static let  accelerated   = RendererFlags(rawValue: SDL_RENDERER_ACCELERATED.rawValue)    /**< The renderer uses hardware acceleration */
+    public static let  vsync         = RendererFlags(rawValue: SDL_RENDERER_PRESENTVSYNC.rawValue)   /**< Present is synchronized with the refresh rate */
+    public static let  targetTexture = RendererFlags(rawValue: SDL_RENDERER_TARGETTEXTURE.rawValue)  /**< The renderer supports rendering to texture */
 }

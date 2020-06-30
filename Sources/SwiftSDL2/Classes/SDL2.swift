@@ -61,7 +61,7 @@ public struct SDL {
     }
 }
 
-public extension SDL.Version: CustomStringConvertible {
+extension SDL.Version: CustomStringConvertible {
     public var description: String {
         return "SDL Version: \(self.major).\(self.minor).\(self.patch)"
     }

@@ -10,7 +10,7 @@ public enum BlendMode: UInt32 {
 
 public extension BlendMode {
     // obviously not working, figure something out for this. Maybe make blendmode an optionSet since you can have arbitrary cases.
-    public static func composeCustom(srcColorFactor: BlendFactor, dstColorFactor: BlendFactor, colorOperation: BlendOperation, srcAlphaFactor: BlendFactor, dstAlphaFactor: BlendFactor, alphaOperation: BlendOperation) -> BlendMode {
+    static func composeCustom(srcColorFactor: BlendFactor, dstColorFactor: BlendFactor, colorOperation: BlendOperation, srcAlphaFactor: BlendFactor, dstAlphaFactor: BlendFactor, alphaOperation: BlendOperation) -> BlendMode {
         return BlendMode(rawValue: SDL_ComposeCustomBlendMode(srcColorFactor.sdlValue, dstColorFactor.sdlValue, colorOperation.sdlValue, srcAlphaFactor.sdlValue, dstAlphaFactor.sdlValue, alphaOperation.sdlValue).rawValue) ?? none
     }    
 }

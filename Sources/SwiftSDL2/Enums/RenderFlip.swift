@@ -5,7 +5,7 @@ public enum RendererFlip: UInt32 {
     case vertical   = 0x00000002  /** SDL_FLIP_VERTICAL < flip vertically */
 }
 
-extension RendererFlip {
+public extension RendererFlip {
     var sdlValue: SDL_RendererFlip {
         return SDL_RendererFlip(rawValue: UInt32(self.rawValue))
     }

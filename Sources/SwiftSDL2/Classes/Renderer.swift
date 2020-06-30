@@ -144,7 +144,8 @@ public extension Renderer {
     }
 
 }
-extension Renderer {
+
+public extension Renderer {
 
     func render(_ renderClosure: (Renderer?)->()) {
         renderClosure(self)
@@ -201,7 +202,7 @@ extension Renderer {
     }
 }
 
-extension Renderer {
+public extension Renderer {
     func renderCopy(texture: Texture, srcRect: Rect, dstRect: Rect) {
         var src = srcRect
         var dst = dstRect

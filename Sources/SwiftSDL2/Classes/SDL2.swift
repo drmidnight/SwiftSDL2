@@ -61,21 +61,21 @@ public struct SDL {
     }
 }
 
-extension SDL.Version: CustomStringConvertible {
+public extension SDL.Version: CustomStringConvertible {
     public var description: String {
         return "SDL Version: \(self.major).\(self.minor).\(self.patch)"
     }
 }
 
 // Potentially unecessary/unsafe functions see SDL docs regarding these
-extension SDL {
+public extension SDL {
     static func setMainReady() {
         SDL_SetMainReady()
     }
 }
 
 // Hint functions
-extension SDL {
+public extension SDL {
     typealias HintCallback = SDL_HintCallback
     enum HintPriority: UInt32 {
         case `default` = 0
@@ -123,16 +123,21 @@ extension SDL {
     
 }
 
-extension SDL {
+public extension SDL {
     // maybe auto-initialize sdl if it hasnt been already?
-   
-
     static func printError() {
         print(String(cString: SDL_GetError()))
     }
+
+    static func pollEvents(_ closure:(SDL_Event)->()) {
+        var event = Event()
+        while SDL_PollEvent(&event) != 0 {
+            closure(event)
+        }
+    }
 }
 
-extension SDL {
+public extension SDL {
     // TODO: Add priority wrapper and category wrapper.
     // maybe ditch sdl log and use log library from my old swiftnio project.
     static func Log(cat: Int = SDL_LOG_CATEGORY_SYSTEM, priority: SDL_LogPriority = SDL_LOG_PRIORITY_INFO, _ message: String, format: String = "%s") {

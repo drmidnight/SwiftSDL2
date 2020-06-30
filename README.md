@@ -31,6 +31,7 @@ Subject to change, but here is a simple usage example that opens a window and dr
 ```Swift
 import SwiftSDL2
 
+// Initialize subsystems
 SDL.initialize([.video])
 SDL.initialize(imageSupport: [.png])
 
@@ -61,7 +62,7 @@ class SDLExample {
 let example = SDLExample("SDL2 Example")
 
 example.main {
-    let imageTexture = Texture(renderer: example.renderer, image: "image.jpeg")
+    let imageTexture = Texture(renderer: example.renderer, image: "image.png")
 
     let font = Font( "fontFile.ttf", size: 16 )
     let fontTextTest = font.renderText("Hello, world!")

@@ -8,3 +8,10 @@ callgrind.out.*
 .vscode/launch.json
 .vscode/tasks.json
 Sources/SwiftSDL2/monogram.ttf
+Sources/SwiftSDL2/main.swift
+Sources/SwiftSDL2/dos437.ttf
+Sources/SwiftSDL2/FSEX300.ttf
+Sources/SwiftSDL2/iosevka-fixed-regular.ttf
+test.txt
+Package.resolved
+

@@ -1,5 +1,6 @@
 import CSDL2
 
+//TODO: Add SDL_RWops support?
 public struct FontStyle: OptionSet
 { 
     public let rawValue : Int32
@@ -14,7 +15,7 @@ public struct FontStyle: OptionSet
     static let strikethrough = FontStyle(rawValue: TTF_STYLE_STRIKETHROUGH)
 }
 
-enum FontHinting: Int32 {
+public enum FontHinting: Int32 {
     case normal = 0 // TTF_HINTING_NORMAL
     case light = 1  // TTF_HINTING_LIGHT
     case mono = 2   // TTF_HINTING_MONO 
@@ -29,6 +30,7 @@ public class Font {
     }
 
     init(_ fileName: String, size: Int, index: Int) {
+        if Self.wasInit() { Self.initialize() }
         self._fontPtr = TTF_OpenFontIndex(fileName, Int32(size), index)
     }
 
@@ -37,12 +39,44 @@ public class Font {
     }
 
     func close() {
+        print("Destroying Font")
         TTF_CloseFont(self._fontPtr)
     }
 
 }
 
-extension Font {
+public extension Font {
+    static var compileVersion: SDL.Version {
+        return SDL.Version(major: Uint8(SDL_TTF_MAJOR_VERSION), minor:  Uint8(SDL_TTF_MINOR_VERSION), patch:  Uint8(SDL_TTF_PATCHLEVEL))
+    }
+
+    static var linkedVersion: SDL.Version? {
+        guard let ver = TTF_Linked_Version() else { return nil }
+        defer {
+            ver.deallocate()
+        }
+        return SDL.Version(major: Uint8(ver.pointee.major), minor:  Uint8(ver.pointee.minor), patch:  Uint8(ver.pointee.patch))
+    }
+
+    static func byteSwappedUnicode(enabled: Bool) {
+        TTF_ByteSwappedUNICODE(enabled ? 1 : 0) 
+    }
+
+    static func quit() {
+        TTF_Quit()
+    }
+
+    // handle errors
+    static func initialize() {
+        TTF_Init()
+    }
+
+    static func wasInit() -> Bool {
+        return TTF_WasInit() > 0
+    }
+}
+
+public extension Font {
     var style: FontStyle {
         get {
             return FontStyle(rawValue: TTF_GetFontStyle(self._fontPtr)) 
@@ -77,9 +111,54 @@ extension Font {
         }
     }
 
+    var descent: Int {
+        get {
+            return Int(TTF_FontDescent(self._fontPtr))
+        }
+    }
+
     var height: Int {
         get {
             return Int(TTF_FontHeight(self._fontPtr))
+        }
+    }
+
+    var lineSkip: Int {
+        get {
+            return Int(TTF_FontLineSkip(self._fontPtr))
+        }
+    }
+
+    var faces: Int {
+        get {
+            return TTF_FontFaces(self._fontPtr)
+        }
+    }
+
+    var isFixedWidth: Bool {
+        get {
+            return TTF_FontFaceIsFixedWidth(self._fontPtr) > 0 ? true : false
+        }
+    }
+
+    var familyName: String {
+        get {
+            return String(cString:TTF_FontFaceFamilyName(self._fontPtr))
+        }
+    }
+
+    var styleName: String {
+        get {
+            return String(cString:TTF_FontFaceStyleName(self._fontPtr))
+        }
+    }
+
+    var kerningAllowed: Bool {
+        get {
+            return TTF_GetFontKerning(self._fontPtr) > 0 ? true : false
+        }
+        set {
+            TTF_SetFontKerning(self._fontPtr, newValue ? 1 : 0)
         }
     }
 }
@@ -103,38 +182,34 @@ public extension Font {
         }
     }
 
-    func renderText(_ string: String, type: FontRenderType = .solid, fgColor: Color = .white, bgColor: Color = .black) -> Surface {
+    func renderText(_ text: String, type: FontRenderType = .solid, fgColor: Color = .white, bgColor: Color = .black) -> Surface {
         switch type {
             case .solid:
-                return Surface(TTF_RenderText_Solid(self._fontPtr, string, fgColor))
+                return Surface(TTF_RenderText_Solid(self._fontPtr, text, fgColor))
             case .shaded:
-                return Surface(TTF_RenderText_Shaded(self._fontPtr, string, fgColor, bgColor))
+                return Surface(TTF_RenderText_Shaded(self._fontPtr, text, fgColor, bgColor))
             case .blended:
-               return Surface(TTF_RenderText_Blended(self._fontPtr, string, fgColor))
+               return Surface(TTF_RenderText_Blended(self._fontPtr, text, fgColor))
         }
     }
 
-    func renderUTF8(_ string: String, type: FontRenderType = .solid, fgColor: Color = .white, bgColor: Color = .black) -> Surface {
+    func renderUTF8(_ text: String, type: FontRenderType = .solid, fgColor: Color = .white, bgColor: Color = .black) -> Surface {
         switch type {
             case .solid:
-                return Surface(TTF_RenderUTF8_Solid(self._fontPtr, string, fgColor))
+                return Surface(TTF_RenderUTF8_Solid(self._fontPtr, text, fgColor))
             case .shaded:
-                return Surface(TTF_RenderUTF8_Shaded(self._fontPtr, string, fgColor, bgColor))
+                return Surface(TTF_RenderUTF8_Shaded(self._fontPtr, text, fgColor, bgColor))
             case .blended:
-               return Surface(TTF_RenderUTF8_Blended(self._fontPtr, string, fgColor))
+               return Surface(TTF_RenderUTF8_Blended(self._fontPtr, text, fgColor))
         }
     }
 
-    func renderUnicode(_ string: String, type: FontRenderType = .solid, fgColor: Color = .white, bgColor: Color = .black) -> Surface {
+    func renderUnicode(_ text: String, type: FontRenderType = .solid, fgColor: Color = .white, bgColor: Color = .black) -> Surface {
         // replace this with something better
-        let u16StringPtr = UnsafeMutablePointer<UInt16>.allocate(capacity: string.utf16.count + 1) 
-        var len = 0
-        for code in string.utf16 {
-            u16StringPtr[len] = code
-            len += 1
+        let u16StringPtr = text.uint16
+        defer {
+            u16StringPtr.deallocate()
         }
-        u16StringPtr[len] = 0
-
         switch type {
             case .solid:
                 return Surface(TTF_RenderUNICODE_Solid(self._fontPtr, u16StringPtr, fgColor))
@@ -143,5 +218,84 @@ public extension Font {
             case .blended:
                return Surface(TTF_RenderUNICODE_Blended(self._fontPtr, u16StringPtr, fgColor))
         }
+    }
+}
+
+public extension Font {
+    func getKerningSize(prevChar: Character, char: Character) throws -> Int {
+        guard let charValue = char.asciiValue else { throw SDLError(message: "Bad character value")  }
+        guard let prevCharValue = prevChar.asciiValue else { throw SDLError(message: "Bad character value")  }
+        return Int(TTF_GetFontKerningSizeGlyphs(self._fontPtr, Uint16(prevCharValue), Uint16(charValue)))
+    }
+
+    func glyphProvided(_ char: Character) -> Bool {
+        guard let char = char.asciiValue else { return false }
+        return TTF_GlyphIsProvided(self._fontPtr, UInt16(char)) > 0
+    }
+
+    // throw?
+    func glyphIndex(_ char: Character) -> Int {
+        guard let char = char.asciiValue else { return -1 }
+        return Int(TTF_GlyphIsProvided(self._fontPtr, UInt16(char)))
+    }
+
+    func size(of text: String) -> Size {
+        var w: Int32 = 0
+        var h: Int32 = 0
+       
+        guard TTF_SizeText(self._fontPtr, text, &w, &h) == 0 else { return .zero}
+        
+       return Size(width: w, height: h)
+    }
+
+    func sizeUTF8(of text: String) -> Size {
+        var w: Int32 = 0
+        var h: Int32 = 0
+        
+        guard TTF_SizeUTF8(self._fontPtr, text, &w, &h) == 0 else { return .zero}
+        
+        return Size(width: w, height: h)
+    } 
+
+    func sizeUnicode(of text: String) -> Size {
+        var w: Int32 = 0
+        var h: Int32 = 0
+        let ptr = text.uint16
+        defer {
+            ptr.deallocate()
+        }
+ 
+        guard TTF_SizeUNICODE(self._fontPtr, ptr, &w, &h) == 0 else { return .zero}
+        
+        return Size(width: w, height: h)
+    }
+
+    struct GlyphMetrics {
+        let minX: Int
+        let maxX: Int 
+        let minY: Int 
+        let maxY: Int
+        let advance: Int
+
+        var width: Int {
+            return self.maxX - self.minX
+        }
+
+        var height: Int {
+            return self.maxY - self.minY
+        } 
+    }
+
+    func glyphMetrics(for char: Character ) -> GlyphMetrics? {
+        guard let char = char.asciiValue else { return nil }
+        var minX: Int32 = 0
+        var maxX: Int32 = 0
+        var minY: Int32 = 0
+
+        var maxY: Int32 = 0
+        var advance: Int32 = 0
+        guard TTF_GlyphMetrics(self._fontPtr, UInt16(char), &minX, &maxX, &minY, &maxY, &advance) == 0 else { return nil}
+
+        return GlyphMetrics(minX: Int(minX), maxX: Int(maxX), minY: Int(minY), maxY: Int(maxY), advance: Int(advance))
     }
 }

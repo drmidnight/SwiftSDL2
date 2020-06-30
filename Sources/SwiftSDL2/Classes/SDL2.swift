@@ -43,9 +43,9 @@ public struct SDL {
         return ramp
     }
 
-    typealias SDLVersion = SDL_version
-    static var version: SDLVersion {
-        var ver = SDLVersion()
+    public typealias Version = SDL_version
+    static var version: Version {
+        var ver = Version()
         SDL_GetVersion(&ver)
         return ver
     }
@@ -61,7 +61,7 @@ public struct SDL {
     }
 }
 
-extension SDL.SDLVersion: CustomStringConvertible {
+extension SDL.Version: CustomStringConvertible {
     public var description: String {
         return "SDL Version: \(self.major).\(self.minor).\(self.patch)"
     }

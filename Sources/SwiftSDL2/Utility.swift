@@ -46,3 +46,20 @@ func wrap(_ fn: () -> Int32) throws {
     }
 }
 
+internal extension Int {
+    var i32: Int32 {
+        return Int32(self)
+    }
+}
+
+internal extension String {
+    var uint16: UnsafeMutablePointer<UInt16> {
+        let u16StringPtr = UnsafeMutablePointer<UInt16>.allocate(capacity: self.utf16.count + 1) 
+        for (i, code) in self.utf16.enumerated() {
+            u16StringPtr[i] = code
+        }
+        u16StringPtr[self.utf16.count] = 0
+        return u16StringPtr
+    }
+}
+

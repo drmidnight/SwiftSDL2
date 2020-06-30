@@ -1,13 +1,13 @@
 import CSDL2
 
 public class Renderer {
-    var _rendererPtr: OpaquePointer?
+    internal var _rendererPtr: OpaquePointer?
 
-    init(window: Window, flags: [RendererFlags] = [.accelerated], driverIndex: Int32 = -1) {
+    public init(window: Window, flags: [RendererFlags] = [.accelerated], driverIndex: Int32 = -1) {
         self._rendererPtr = SDL_CreateRenderer(window._windowPtr, driverIndex, flagify(flags))
     }
 
-    init(_ pointer: OpaquePointer) {
+    public init(_ pointer: OpaquePointer) {
         self._rendererPtr = pointer
     }
 
@@ -15,7 +15,7 @@ public class Renderer {
         self.destroy()
     }
 
-    func destroy() {
+    public func destroy() {
         print("Destroying renderer")
         SDL_DestroyRenderer(self._rendererPtr)
         self._rendererPtr = nil

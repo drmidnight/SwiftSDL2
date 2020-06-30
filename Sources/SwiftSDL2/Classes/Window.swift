@@ -4,7 +4,7 @@ public class Window {
     
     internal var _windowPtr: OpaquePointer?
 
-    init(title: String = "SDL Window", position pos: Point = .zero, size: Size, flags: [WindowFlags] = [.shown]) {
+    public init(title: String = "SDL Window", position pos: Point = .zero, size: Size, flags: [WindowFlags] = [.shown]) {
         print("Initializing window")
         _windowPtr = SDL_CreateWindow(title, Int32(pos.x), Int32(pos.y), Int32(size.width), Int32(size.height), flagify(flags)  )
     }
@@ -13,7 +13,7 @@ public class Window {
         self.destroy()
     }
 
-    func getRenderer() -> Renderer {
+    public func getRenderer() -> Renderer {
         return Renderer(SDL_GetRenderer(self._windowPtr))
     }
 

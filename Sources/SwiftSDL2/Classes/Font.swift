@@ -23,13 +23,13 @@ public enum FontHinting: Int32 {
 }
 
 public class Font {
-    var _fontPtr: OpaquePointer?
+    internal var _fontPtr: OpaquePointer?
 
-    convenience init(_ fileName: String, size: Int = 16) {
+    public convenience init(_ fileName: String, size: Int = 16) {
         self.init(fileName, size: size, index: 0)
     }
 
-    init(_ fileName: String, size: Int, index: Int) {
+    public init(_ fileName: String, size: Int, index: Int) {
         if Self.wasInit() { Self.initialize() }
         self._fontPtr = TTF_OpenFontIndex(fileName, Int32(size), index)
     }
@@ -38,7 +38,7 @@ public class Font {
         self.close()
     }
 
-    func close() {
+    public func close() {
         print("Destroying Font")
         TTF_CloseFont(self._fontPtr)
     }

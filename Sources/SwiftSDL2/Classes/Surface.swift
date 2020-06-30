@@ -1,21 +1,21 @@
 import CSDL2
 
 public class Surface {
-    var _surfacePtr: UnsafeMutablePointer<SDL_Surface>?
+    internal var _surfacePtr: UnsafeMutablePointer<SDL_Surface>?
 
-    init(_ window: Window) {
+    public init(_ window: Window) {
         self._surfacePtr = SDL_GetWindowSurface(window._windowPtr)
     }
 
-    init(_ pointer: UnsafeMutablePointer<SDL_Surface>?) {
+    public init(_ pointer: UnsafeMutablePointer<SDL_Surface>?) {
         self._surfacePtr = pointer
     }
 
-    init(from image: String) {
+    public init(from image: String) {
        self._surfacePtr = IMG_Load(image)
     }
 
-    init(size: Size, color: Color) {
+    public init(size: Size, color: Color) {
         self._surfacePtr = SDL_CreateRGBSurface(0, Int32(size.width), Int32(size.height), 8, Uint32(color.r), Uint32(color.g), Uint32(color.b), Uint32(color.a))
     }
 
@@ -24,15 +24,15 @@ public class Surface {
         self.free()
     }
 
-    func free() {
+    public func free() {
         SDL_FreeSurface(self._surfacePtr)
     }
 
-    func lock() {
+    public func lock() {
         SDL_LockSurface(self._surfacePtr)
     }
 
-    func unlock() {
+    public func unlock() {
         SDL_UnlockSurface(self._surfacePtr)
     }
 }

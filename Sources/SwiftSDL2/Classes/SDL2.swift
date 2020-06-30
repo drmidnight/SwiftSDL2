@@ -2,6 +2,9 @@ import CSDL2
 
 public struct SDL {
     @available(*, unavailable) private init() {}
+}
+
+public extension SDL {
     static func initialize(_ systems: [SDLSystem] = [.everything]) {
         do {
             try wrap {  SDL_Init(flagify(systems)) }
@@ -43,7 +46,7 @@ public struct SDL {
         return ramp
     }
 
-    public typealias Version = SDL_version
+    typealias Version = SDL_version
     static var version: Version {
         var ver = Version()
         SDL_GetVersion(&ver)
@@ -88,7 +91,7 @@ public extension SDL {
         SDL_SetHint(hint, &valPtr)
     }
 
-     static func setHint(hint: String, value: Int, priority: HintPriority) {
+    static func setHint(hint: String, value: Int, priority: HintPriority) {
         var valPtr = Int8(value)
         SDL_SetHintWithPriority(hint, &valPtr, SDL_HintPriority(rawValue:priority.rawValue))
     }

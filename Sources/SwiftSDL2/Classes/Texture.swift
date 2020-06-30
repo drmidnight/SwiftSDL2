@@ -1,5 +1,5 @@
 import CSDL2
-import Foundation
+
 
 public enum TextureAccess: Int32 {
     case `static`  /** SDL_TEXTUREACCESS_STATIC < Changes rarely, not lockable */
@@ -8,25 +8,25 @@ public enum TextureAccess: Int32 {
 }
 
 public class Texture {
-    var _texturePtr: OpaquePointer?
-    var _pixelsPtr: UnsafeMutablePointer<UnsafeMutableRawPointer?>?
-    var _pitchPtr: UnsafeMutablePointer<Int32>?
+    internal var _texturePtr: OpaquePointer?
+    internal var _pixelsPtr: UnsafeMutablePointer<UnsafeMutableRawPointer?>?
+    internal var _pitchPtr: UnsafeMutablePointer<Int32>?
 
-    init(renderer: Renderer, format: Uint32, access: TextureAccess, size: Size) {
+    public init(renderer: Renderer, format: Uint32, access: TextureAccess, size: Size) {
         self._texturePtr = SDL_CreateTexture(renderer._rendererPtr, format, access.rawValue, Int32(size.width), Int32(size.height))
     }
 
-    init(pointer: OpaquePointer?) {
+    public init(pointer: OpaquePointer?) {
         self._texturePtr = pointer
     }
 
-    init(renderer: Renderer, image: String) {
+    public init(renderer: Renderer, image: String) {
         let surfacePtr: UnsafeMutablePointer<SDL_Surface>? = IMG_Load(image)
         defer{SDL_FreeSurface(surfacePtr)}
         self._texturePtr = Texture.createFromSurface(renderer: renderer, surface: surfacePtr)
     }
 
-    init(renderer: Renderer, surface: Surface) {
+    public init(renderer: Renderer, surface: Surface) {
         self._texturePtr = Texture.createFromSurface(renderer: renderer, surface: surface._surfacePtr)
     }
 
@@ -34,7 +34,7 @@ public class Texture {
         self.destroy()
     }
 
-    func destroy() {
+    public func destroy() {
         print("Destroying Texture")
         SDL_DestroyTexture(self._texturePtr)
         self._texturePtr = nil

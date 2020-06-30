@@ -10,7 +10,7 @@ _SDL_mixer and SDL_net will be added as separate wrappers_
 ## Current Requirements:
 *_tested on Ubuntu 20.04 LTS_
 
-- [SDL2](https://www.libsdl.org) (2.0.10>)
+- [SDL2](https://www.libsdl.org) (2.0.10)
 - [SDL_image](https://www.libsdl.org/projects/SDL_image/) (2.0.5)
 - [SDL_ttf](https://www.libsdl.org/projects/SDL_ttf/)  (2.0.15)
 

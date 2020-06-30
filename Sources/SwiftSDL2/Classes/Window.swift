@@ -4,9 +4,9 @@ public class Window {
     
     internal var _windowPtr: OpaquePointer?
 
-    public init(title: String = "SDL Window", position pos: Point = .zero, size: Size, flags: [WindowFlags] = [.shown]) {
+    public init(title: String = "SDL Window", rect: Rect, flags: [WindowFlags] = [.shown]) {
         print("Initializing window")
-        _windowPtr = SDL_CreateWindow(title, Int32(pos.x), Int32(pos.y), Int32(size.width), Int32(size.height), flagify(flags)  )
+        _windowPtr = SDL_CreateWindow(title, rect.x, rect.y, rect.w, rect.h, flagify(flags)  )
     }
 
     deinit {

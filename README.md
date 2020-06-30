@@ -36,7 +36,7 @@ class SDLExample {
     let window: Window
 
     init(_ title: String = "SDL2") {
-        self.window = Window(title: title, position: Point(x: 10, y: 10), size: Size(width: 1024, height: 789), flags: [.openGL, .resizeable])
+        self.window = Window(title: title, rect: Rect(x: 10, y: 10, w: 1024, h: 789), flags: [.openGL, .resizeable])
         self.renderer = Renderer(window: self.window, flags: [.vsync])
     }
 

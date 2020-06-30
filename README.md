@@ -1,14 +1,17 @@
 # SwiftSDL2
 
-Swift wrapper for SDL2.
+Swift 5.2+ wrapper for SDL2.
 
-Heavily work-in-progress, so use at your own risk. Things will change and evolve as I tackle more of SDL2. I'm hoping to have the core and all additions (image, ttf, mixer, net) fully wrapped eventually. 
+Heavily work-in-progress, so use at your own risk. Things will change and evolve as I tackle more of SDL2. 
+
+`SDL_mixer and SDL_net will be added as separate wrappers`
 
 *See [CSDL2](https://github.com/drmidnight/CSDL2) for bare C wrapper*
 
 ## Current Requirements:
+*_tested on Ubuntu 20.04 LTS_
 
-- [SDL2](https://www.libsdl.org) (2.0.10>)
+- [SDL2](https://www.libsdl.org) (2.0.10)
 - [SDL_image](https://www.libsdl.org/projects/SDL_image/) (2.0.5)
 - [SDL_ttf](https://www.libsdl.org/projects/SDL_ttf/)  (2.0.15)
 
@@ -28,6 +31,7 @@ Subject to change, but here is a simple usage example that opens a window and dr
 ```Swift
 import SwiftSDL2
 
+// Initialize subsystems
 SDL.initialize([.video])
 SDL.initialize(imageSupport: [.png])
 
@@ -58,7 +62,7 @@ class SDLExample {
 let example = SDLExample("SDL2 Example")
 
 example.main {
-    let imageTexture = Texture(renderer: example.renderer, image: "image.jpeg")
+    let imageTexture = Texture(renderer: example.renderer, image: "image.png")
 
     let font = Font( "fontFile.ttf", size: 16 )
     let fontTextTest = font.renderText("Hello, world!")

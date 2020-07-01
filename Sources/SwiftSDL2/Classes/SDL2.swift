@@ -77,6 +77,21 @@ public extension SDL {
     }
 }
 
+public extension SDL {
+    static var clipboardContents: String {
+        get {
+            return String(cString: SDL_GetClipboardText())
+        }
+        set {
+            SDL_SetClipboardText(newValue)
+        }
+    }
+
+    static var hasClipboardContents: Bool {
+        return SDL_HasClipboardText().toBool
+    }
+}
+
 // Hint functions
 public extension SDL {
     typealias HintCallback = SDL_HintCallback

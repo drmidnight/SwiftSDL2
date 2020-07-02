@@ -313,7 +313,7 @@ public extension Font {
     typealias FontAtlas = (texture: Texture, info: [Character : Rect])
 
     // TODO: clean this up a bit
-    func textureAtlas(renderer: Renderer) -> FontAtlas {
+    func textureAtlas(renderer: Renderer, antialiased: Bool = false) -> FontAtlas {
         let atlasSurface = Surface(size: Size(width: 512, height: 512), color: .black)
         var startX = 0
         var startY = 0
@@ -328,7 +328,7 @@ public extension Font {
             let char = Character(unicodeScalar)
             guard let metrics = self.glyphMetrics(for: char) else { continue }
 
-            if let surface = try? self.renderGlyph(char, type: .shaded) {
+            if let surface = try? self.renderGlyph(char, type: antialiased ? .shaded : .solid) {
                 let rectX = startX.i32
                 let rectY = startY .i32
                 let dstRect = Rect(x: rectX, y: rectY, w: metrics.advance.i32, h: height.i32)

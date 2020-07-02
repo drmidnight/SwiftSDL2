@@ -16,7 +16,7 @@ public class Surface {
     }
 
     public init(size: Size, color: Color) {
-        self._surfacePtr = SDL_CreateRGBSurface(0, Int32(size.width), Int32(size.height), 8, Uint32(color.r), Uint32(color.g), Uint32(color.b), Uint32(color.a))
+        self._surfacePtr = SDL_CreateRGBSurface(0, Int32(size.width), Int32(size.height), 32, Uint32(color.r), Uint32(color.g), Uint32(color.b), Uint32(color.a))
     }
 
     deinit {
@@ -84,12 +84,26 @@ public extension Surface {
             SDL_SetSurfaceColorMod(self._surfacePtr, newValue.r, newValue.g, newValue.b)
         }
     }
+
+    var colorKey: Int {
+        get {
+            var key: UInt32 = 0
+            SDL_GetColorKey(self._surfacePtr, &key)
+            return Int(key)
+        }
+    }
     
     // TODO: fix this
    var pixelFormat: SDL_PixelFormat {
         get {
             return self._surfacePtr!.pointee.format.pointee
         }
+    }
+}
+
+public extension Surface {
+    func set(colorKey: Int, enabled: Bool = true) {
+        SDL_SetColorKey(self._surfacePtr, enabled ? 1 : 0 , UInt32(colorKey))
     }
 }
 

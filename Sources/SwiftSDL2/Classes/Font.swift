@@ -306,3 +306,48 @@ public extension Font {
         return GlyphMetrics(minX: Int(minX), maxX: Int(maxX), minY: Int(minY), maxY: Int(maxY), advance: Int(advance))
     }
 }
+
+public extension Font {
+
+    // TODO: make this an actual type
+    typealias FontAtlas = (texture: Texture, info: [Character : Rect])
+
+    // TODO: clean this up a bit
+    func textureAtlas(renderer: Renderer) -> FontAtlas {
+        let atlasSurface = Surface(size: Size(width: 512, height: 512), color: .black)
+        var startX = 0
+        var startY = 0
+        let asciiStart: UInt16 = 32
+        let asciiEnd: UInt16 = 127
+        let height = self.height
+
+        var glyphInfo = [Character : Rect]()
+
+        for i in asciiStart..<asciiEnd {
+            guard let unicodeScalar = UnicodeScalar(i) else { continue }
+            let char = Character(unicodeScalar)
+            guard let metrics = self.glyphMetrics(for: char) else { continue }
+
+            if let surface = try? self.renderGlyph(char, type: .shaded) {
+                let rectX = startX.i32
+                let rectY = startY .i32
+                let dstRect = Rect(x: rectX, y: rectY, w: metrics.advance.i32, h: height.i32)
+
+                glyphInfo[Character(UnicodeScalar(i)!)] = dstRect
+
+                surface.blitSurface(dstSurface: atlasSurface, dstRect: dstRect) 
+     
+                startX += metrics.advance
+                if i % 15 == 0 {
+                    startY += height
+                    startX = 0
+                }
+            }
+        
+        }
+
+        atlasSurface.set(colorKey: 0)
+        let textureAtlas = Texture(renderer: renderer, surface: atlasSurface)
+        return FontAtlas(texture: textureAtlas, info: glyphInfo)
+    }
+}

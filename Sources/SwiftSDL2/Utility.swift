@@ -18,6 +18,7 @@ extension Bool {
     }
 }
 
+// move to optionSet union functions
 public func flagify<T:RawRepresentable>(_ flags: [T]) -> UInt32 where T.RawValue==UInt32 {
     var result: Uint32 = 0
     flags.forEach { result = result | $0.rawValue }
@@ -36,7 +37,6 @@ struct SDLError: Error {
 
 func wrap(_ fn: () -> Int32) throws {
     let result = fn()
-    print(result)
     guard result >= 0 else {
         var message = "Unknown error"
         if let err = SDL_GetError() {

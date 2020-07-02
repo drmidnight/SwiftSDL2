@@ -34,25 +34,25 @@ class RWops {
         SDL_RWwrite(self._rwPointer, &dataPtr, 1, dataPtr.count)
     }
 
-    // TODO: make this actually work. Currently asserts due to "free(): invalid size" 
-    public func read(count: Int) -> [Int8]  {
-        print("entered")
-        let rwSize = SDL_RWsize(self._rwPointer)
-        var data = UnsafeMutablePointer<Int8>.allocate(capacity: count + 1)
+    // TODO: works finally. Maybe wrap this to decode any type?
+    // make this throw
+    public func read() -> [UInt8]  {
+        let rwSize = Int(SDL_RWsize(self._rwPointer))
+        var data = UnsafeMutablePointer<UInt8>.allocate(capacity: rwSize)       
+        var totalRead = 0
+        var read = 1
+
         defer {
             self.close()
             data.deallocate()
         }
-        var totalRead = 0
-        var read = 1
+
         while totalRead < rwSize && read != 0 {
             read = SDL_RWread(self._rwPointer, data, 1, Int(rwSize) - totalRead)
-            print(read)
             totalRead += read
         }
-
-        let typed = UnsafeMutableBufferPointer(start: data, count: count + 1)
-        return Array(typed)
+        
+        return Array(UnsafeMutableBufferPointer(start: data, count: rwSize))
     }
 
     public func close() {

@@ -46,6 +46,19 @@ func wrap(_ fn: () -> Int32) throws {
     }
 }
 
+
+func wrapPtr<T>(_ fn: () -> UnsafeMutablePointer<T>?) throws -> UnsafeMutablePointer<T>? {
+    let result = fn()
+    guard result != nil else {
+        var message = "Unknown error"
+        if let err = SDL_GetError() {
+            message = String(cString: err)
+        }
+        throw SDLError(message: message)
+    }
+    return result
+}
+
 internal extension Int {
     var i32: Int32 {
         return Int32(self)

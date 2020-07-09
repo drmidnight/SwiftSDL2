@@ -9,6 +9,10 @@ public class Window {
         _windowPtr = SDL_CreateWindow(title, rect.x, rect.y, rect.w, rect.h, flagify(flags)  )
     }
 
+    public init(ptr: OpaquePointer?) {
+        self._windowPtr = ptr
+    }
+
     deinit {
         self.destroy()
     }

@@ -36,26 +36,26 @@ public struct Mouse {
         set { SDL_SetRelativeMouseMode(newValue.SDLBoolValue) }
     }
 
-    static func getState(pt: Point) -> MouseState {
-        var x = pt.x
-        var y = pt.y
+    static func getState(point: Point) -> MouseState {
+        var x = point.x
+        var y = point.y
         return MouseState(rawValue: Int32(SDL_GetMouseState(&x, &y)))
     }
 
-    static func getGlobalState(pt: Point) -> MouseState {
-        var x = pt.x
-        var y = pt.y
+    static func getGlobalState(point: Point) -> MouseState {
+        var x = point.x
+        var y = point.y
         return MouseState(rawValue: Int32(SDL_GetGlobalMouseState(&x, &y)))
     }
 
-    static func getRelativeState(pt: Point) -> MouseState {
-        var x = pt.x
-        var y = pt.y
+    static func getRelativeState(point: Point) -> MouseState {
+        var x = point.x
+        var y = point.y
         return MouseState(rawValue: Int32(SDL_GetRelativeMouseState(&x, &y)))
     }
 
-    static func warpMouse(in window: Window, pt: Point) {
-        SDL_WarpMouseInWindow(window._windowPtr, pt.x, pt.y)
+    static func warpMouse(in window: Window, point: Point) {
+        SDL_WarpMouseInWindow(window._windowPtr, point.x, point.y)
     }
 
     static func captureMouse(enabled: Bool) throws {
@@ -135,6 +135,14 @@ public class Cursor {
 
     init(systemType: SystemCursor) {
         self._cursorPtr = SDL_CreateSystemCursor(SDL_SystemCursor(rawValue: systemType.rawValue))
+    }
+
+    /** 
+    - Parameter surface: surface to use for the cursor
+    - Parameter point: cursor hot zone x/y
+    */
+    init(surface: Surface, point: Point) {
+        self._cursorPtr = SDL_CreateColorCursor(surface._surfacePtr, point.x, point.y)
     }
 
     deinit {

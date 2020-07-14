@@ -10,10 +10,14 @@ Heavily work-in-progress, so use at your own risk. Things will change and evolve
 
 ## Current Requirements:
 *_tested on Ubuntu 20.04 LTS_
-
+*_tested on Mac OS 10.15.5_
+#### Linux
 - [SDL2](https://www.libsdl.org) (2.0.10)
 - [SDL_image](https://www.libsdl.org/projects/SDL_image/) (2.0.5)
 - [SDL_ttf](https://www.libsdl.org/projects/SDL_ttf/)  (2.0.15)
+
+#### Mac
+- brew install sdl2 sdl2_image sdl2_ttf
 
 ## Current progress:
 #### SDL2:

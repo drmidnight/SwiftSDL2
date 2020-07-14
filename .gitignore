@@ -18,3 +18,4 @@ Package.resolved
 Sources/SwiftSDL2/sdl.jpeg
 Sources/SwiftSDL2/Types/Queue.swift
 sdl.todo
+.swiftpm/

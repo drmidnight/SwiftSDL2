@@ -158,7 +158,7 @@ public extension SDL {
 public extension SDL {
     // TODO: Add priority wrapper and category wrapper.
     // maybe ditch sdl log and use log library from my old swiftnio project.
-    static func Log(cat: Int = SDL_LOG_CATEGORY_SYSTEM, priority: SDL_LogPriority = SDL_LOG_PRIORITY_INFO, _ message: String, format: String = "%s") {
+    static func Log(cat: Int = Int(SDL_LOG_CATEGORY_SYSTEM.rawValue), priority: SDL_LogPriority = SDL_LOG_PRIORITY_INFO, _ message: String, format: String = "%s") {
         message.withCString { message in
             withVaList([message]) {
                 SDL_LogMessageV(Int32(cat), priority, format, $0)

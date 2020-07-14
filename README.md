@@ -1,16 +1,13 @@
 # SwiftSDL2
 
 Swift 5.2+ wrapper for SDL2.
-
+## DISCLAIMER
 Heavily work-in-progress, so use at your own risk. Things will change and evolve as I tackle more of SDL2. 
-
-`SDL_mixer and SDL_net will be added as separate wrappers`
 
 *See [CSDL2](https://github.com/drmidnight/CSDL2) for bare C wrapper*
 
 ## Current Requirements:
-*_tested on Ubuntu 20.04 LTS_
-*_tested on Mac OS 10.15.5_
+*_tested on Ubuntu 20.04 LTS and Mac OS 10.15.5_
 #### Linux
 - [SDL2](https://www.libsdl.org) (2.0.10)
 - [SDL_image](https://www.libsdl.org/projects/SDL_image/) (2.0.5)
@@ -18,6 +15,8 @@ Heavily work-in-progress, so use at your own risk. Things will change and evolve
 
 #### Mac
 - ``` brew install sdl2 sdl2_image sdl2_ttf ```
+
+> If you are having issues with headers not found see [CSDL2 > shim.h](https://github.com/drmidnight/CSDL2/blob/master/shim.h) for paths.
 
 ## Current progress:
 #### SDL2:

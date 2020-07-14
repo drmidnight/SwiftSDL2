@@ -17,7 +17,7 @@ Heavily work-in-progress, so use at your own risk. Things will change and evolve
 - [SDL_ttf](https://www.libsdl.org/projects/SDL_ttf/)  (2.0.15)
 
 #### Mac
-- brew install sdl2 sdl2_image sdl2_ttf
+- ``` brew install sdl2 sdl2_image sdl2_ttf ```
 
 ## Current progress:
 #### SDL2:

@@ -30,7 +30,6 @@ Same as _SDL_ttf_, needs _SDL_RWops_ wrapped.
 Which in the case of _SDL_image_ is most of the functions, however you can create a Surface from an image file which covers 90% of the usage.
 
 ## Example:
-Subject to change, but here is a simple usage example that opens a window and draws a red square:
 *See [SwiftSDL2Example](https://github.com/drmidnight/SwiftSDL2Example)*
 
 ## License

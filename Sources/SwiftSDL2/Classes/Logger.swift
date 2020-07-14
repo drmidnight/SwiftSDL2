@@ -38,7 +38,12 @@ open class Logger {
     internal init(label: String, level: LogLevel, sources: [LogSource] = [.console]) {
         self.level = level
         self.sources = sources
-        self._threadQueue = DispatchQueue(label: label, qos: .default, attributes: [], autoreleaseFrequency: .workItem, target: nil)
+        // TODO: figure out how to set requirements on the package level, docs are not helpful....
+        if #available(OSX 10.12, *) {
+            self._threadQueue = DispatchQueue(label: label, qos: .default, attributes: [], autoreleaseFrequency: .workItem, target: nil)
+        } else {
+            self._threadQueue = DispatchQueue(label: label)
+        }
     }
 
     var formatter:DateFormatter = {

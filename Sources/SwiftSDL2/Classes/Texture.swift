@@ -116,8 +116,11 @@ public extension Texture {
     }
 
     func update(pixels: UnsafeRawPointer, rect: Rect?, pitch: Int32) {
-        var rect = rect
-        SDL_UpdateTexture(self._texturePtr, &rect, pixels, pitch)
+        if var rect = rect {
+            SDL_UpdateTexture(self._texturePtr, &rect, pixels, pitch)
+        } else {
+            SDL_UpdateTexture(self._texturePtr, nil, pixels, pitch)
+        }
     }
         
 }

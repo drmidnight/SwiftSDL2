@@ -52,7 +52,11 @@ class RWops {
             totalRead += read
         }
         
-        return Array(UnsafeMutableBufferPointer(start: data, count: rwSize))
+        let bytePtr = UnsafeMutableBufferPointer(start: data, count: rwSize)
+        
+        defer { bytePtr.deallocate() }
+        
+        return Array(bytePtr)
     }
 
     public func close() {

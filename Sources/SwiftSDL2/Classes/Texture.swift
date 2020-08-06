@@ -115,8 +115,9 @@ public extension Texture {
         self._pitchPtr = nil
     }
 
-    func update(pixels: UnsafeRawPointer, pitch: Int32) {
-       //  SDL_UpdateTexture(texture: OpaquePointer!, rect: UnsafePointer<SDL_Rect>!, pixels: UnsafeRawPointer!, pitch: Int32)
+    func update(pixels: UnsafeRawPointer, rect: Rect?, pitch: Int32) {
+        var rect = rect
+        SDL_UpdateTexture(self._texturePtr, &rect, pixels, pitch)
     }
         
 }

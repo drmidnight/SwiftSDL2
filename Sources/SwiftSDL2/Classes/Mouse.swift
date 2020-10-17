@@ -3,8 +3,15 @@ import CSDL2
 
 public struct MouseState: OptionSet {
     public let rawValue : Int32
+    public let pos: Point?
+    public init(rawValue: Int32, pos: Point) {
+        self.rawValue = rawValue
+        self.pos = pos
+    }
+    
     public init(rawValue: Int32) {
         self.rawValue = rawValue
+        self.pos = nil
     }
 
     private static func button(_ btn: Int32) -> Int32 {
@@ -16,6 +23,7 @@ public struct MouseState: OptionSet {
     public static let right = MouseState(rawValue: SDL_BUTTON_RIGHT)
     public static let x1 = MouseState(rawValue: SDL_BUTTON_X1)
     public static let x2 = MouseState(rawValue: SDL_BUTTON_X2)
+    
   
 }
 
@@ -23,6 +31,7 @@ extension MouseState {
     public var mask: Int32 {
         return Self.button(self.rawValue)
     }
+
 }
 
 
@@ -39,26 +48,30 @@ public struct Mouse {
         get { return SDL_GetRelativeMouseMode().toBool }
         set { SDL_SetRelativeMouseMode(newValue.SDLBoolValue) }
     }
+    
 
     ///Retrieve the current state of the mouse.
-    static func getState(point: Point) -> MouseState {
-        var x = point.x
-        var y = point.y
-        return MouseState(rawValue: Int32(SDL_GetMouseState(&x, &y)))
+    static func getState() -> MouseState {
+        var x: Int32 = 0
+        var y: Int32 = 0
+        let result = Int32(SDL_GetMouseState(&x, &y))
+        return MouseState(rawValue: result, pos: Point(x: x, y: y))
     }
 
     ///Use this function to get the current state of the mouse in relation to the desktop. 
-    static func getGlobalState(point: Point) -> MouseState {
-        var x = point.x
-        var y = point.y
-        return MouseState(rawValue: Int32(SDL_GetGlobalMouseState(&x, &y)))
+    static func getGlobalState() -> MouseState {
+        var x: Int32 = 0
+        var y: Int32 = 0
+        let result = Int32(SDL_GetGlobalMouseState(&x, &y))
+        return MouseState(rawValue: result, pos: Point(x: x, y: y))
     }
 
     ///Use this function to retrieve the relative state of the mouse. 
-    static func getRelativeState(point: Point) -> MouseState {
-        var x = point.x
-        var y = point.y
-        return MouseState(rawValue: Int32(SDL_GetRelativeMouseState(&x, &y)))
+    static func getRelativeState() -> MouseState {
+        var x: Int32 = 0
+        var y: Int32 = 0
+        let result = Int32(SDL_GetRelativeMouseState(&x, &y))
+        return MouseState(rawValue: result, pos: Point(x: x, y: y))
     }
 
     static func warpMouse(in window: Window, point: Point) {

@@ -39,19 +39,19 @@ public struct Mouse {
      @available(*, unavailable) private init() {}
 
     ///Use this function to get the window which currently has mouse focus. 
-    static func getFocused() -> Window {
+    public static func getFocused() -> Window {
        return Window(ptr: SDL_GetMouseFocus())
     }
     
     ///Whether relative mouse mode is enabled. 
-    static var relativeMoseModeEnabled: Bool {
+    public static var relativeMoseModeEnabled: Bool {
         get { return SDL_GetRelativeMouseMode().toBool }
         set { SDL_SetRelativeMouseMode(newValue.SDLBoolValue) }
     }
     
 
     ///Retrieve the current state of the mouse.
-    static func getState() -> MouseState {
+    public static func getState() -> MouseState {
         var x: Int32 = 0
         var y: Int32 = 0
         let result = Int32(SDL_GetMouseState(&x, &y))
@@ -59,7 +59,7 @@ public struct Mouse {
     }
 
     ///Use this function to get the current state of the mouse in relation to the desktop. 
-    static func getGlobalState() -> MouseState {
+    public static func getGlobalState() -> MouseState {
         var x: Int32 = 0
         var y: Int32 = 0
         let result = Int32(SDL_GetGlobalMouseState(&x, &y))
@@ -67,38 +67,38 @@ public struct Mouse {
     }
 
     ///Use this function to retrieve the relative state of the mouse. 
-    static func getRelativeState() -> MouseState {
+    public static func getRelativeState() -> MouseState {
         var x: Int32 = 0
         var y: Int32 = 0
         let result = Int32(SDL_GetRelativeMouseState(&x, &y))
         return MouseState(rawValue: result, pos: Point(x: x, y: y))
     }
 
-    static func warpMouse(in window: Window, point: Point) {
+    public static func warpMouse(in window: Window, point: Point) {
         SDL_WarpMouseInWindow(window._windowPtr, point.x, point.y)
     }
 
     ///Use this function to move the mouse to the given position in global screen space. 
-    static func warpMouseGlobal( point: Point) throws {
+    public static func warpMouseGlobal( point: Point) throws {
         try wrap {
             SDL_WarpMouseGlobal(point.x, point.y)
         }
     }
 
     /// Use this function to capture the mouse and to track input outside an SDL window. 
-    static func captureMouse(enabled: Bool) throws {
+    public static func captureMouse(enabled: Bool) throws {
         try wrap {
             SDL_CaptureMouse(enabled.SDLBoolValue)
         }
     }
 
     /// Get/Set the active cursor
-    static var cursor: Cursor {
+    public static var cursor: Cursor {
         get { return Cursor(SDL_GetCursor()) }
         set { SDL_SetCursor(newValue._cursorPtr) }
     }
 
-    static var defaultCursor: Cursor {
+    public static var defaultCursor: Cursor {
         return Cursor(SDL_GetDefaultCursor())
     }
 
